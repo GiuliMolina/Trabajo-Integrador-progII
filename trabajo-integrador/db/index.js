@@ -7,17 +7,17 @@ catalogo = [
         color: 'blanco',
         sexo: "masculino",
         id: 1,
-        imagen: 'foto',
+        imagen: 'foto1',
     },
     {
         marca: 'Nike',
-        modelo: 'Air Force',
+        modelo: 'Jordan',
         talle: '36',
-        cantidadEnStock: 5,
-        color: 'blanco',
+        cantidadEnStock: 6,
+        color: 'negro',
         sexo: 'femenino',
         id: 2,
-        imagen: 'foto',
+        imagen: 'foto2',
     },
 ]
 
