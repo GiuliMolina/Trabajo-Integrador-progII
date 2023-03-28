@@ -7,7 +7,7 @@ catalogo = [
         color: 'blanco',
         sexo: "masculino",
         id: 1,
-        imagen: 'foto1',
+        imagen: 'img-cafetera-moulinex.jpg',
     },
     {
         marca: 'Nike',
@@ -17,7 +17,7 @@ catalogo = [
         color: 'negro',
         sexo: 'femenino',
         id: 2,
-        imagen: 'foto2',
+        imagen: 'img-home-banner.jpg',
     },
 ]
 

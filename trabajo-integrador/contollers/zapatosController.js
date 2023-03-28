@@ -2,7 +2,7 @@ const zapatos = require('../db/index')
 
 const controlador = {
     index : function(req, res){
-        res.send(zapatos)
+        res.render('catalogo.ejs',{catalogoZapatos:zapatos})
     },
     details: function(req,res){
         let id = req.params.id;
