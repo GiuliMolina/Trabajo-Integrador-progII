@@ -16,3 +16,5 @@ catalogo = [
         imagen: 'foto',
     },
 ]
+
+module.exports = catalogo
