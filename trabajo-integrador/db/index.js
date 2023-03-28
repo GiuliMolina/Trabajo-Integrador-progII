@@ -2,7 +2,7 @@ catalogo = [
     {
         marca: 'Nike',
         modelo: 'Air Force',
-        talle: '40',
+        talle: 40,
         cantidadEnStock: 5,
         color: 'blanco',
         sexo: "masculino",
@@ -12,7 +12,7 @@ catalogo = [
     {
         marca: 'Nike',
         modelo: 'Jordan',
-        talle: '36',
+        talle: 36,
         cantidadEnStock: 6,
         color: 'negro',
         sexo: 'femenino',

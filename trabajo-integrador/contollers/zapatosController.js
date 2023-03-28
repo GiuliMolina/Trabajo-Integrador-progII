@@ -23,10 +23,10 @@ const controlador = {
         let marcaBuscada = [];
         for (let i=0; i<zapatos.length;i++){
             if(zapatos[i].marca === marca){
-                marcaBuscada.push(zapatos[i].nombre)
+                marcaBuscada.push(zapatos[i].modelo)
             }
         }
-        if(marcaBuscada>0){
+        if(marcaBuscada.length>0){
             res.send(marcaBuscada)
         }else{
             res.send('No tenemos la marca que buscas')
@@ -36,11 +36,11 @@ const controlador = {
         let color = req.params.color;
         let colorBuscado = [];
         for(let i = 0; i<zapatos.length; i++){
-            if(zapatos[i].color === color){
-                colorBuscado.push(zapatos[i].nombre)
+            if(zapatos[i].color.toString() === color){
+                colorBuscado.push(zapatos[i].modelo)
             }
         }
-        if(colorBuscado>0){
+        if(colorBuscado.length>0){
             res.send(colorBuscado)
         }else{
             res.send('No tenemos el zapato del color que buscas')
@@ -50,11 +50,11 @@ const controlador = {
         let talle =  req.params.talle;
         let talleBuscado = [];
         for(let i = 0; i<zapatos.length; i++){
-            if(zapatos[i].talle.toString === talle){
-                talleBuscado.push(zapatos[i].nombre)
+            if(zapatos[i].talle.toString() === talle){
+                talleBuscado.push(zapatos[i].modelo)
             }
         }
-        if(talleBuscado>0){
+        if(talleBuscado.length>0){
             res.send(talleBuscado)
         }else{
             res.send('No tenemos el talle del zapato que buscas')
@@ -65,14 +65,12 @@ const controlador = {
         let sexoBuscado = [];
         for(let i = 0; i<zapatos.length; i++){
             if(zapatos[i].sexo === sexo){
-                sexoBuscado.push(zapatos[i].nombre)
+                sexoBuscado.push(zapatos[i].modelo)
             }
-        if(sexoBuscado>0){
+        }
+        if(sexoBuscado.length>0){
            res.send(sexoBuscado)
-        }
-        }
-        
-        
+        }       
 }
 }
 
