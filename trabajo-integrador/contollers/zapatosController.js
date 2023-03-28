@@ -32,15 +32,37 @@ const controlador = {
             res.send('No tenemos la marca que buscas')
         }
     },
-    // porColor: function(req,res){
-    //     res.send()
-    // },
-    // porTalle: function(req,res){
-    //     res.send()
-    // },
-    // porSexo: function(req,res){
-    //     res.send()
-    // }
+    porColor: function(req,res){
+        let color = req.params.color;
+        let colorBuscado = [];
+        for(let i = 0; i<zapatos.length; i++){
+            if(zapatos[i].color === color){
+                colorBuscado.push(zapatos[i].nombre)
+            }
+        }
+        if(colorBuscado>0){
+            res.send(colorBuscado)
+        }else{
+            res.send('No tenemos el zapato del color que buscas')
+        }
+    },
+    porTalle: function(req,res){
+        let talle =  req.params.talle;
+        let talleBuscado = [];
+        for(let i = 0; i<zapatos.length; i++){
+            if(zapatos[i].talle === talle){
+                talleBuscado.push(zapatos[i].nombre)
+            }
+        }
+        if(talleBuscado>0){
+            res.send(talleBuscado)
+        }else{
+            res.send('No tenemos el talle del zapato que buscas')
+        }
+     },
+    //porSexo: function(req,res){
+    //    res.send()
+    //}
 }
 
 module.exports = controlador
