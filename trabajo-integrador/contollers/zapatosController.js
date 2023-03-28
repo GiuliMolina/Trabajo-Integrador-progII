@@ -50,7 +50,7 @@ const controlador = {
         let talle =  req.params.talle;
         let talleBuscado = [];
         for(let i = 0; i<zapatos.length; i++){
-            if(zapatos[i].talle === talle){
+            if(zapatos[i].talle.toString === talle){
                 talleBuscado.push(zapatos[i].nombre)
             }
         }
@@ -60,9 +60,16 @@ const controlador = {
             res.send('No tenemos el talle del zapato que buscas')
         }
      },
-    //porSexo: function(req,res){
-    //    res.send()
-    //}
+    porSexo: function(req,res){
+        let Sexo =  req.params.sexo;
+        let SexoBuscado = [];
+        for(let i = 0; i<zapatos.length; i++){
+            if(zapatos[i].sexo === Sexo){
+                SexoBuscado.push(zapatos[i].nombre)
+            }
+        }
+        
+}
 }
 
 module.exports = controlador
