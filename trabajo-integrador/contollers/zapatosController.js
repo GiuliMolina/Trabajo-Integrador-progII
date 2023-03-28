@@ -61,13 +61,17 @@ const controlador = {
         }
      },
     porSexo: function(req,res){
-        let Sexo =  req.params.sexo;
-        let SexoBuscado = [];
+        let sexo =  req.params.sexo;
+        let sexoBuscado = [];
         for(let i = 0; i<zapatos.length; i++){
-            if(zapatos[i].sexo === Sexo){
-                SexoBuscado.push(zapatos[i].nombre)
+            if(zapatos[i].sexo === sexo){
+                sexoBuscado.push(zapatos[i].nombre)
             }
+        if(sexoBuscado>0){
+           res.send(sexoBuscado)
         }
+        }
+        
         
 }
 }
