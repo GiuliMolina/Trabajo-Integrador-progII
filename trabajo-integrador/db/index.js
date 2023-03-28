@@ -14,7 +14,7 @@ catalogo = [
         talle: '36',
         cantidadEnStock: 5,
         color: 'blanco',
-        id: 1,
+        id: 2,
         imagen: 'foto',
     },
 ]

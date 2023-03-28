@@ -4,9 +4,9 @@ const zapatosController = require ('../contollers/zapatosController')
 
 router.get('/', zapatosController.index)
 
-// router.get('/:id', zapatosController.details)
+router.get('/:id', zapatosController.details)
 
-// router.get('/marca/:marca', zapatosController.porMarca)
+router.get('/marca/:marca', zapatosController.porMarca)
 
 // router.get('/color/:color', zapatosController.porColor)
 
