@@ -13,7 +13,7 @@ const controlador = {
             }
         }
         if(idBuscado>0){
-            res.send(zapatos[id])
+            res.send(zapatos[id-1])
         }else{
             res.send('No tenemos el zapato que buscas')
         }
