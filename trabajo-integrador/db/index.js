@@ -2,7 +2,7 @@ catalogo = [
     {
         marca: 'Nike',
         modelo: 'Air Force',
-        talle: '40'
+        talle: '40',
         cantidadEnStock: 5,
         color: 'blanco',
         id: 1,
@@ -11,7 +11,7 @@ catalogo = [
     {
         marca: 'Nike',
         modelo: 'Air Force',
-        talle: '36'
+        talle: '36',
         cantidadEnStock: 5,
         color: 'blanco',
         id: 1,
