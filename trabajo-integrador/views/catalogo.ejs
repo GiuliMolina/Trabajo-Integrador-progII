@@ -1,31 +1,17 @@
 <%- include('./partials/head') %>
 <%- include('./partials/header') %>
 <body>
-    <h1> Catalogo de zapatos:</h1>
-    <ul>
-        <%
-        for(let i=0;i<catalogoZapatos.length;i++){ %>
-            <li> 
-                <img src='/<%= catalogoZapatos[i].imagen %>'>
-                <h3> Modelo: <%= catalogoZapatos[i].modelo%> </h3>
-                <a href="details.ejs"> Ver más</a> 
-            </li>
-        <%}%>
-    </ul>
-
-
 	<div class="banner">
 		<img src="images/img-home-banner.jpg" alt="Banner de ofertas">
 	</div>
 
-	//Novedades
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Novedades</h2>
 			</div>
 			
-            //Show the "ultimos" products 
+             
 			<div class="col-12 col-sm-6 col-lg-3">
                 <%
                 for(let i=0;i<catalogoZapatos.length;i++){ %>
@@ -55,7 +41,7 @@
 				<h2 class="products-title">Más comentados</h2>
 			</div>
 			
-            //Show the "ultimos" products 
+            
 			<div class="col-12 col-sm-6 col-lg-3">
                 <%
                 for(let i=0;i<catalogoZapatos.length;i++){ %>

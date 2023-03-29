@@ -1,5 +1,3 @@
-
-
 data = [
    { usuario:{
       nombre: 'Joaco',
@@ -9,69 +7,65 @@ data = [
 
     productos:[
     {
-      imagen: '../maquetaPrimeraEntrega/imagenes/amarillo.webp',
-      nombre: 'hola',
+      imagen: './images/amarillo.webp',
+      nombre: 'Topper amarillas',
       descripcion: 'hola' ,
-      fecha: 'hola',
+      fecha: 'fecha1',
 
     },{
-      imagen: '../maquetaPrimeraEntrega/imagenes/blancas.webp',
-      nombre: 'hola',
+      imagen: './images/blancas.webp',
+      nombre: 'Botitas blancas',
       descripcion: 'hola' ,
-      fecha: 'hola',
+      fecha: 'fecha2',
     },{
-      imagen: '../maquetaPrimeraEntrega/imagenes/celeste.webp',
-      nombre: 'hola',
+      imagen: './images/celeste.webp',
+      nombre: 'Zapatillas celeste',
       descripcion: 'hola' ,
-      fecha: 'hola',
+      fecha: 'fecha3',
     },{
-      imagen: '../maquetaPrimeraEntrega/imagenes/color.webp',
-      nombre: 'hola',
+      imagen: './images/color.webp',
+      nombre: 'Nike botitas coloridas',
       descripcion: 'hola' ,
-      fecha: 'hola',
+      fecha: 'fecha4',
     },{
-      imagen: '../maquetaPrimeraEntrega/imagenes/converse_negra.webp',
-      nombre: 'hola',
+      imagen: './images/converse_negra.webp',
+      nombre: 'Converse All Star negras',
       descripcion: 'hola' ,
-      fecha: 'hola'
+      fecha: 'fecha5'
     },{
-      imagen: '../maquetaPrimeraEntrega/imagenes/lila.webp',
-      nombre: 'hola',
+      imagen: './images/lila.webp',
+      nombre: 'Zapatillas 47 Street',
       descripcion: 'hola' ,
-      fecha: 'hola'
+      fecha: 'fecha6'
     },{
-      imagen: '../maquetaPrimeraEntrega/imagenes/nike_black.webp',
-      nombre: 'hola',
+      imagen: './images/nike_black.webp',
+      nombre: 'Nike Air Force negras',
       descripcion: 'hola' ,
-      fecha: 'hola'
+      fecha: 'fecha7'
     },{
-      imagen: '../maquetaPrimeraEntrega/imagenes/nike_gris.webp',
-      nombre: 'hola',
+      imagen: './images/nike_gris.webp',
+      nombre: 'Nike Air Force grises',
       descripcion: 'hola' ,
-      fecha: 'hola'
+      fecha: 'fecha8'
     },{
-      imagen: '../maquetaPrimeraEntrega/imagenes/nike_negras.webp',
-      nombre: 'hola',
+      imagen: './images/nike_negras.webp',
+      nombre: 'Nike Air Force negras y blanco',
       descripcion: 'hola' ,
-      fecha: 'hola'
+      fecha: 'fecha9'
     },{
-      imagen: '../maquetaPrimeraEntrega/imagenes/vans_botita.webp',
-      nombre: 'hola',
+      imagen: './images/vans_botita.webp',
+      nombre: 'Vans negras',
       descripcion: 'hola' ,
-      fecha: 'hola'
+      fecha: 'fecha10'
     }
     ],
 
     comentarios:{
-      nombre: 'hola',
+      nombre: 'Daniel',
       texto: 'hola',
-      imagen: 'hola'
+      imagen: './images/users/default-image'
     }
-
-
-     
    },
-  
 ]
 
 
