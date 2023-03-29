@@ -1,5 +1,8 @@
-<<<<<<< HEAD
-	<!-- product detail -->
+
+<%- include('./partials/head') %>
+<body>
+    <%- include('./partials/header') %>
+    <!-- product detail -->
 	<div class="container products-wrapper">
         <%
             for(let i=0;i<catalogoZapatos.length;i++){ %>
@@ -11,30 +14,14 @@
 		    </div>
 
             <div class="product-detail">
-=======
-<%- include('./partials/head') %>
-<body>
-    <%- include('./partials/header') %>
-    <div class="container products-wrapper">
-		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
-			<p class="product-detail-description">
-				<a href="product-add.html">Editar</a>
-			</p>
-		</div>
 		<div class="product-detail">
->>>>>>> ae0624d241788efaeb48d4ef5eb75dfc203b63ca
+
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="./images/products/default-image.png" alt="" class="product-detail-img">
 					<p class="product-detail-description">
-<<<<<<< HEAD
+
 						<%= catalogoZapatos[i].descripcion %> </p>
-=======
-						Descripción corta del producto. En la página principal solo se ven 2 líneas de estar descripción.Lorem ipsum dolor,
-						sit amet consectetur adipisicing elit. Tae ipsam amet eum, totam dolore libero illo unde? Consectetur dolorem neque
-						veritatis.</p>
->>>>>>> ae0624d241788efaeb48d4ef5eb75dfc203b63ca
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
@@ -42,11 +29,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-<<<<<<< HEAD
-								<strong> <a href="profile.ejs">Nombre usuario:  </a> </strong>
-=======
-								<strong> <a href="profile.html">Nombre usuario: </a> </strong>
->>>>>>> ae0624d241788efaeb48d4ef5eb75dfc203b63ca
+								<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
 								 Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
 							</div>
 						</article>
@@ -54,41 +37,11 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
+									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.</p>
 							</div>
 						</article>
-<<<<<<< HEAD
-=======
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
-							</div>
-						</article>
-
->>>>>>> ae0624d241788efaeb48d4ef5eb75dfc203b63ca
-					</section>
+					    </section>
 					<form class="form" action="" method="POST">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
@@ -98,15 +51,10 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-        <%}%>
 
-	<!-- /product detail -->
-=======
-	<!-- /product detail -->
+        <%}%>
 
 	<%- include('./partials/footer')%>
 </body>	
 </html>
 
->>>>>>> ae0624d241788efaeb48d4ef5eb75dfc203b63ca
