@@ -6,3 +6,10 @@ body {
 a {
   color: #00B7FF;
 }
+.row.align-items-center {
+  display: flex;
+}
+
+img.logo {
+  width: 10%;
+} 
