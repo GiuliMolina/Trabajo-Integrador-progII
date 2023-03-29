@@ -1,4 +1,4 @@
-data = [
+let data = [
 {
   usuario:{
       nombre: 'Joaco',
