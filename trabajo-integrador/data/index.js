@@ -1,4 +1,4 @@
-let data = [
+let data =
 {
   usuario:{
       nombre: 'Joaco',
@@ -67,6 +67,5 @@ let data = [
       imagen: './images/users/default-image'
     }
   }
-]
 
 module.exports = data

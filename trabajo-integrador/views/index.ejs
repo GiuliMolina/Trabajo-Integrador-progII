@@ -14,17 +14,17 @@
              
 			<div class="col-12 col-sm-6 col-lg-3">
                 <%
-                for(let i=0;i<catalogoZapatos.length;i++){ %>
+                for(let i=0;i<catalogoZapatos.productos.length;i++){ %>
 
                 <section class="product-box">
                     <a href="product.ejs">
                         <figure class="product-box_image">
-                            <img src='/<%=catalogoZapatos[i].imagen %>' alt='/<%= catalogoZapatos[i].nombre%>'>
+                            <img src='/<%=catalogoZapatos.productos[i].imagen %>' alt='/<%= catalogoZapatos.productos[i].nombre%>'>
                         </figure>
                         <article class="product-box_data">
-                            <h2> <%= catalogoZapatos[i].nombre%> </h2>
-                            <p> Descripción: <%= catalogoZapatos[i].descripcion%> </p>
-                            <p>Comentarios: <%= catalogoZapatos[i].comentarios%> </p>
+                            <h2> <%= catalogoZapatos.productos[i].nombre%> </h2>
+                            <p> Descripción: <%= catalogoZapatos.productos[i].descripcion%> </p>
+                            <p>Comentarios: <%= catalogoZapatos.productos[i].comentarios%> </p>
                         </article>
                     </a>
 				</section>
@@ -44,17 +44,17 @@
             
 			<div class="col-12 col-sm-6 col-lg-3">
                 <%
-                for(let i=0;i<catalogoZapatos.length;i++){ %>
+                for(let i=0;i<catalogoZapatos.productos[i].length;i++){ %>
 
                 <section class="product-box">
                     <a href="product.ejs">
                         <figure class="product-box_image">
-                            <img src='/<%=catalogoZapatos[i].imagen %>' alt='/<%= catalogoZapatos[i].nombre%>'>
+                            <img src='/<%=catalogoZapatos.productos[i].imagen %>' alt='/<%= catalogoZapatos.productos[i].nombre%>'>
                         </figure>
                         <article class="product-box_data">
-                            <h2> <%= catalogoZapatos[i].nombre%> </h2>
-                            <p> Descripción: <%= catalogoZapatos[i].descripcion%> </p>
-                            <p>Comentarios: <%= catalogoZapatos[i].comentarios%> </p>
+                            <h2> <%= catalogoZapatos.productos[i].nombre%> </h2>
+                            <p> Descripción: <%= catalogoZapatos.productos[i].descripcion%> </p>
+                            <p>Comentarios: <%= catalogoZapatos.productos[i].comentarios%> </p>
                         </article>
                     </a>
 				</section>
