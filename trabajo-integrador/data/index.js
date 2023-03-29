@@ -1,5 +1,6 @@
 data = [
-   { usuario:{
+{
+  usuario:{
       nombre: 'Joaco',
       email: 'GiuliLaIndia@gmail.com',
       imagen: 'img'
@@ -65,8 +66,7 @@ data = [
       texto: 'hola',
       imagen: './images/users/default-image'
     }
-   },
+  }
 ]
-
 
 module.exports = data
