@@ -7,6 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> hola</h1>
+    <h3> Modelo: <%= catalogoZapatos[i].modelo%> </h3>
+    <ul>
+        <%
+        for(let i=0;i<catalogoZapatos.length;i++){ %>
+            <li> 
+                <img src='/<%= catalogoZapatos[i].imagen %>'>
+                <p> Marca:  <%= catalogoZapatos[i].marca%> </p>
+                <p> Talle:  <%= catalogoZapatos[i].talle%> </p>
+                <p> Marca:  <%= catalogoZapatos[i].marca%> </p>
+        talle: 40,
+        cantidadEnStock: 5,
+        color: 'blanco',
+        sexo: "masculino",
+
+            </li>
+        <%}%>
+    </ul>
 </body>
 </html>

@@ -8,54 +8,54 @@ data = [
    },
 
     productos:[
-      0 ={
-      imagen: 'hola',
+    {
+      imagen: '../maquetaPrimeraEntrega/imagenes/amarillo.webp',
       nombre: 'hola',
       descripcion: 'hola' ,
       fecha: 'hola',
 
-    }, 1= {
-      imagen: 'hola',
+    },{
+      imagen: '../maquetaPrimeraEntrega/imagenes/blancas.webp',
       nombre: 'hola',
       descripcion: 'hola' ,
       fecha: 'hola',
-    }, 2={
-      imagen: 'hola',
+    },{
+      imagen: '../maquetaPrimeraEntrega/imagenes/celeste.webp',
       nombre: 'hola',
       descripcion: 'hola' ,
       fecha: 'hola',
-    }, 3= {
-      imagen: 'hola',
+    },{
+      imagen: '../maquetaPrimeraEntrega/imagenes/color.webp',
       nombre: 'hola',
       descripcion: 'hola' ,
       fecha: 'hola',
-    },  4= {
-      imagen: 'hola',
+    },{
+      imagen: '../maquetaPrimeraEntrega/imagenes/converse_negra.webp',
       nombre: 'hola',
       descripcion: 'hola' ,
       fecha: 'hola'
-    },  5= {
-      imagen: 'hola',
+    },{
+      imagen: '../maquetaPrimeraEntrega/imagenes/lila.webp',
       nombre: 'hola',
       descripcion: 'hola' ,
       fecha: 'hola'
-    },  6= {
-      imagen: 'hola',
+    },{
+      imagen: '../maquetaPrimeraEntrega/imagenes/nike_black.webp',
       nombre: 'hola',
       descripcion: 'hola' ,
       fecha: 'hola'
-    },  7= {
-      imagen: 'hola',
+    },{
+      imagen: '../maquetaPrimeraEntrega/imagenes/nike_gris.webp',
       nombre: 'hola',
       descripcion: 'hola' ,
       fecha: 'hola'
-    },  8= {
-      imagen: 'hola',
+    },{
+      imagen: '../maquetaPrimeraEntrega/imagenes/nike_negras.webp',
       nombre: 'hola',
       descripcion: 'hola' ,
       fecha: 'hola'
-    },  9= {
-      imagen: 'hola',
+    },{
+      imagen: '../maquetaPrimeraEntrega/imagenes/vans_botita.webp',
       nombre: 'hola',
       descripcion: 'hola' ,
       fecha: 'hola'

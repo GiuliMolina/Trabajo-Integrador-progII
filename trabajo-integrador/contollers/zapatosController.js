@@ -1,4 +1,4 @@
-const zapatos = require('../db/index')
+const zapatos = require('../data/index')
 
 const controlador = {
     index : function(req, res){
