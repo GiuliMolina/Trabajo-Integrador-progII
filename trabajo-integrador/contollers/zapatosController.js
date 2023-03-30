@@ -7,17 +7,18 @@ const controlador = {
     details: function(req,res){
         let id = req.params.id;
         let idBuscado = [];
-        for (let i=0; i<zapatos.length;i++){
-            if(zapatos[i].id.toString() === id){
+        for (let i=0; i<zapatos.productos.length;i++){
+            if(zapatos.productos[i].id.toString() === id){
                 idBuscado.push(id)
             }
         }
-        if(idBuscado>0){
-            res.send(zapatos[id-1])
-        }else{
-            res.send('No tenemos el zapato que buscas')
-        }
-    },
+        if(idBuscado.length>0){
+            // res.send(zapatos[id-1])
+            res.render('product.ejs',{catalogoZapatos:zapatos})
+        // }else{
+        //     res.send('No tenemos el zapato que buscas')
+        // }
+    }},
     porMarca: function(req,res){
         let marca = req.params.marca;
         let marcaBuscada = [];
