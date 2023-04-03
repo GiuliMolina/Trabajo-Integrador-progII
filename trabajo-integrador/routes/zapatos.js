@@ -3,8 +3,10 @@ const router = express.Router()
 const zapatosController = require ('../contollers/zapatosController')
 
 router.get('/', zapatosController.index)
+//router.get('/:id', zapatosController.details)
+router.get('/product/:producto', zapatosController.products)
 
-router.get('/:id', zapatosController.details)
+
 
 
 

@@ -6,16 +6,16 @@ const controladorIndex = {
     },
 }
 
-// const controladorUsers = {
+//const controladorUsers = {
 // login y registrer y profile
 // }
 
-//const controladorProducts ={
-   // products : function(req, res){
-        //res.render('products.ejs',{catalogoZapatos:zapatos})
-    //},
+const controladorProducts ={
+    product : function(req, res){
+        res.render('product.ejs',{catalogoZapatos:zapatos})
+    },
     //Details y product add
-//}
+}
 // details: function(req,res){
 //         let id = req.params.id;
 //         let idBuscado = [];
