@@ -2,7 +2,7 @@ const zapatos = require('../data/index')
 
 const controladorIndex = {
     index : function(req, res){
-        res.render('catalogo.ejs',{catalogoZapatos:zapatos})
+        res.render('index.ejs',{catalogoZapatos:zapatos})
     },
 }
 

@@ -1,6 +1,6 @@
 <%- include('./partials/head') %>
-<%- include('./partials/header') %>
 <body>
+    <%- include('./partials/header') %>
 	<div class="banner">
 		<img src="images/img-home-banner.jpg" alt="Banner de ofertas">
 	</div>
@@ -17,7 +17,7 @@
                 for(let i=0;i<catalogoZapatos.productos.length;i++){ %>
 
                 <section class="product-box">
-                    <a href="product.ejs">
+                    <a href="/zapatos/">
                         <figure class="product-box_image">
                             <img src='/<%=catalogoZapatos.productos[i].imagen %>' alt='/<%= catalogoZapatos.productos[i].nombre%>'>
                         </figure>
@@ -44,7 +44,7 @@
             
 			<div class="col-12 col-sm-6 col-lg-3">
                 <%
-                for(let i=0;i<catalogoZapatos.productos[i].length;i++){ %>
+                for(let i=0;i<catalogoZapatos.productos.length;i++){ %>
 
                 <section class="product-box">
                     <a href="product.ejs">
