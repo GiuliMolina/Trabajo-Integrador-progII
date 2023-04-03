@@ -62,8 +62,9 @@ let data =
       descripcion: 'hola' ,
       fecha: 'fecha9',
       id:8
-    },{
-      imagen: './images/vans_botita.webp',
+    }
+    ,{
+      imagen: './images/vans_botita.jpeg',
       nombre: 'Vans negras',
       descripcion: 'hola' ,
       fecha: 'fecha10',
