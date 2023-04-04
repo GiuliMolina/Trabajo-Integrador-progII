@@ -12,7 +12,7 @@ const controladorIndex = {
 
 const controladorProducts = {
    products : function(req, res){
-        res.render('products.ejs',{catalogoZapatos:zapatos})
+        res.render('products.ejs',{idProducto:req.params.id, catalogoZapatos:zapatos})
     }
 }
 

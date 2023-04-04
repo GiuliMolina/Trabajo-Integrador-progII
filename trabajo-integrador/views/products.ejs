@@ -6,7 +6,8 @@
 	<div class="container products-wrapper">
         <%
             for(let i=0;i<catalogoZapatos.productos.length;i++){ %>
-            <div class="d-flex align-items-center">
+				<%if(catalogoZapatos.productos[i].id === idProducto){%>
+					<div class="d-flex align-items-center">
                 <h2 class="products-title"><%= catalogoZapatos.productos[i].nombre %> </h2> 
                 <p class="product-detail-description">
                     <a href="product-add.ejs">Editar</a>
@@ -44,8 +45,10 @@
 			</div>
 		</div>
 	</div>
+	<%}%>
 
-        <%}%>
+    <%}%>
+	
 
 	<%- include('./partials/footer')%>
 </body>	
