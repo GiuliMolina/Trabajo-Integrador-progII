@@ -17,7 +17,7 @@
                 for(let i=0;i<catalogoZapatos.productos.length;i++){ %>
 
                 <section class="product-box">
-                    <a href="/:<%= catalogoZapatos.productos[i].id%>">
+                    <a href="/zapatos/<%= catalogoZapatos.productos[i].id%>">
                         <figure class="product-box_image">
                             <img src='/<%=catalogoZapatos.productos[i].imagen %>' alt='/<%= catalogoZapatos.productos[i].nombre%>'>
                         </figure>
