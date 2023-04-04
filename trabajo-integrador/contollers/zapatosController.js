@@ -6,14 +6,21 @@ const controladorIndex = {
     },
 }
 
-//const controladorUsers = {
+const controladorUsers = {
+    profile: function(req,res){
+        res.render('profile.ejs',{catalogoZapatos:zapatos})
+    }
 // login y registrer y profile
-// }
+}
 
 const controladorProducts = {
-   products : function(req, res){
+    products : function(req, res){
         res.render('products.ejs',{idProducto:req.params.id, catalogoZapatos:zapatos})
+    },
+    productAdd: function(req,res){
+        res.render('products-add.ejs',{catalogoZapatos:zapatos})
     }
+
 }
 
   //Details y product add
@@ -38,6 +45,6 @@ const controladorProducts = {
     
     
     
-module.exports = {controladorIndex,controladorProducts}
+module.exports = {controladorIndex,controladorProducts,controladorUsers}
 
 
