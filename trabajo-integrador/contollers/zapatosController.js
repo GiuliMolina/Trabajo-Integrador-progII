@@ -10,10 +10,11 @@ const controladorIndex = {
 // login y registrer y profile
 // }
 
-//const controladorProducts ={
-   // products : function(req, res){
-        //res.render('products.ejs',{catalogoZapatos:zapatos})
-    //},
+const controladorProducts = {
+   products : function(req, res){
+        res.render('products.ejs',{catalogoZapatos:zapatos})
+    }
+}
     //Details y product add
 //}
 // details: function(req,res){
@@ -36,6 +37,6 @@ const controladorIndex = {
     
     
     
-module.exports = controladorIndex
+module.exports = {controladorIndex,controladorProducts}
 
 
