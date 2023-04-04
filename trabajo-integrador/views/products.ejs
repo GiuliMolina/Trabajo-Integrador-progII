@@ -6,8 +6,7 @@
 	<div class="container products-wrapper">
         <%
             for(let i=0;i<catalogoZapatos.productos.length;i++){ %>
-				<%if(catalogoZapatos.productos[i].id === idProducto){%>
-					<div class="d-flex align-items-center">
+			<div class="d-flex align-items-center">
                 <h2 class="products-title"><%= catalogoZapatos.productos[i].nombre %> </h2> 
                 <p class="product-detail-description">
                     <a href="/zapatos/productAdd">Editar</a>
@@ -15,7 +14,7 @@
 		    </div>
 
             <div class="product-detail">
-		<div class="product-detail">
+			<div class="product-detail">
 
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
@@ -30,10 +29,10 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users/profile">Nombre usuario: <%= catalogoZapatos.usuario.nombre %></a> </strong>
+								<strong> <a href="/profile">Nombre usuario: <%= catalogoZapatos.usuario.nombre %></a> </strong>
                                 <%= catalogoZapatos.comentarios.texto %>
 								</p>
-							</div>
+					</div>
 						</article>
 					    </section>
 					<form class="form" action="" method="POST">
@@ -44,13 +43,13 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<%}%>
 
-    <%}%>
+	<%}%>
+	</div>
+	
 	
 
-	<%- include('./partials/footer')%>
+<%- include('./partials/footer')%>
 </body>	
 </html>
 

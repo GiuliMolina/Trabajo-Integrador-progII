@@ -9,41 +9,30 @@ const controladorIndex = {
 const controladorUsers = {
     profile: function(req,res){
         res.render('profile.ejs',{catalogoZapatos:zapatos})
+    },
+    profileEdit:function(req,res){
+        res.render('profile-edit.ejs',{catalogoZapatos:zapatos})
+    },
+    login: function(req,res){
+        res.render('login.ejs',{catalogoZapatos:zapatos})
+    },
+    register:function(req,res){
+        res.render('register.ejs',{catalogoZapatos:zapatos})
     }
-// login y registrer y profile
 }
 
 const controladorProducts = {
-    products : function(req, res){
+    products: function(req, res){
         res.render('products.ejs',{idProducto:req.params.id, catalogoZapatos:zapatos})
     },
     productAdd: function(req,res){
         res.render('products-add.ejs',{catalogoZapatos:zapatos})
+    },
+    searchResults:function(req,res){
+        res.render('search-results.ejs',{catalogoZapatos:zapatos})
     }
 
-}
-
-  //Details y product add
-
-// details: function(req,res){
-//         let id = req.params.id;
-//         let idBuscado = [];
-//         for (let i=0; i<zapatos.productos.length;i++){
-//             if(zapatos.productos[i].id.toString() === id){
-//                 idBuscado.push(id)
-//             }
-//         }
-//         if(idBuscado.length>0){
-//             // res.send(zapatos[id-1])
-//             res.render('product.ejs',{catalogoZapatos:zapatos})
-//         // }else{
-//         //     res.send('No tenemos el zapato que buscas')
-//         // }
-//     }},
-    
-   
-    
-    
+}    
     
 module.exports = {controladorIndex,controladorProducts,controladorUsers}
 
