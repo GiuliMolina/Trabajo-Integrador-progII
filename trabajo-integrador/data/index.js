@@ -72,11 +72,12 @@ let data =
     }
     ],
 
-    comentarios:{
+    comentarios:[ {
       nombre: 'Daniel',
       texto: 'hola',
       imagen: './images/users/default-image'
-    }
+    },
+  ]
   }
 
 module.exports = data
