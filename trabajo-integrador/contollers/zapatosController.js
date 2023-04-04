@@ -6,7 +6,7 @@ const controladorIndex = {
     },
 }
 
-// const controladorUsers = {
+//const controladorUsers = {
 // login y registrer y profile
 // }
 
@@ -15,8 +15,9 @@ const controladorProducts = {
         res.render('products.ejs',{catalogoZapatos:zapatos})
     }
 }
-    //Details y product add
-//}
+
+  //Details y product add
+
 // details: function(req,res){
 //         let id = req.params.id;
 //         let idBuscado = [];
