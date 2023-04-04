@@ -7,6 +7,5 @@ router.get('/', zapatosController.controladorIndex.index)
 
 router.get('/:id', zapatosController.controladorProducts.products)
 
-router.get('/')
 
 module.exports = router
