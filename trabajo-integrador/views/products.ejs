@@ -4,10 +4,8 @@
     <%- include('./partials/header') %>
     <!-- product detail -->
 	<div class="container products-wrapper">
-        <%
-            for(let i=0;i<catalogoZapatos.productos.length;i++){ %>
 			<div class="d-flex align-items-center">
-                <h2 class="products-title"><%= catalogoZapatos.productos[i].nombre %> </h2> 
+                <h2 class="products-title"><%= catalogoZapatos.productos[0].nombre %> </h2> 
                 <p class="product-detail-description">
                     <a href="/zapatos/productAdd">Editar</a>
                 </p>
@@ -18,10 +16,10 @@
 
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="./images/products/default-image.png" alt="" class="product-detail-img">
+					<img src="/<%= catalogoZapatos.productos[0].imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 
-						<%= catalogoZapatos.productos[i].descripcion %> </p>
+						<%= catalogoZapatos.productos[0].descripcion %> </p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
@@ -29,7 +27,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/profile">Nombre usuario: <%= catalogoZapatos.usuario.nombre %></a> </strong>
+								<strong> <a href="/users/profile">Nombre usuario: <%= catalogoZapatos.usuario.nombre %></a> </strong>
                                 <%= catalogoZapatos.comentarios.texto %>
 								</p>
 					</div>
@@ -43,8 +41,6 @@
 				</div>
 			</div>
 		</div>
-
-	<%}%>
 	</div>
 	
 	
