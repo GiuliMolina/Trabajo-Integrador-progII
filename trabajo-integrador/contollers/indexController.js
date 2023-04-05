@@ -34,7 +34,7 @@ const controladorProducts = {
 
 }    
     
-module.exports = {controladorIndex,controladorProducts,controladorUsers}
+module.exports = {controladorIndex}
 
 
   
