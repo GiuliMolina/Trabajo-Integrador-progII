@@ -1,4 +1,4 @@
-const zapatos = require('../data/index')
+const zapatos = require('../data/data')
 
 
 const controladorUsers = {
