@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const zapatosController = require ('../contollers/zapatosController')
+const indexController = require ('../contollers/indexController')
 
 
-router.get('/', zapatosController.controladorIndex.index)
+router.get('/', indexController.controladorIndex.index)
 
 module.exports = router;

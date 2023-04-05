@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const zapatosController = require ('../contollers/zapatosController')
+const usersController = require ('../contollers/usersController')
 
-router.get('/profile',zapatosController.controladorUsers.profile)
-router.get('/profileEdit',zapatosController.controladorUsers.profileEdit)
-router.get('/login',zapatosController.controladorUsers.login)
-router.get('/register',zapatosController.controladorUsers.register)
+router.get('/profile',usersController.controladorUsers.profile)
+router.get('/profileEdit',usersController.controladorUsers.profileEdit)
+router.get('/login',usersController.controladorUsers.login)
+router.get('/register',usersController.controladorUsers.register)
 
 module.exports = router;
