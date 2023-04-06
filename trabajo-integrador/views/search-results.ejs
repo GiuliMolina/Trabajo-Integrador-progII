@@ -8,9 +8,17 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
-			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
-			////////////////
+			<h2 class="col-12"> 
+		    <% for(let i=0;i<catalogoZapatos.productos.length;i++){%>
+				<% if(catalogoZapatos.productos[i].nombre === nombre){ %>
+					  <img src='/<%=catalogoZapatos.productos[i].imagen %>' alt='/<%= catalogoZapatos.productos[i].nombre%>'>
+				<%} else{%>
+					<h3> No tenemos el producto que buscas </h3>
+
+
+				<%}%>
+
+			<%} %>
 			</h2>
 	<%- include('./partials/footer')%>
 </body>

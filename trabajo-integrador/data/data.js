@@ -1,6 +1,6 @@
 let data = {
   usuario:{
-      nombre: 'Justin Beiber',
+      nombre: 'Justin Bieber',
       email: 'justinb@gmail.com',
       imagen: './images/justinbeiber.webp',
       password: 'justin1234',

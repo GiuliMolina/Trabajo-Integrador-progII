@@ -20,7 +20,7 @@ const controladorProducts = {
         res.render('search-results.ejs',{
             catalogoZapatos:zapatos,
             userLogueado: false,
-            id: req.params.id
+            nombre: req.params.nombre,
         })
     }
 

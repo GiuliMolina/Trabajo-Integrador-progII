@@ -478,9 +478,6 @@ textarea.form-input {
   color: #fff;
 }
 
-img.logo {
-  width: 15%;
-}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
