@@ -19,7 +19,8 @@ const controladorProducts = {
     searchResults:function(req,res){
         res.render('search-results.ejs',{
             catalogoZapatos:zapatos,
-            userLogueado: false
+            userLogueado: false,
+            id: req.params.id
         })
     }
 
