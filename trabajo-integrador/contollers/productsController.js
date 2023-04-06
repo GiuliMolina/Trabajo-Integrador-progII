@@ -7,7 +7,7 @@ const controladorProducts = {
         res.render('products.ejs',{
             idProducto:req.params.id,
             catalogoZapatos:zapatos,
-            // userLogueado: false? no se
+            userLogueado: false
         })
     },
     productAdd: function(req,res){
@@ -19,7 +19,7 @@ const controladorProducts = {
     searchResults:function(req,res){
         res.render('search-results.ejs',{
             catalogoZapatos:zapatos,
-            // userLogueado: false? no se
+            userLogueado: false
         })
     }
 

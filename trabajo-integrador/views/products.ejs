@@ -28,7 +28,9 @@
 							<div class="data">
 								<p class="user">
 								<strong> <a href="/users/profile">Nombre usuario: <%= catalogoZapatos.usuario.nombre %></a> </strong>
-                                <%= catalogoZapatos.comentarios.texto %>
+                                <%for(let j=0;j<catalogoZapatos.productos[0].comentarios.length;j++){ %>
+									<p>Comentarios: <%= catalogoZapatos.productos[0].comentarios[j].texto%> </p>
+									<%}%>
 								</p>
 					</div>
 						</article>
