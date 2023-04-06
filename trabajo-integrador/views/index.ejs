@@ -24,7 +24,11 @@
                         <article class="product-box_data">
                             <h2> <%= catalogoZapatos.productos[i].nombre%> </h2>
                             <p> Descripción: <%= catalogoZapatos.productos[i].descripcion%> </p>
-                            <p>Comentarios: <%= catalogoZapatos.productos[i].comentarios[0]%> </p>
+                            <%
+                            for(let j=0;j<catalogoZapatos.productos[i].comentarios.length;j++){ %>
+                            <p>Comentarios: <%= catalogoZapatos.productos[i].comentarios[j].texto%> </p>
+                            <%}%>
+                            
                         </article>
                     </a>
 				</section>
@@ -32,9 +36,7 @@
 	        </div>
         </div>
     </div>
-    //Novedades
-	
-    //Más comentados 
+
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
@@ -54,7 +56,10 @@
                         <article class="product-box_data">
                             <h2> <%= catalogoZapatos.productos[i].nombre%> </h2>
                             <p> Descripción: <%= catalogoZapatos.productos[i].descripcion%> </p>
-                            <p>Comentarios: <%= catalogoZapatos.productos[i].comentarios[0]%></p>
+                            <%
+                            for(let j=0;j<catalogoZapatos.productos[i].comentarios.length;j++){ %>
+                            <p>Comentarios: <%= catalogoZapatos.productos[i].comentarios[j].texto%> </p>
+                            <%}%>
                         </article>
                     </a>
 				</section>
@@ -62,7 +67,6 @@
 	        </div>
         </div>
     </div>
-	///Más comentados
     <%- include('./partials/footer')%>
 </body>
 
