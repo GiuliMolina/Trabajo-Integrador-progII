@@ -1,8 +1,11 @@
 let data = {
   usuario:{
-      nombre: 'Joaco',
-      email: 'GiuliLaIndia@gmail.com',
-      imagen: 'img'
+      nombre: 'Justin Beiber',
+      email: 'justinb@gmail.com',
+      imagen: './images/justinbeiber.webp',
+      password: 'justin1234',
+      fecha_cumpleaños: '01/03/1990',
+      id: 38809234,
    },
 
   productos:[
