@@ -2,7 +2,7 @@ let data = {
   usuario:{
       nombre: 'Justin Bieber',
       email: 'justinb@gmail.com',
-      imagen: './images/justinbeiber.webp',
+      imagen: './images/justinbieber.webp',
       password: 'justin1234',
       fecha_cumpleaños: '01/03/1990',
       id: 38809234,
