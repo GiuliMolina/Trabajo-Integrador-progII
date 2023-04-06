@@ -11,7 +11,7 @@ const controladorProducts = {
         })
     },
     productAdd: function(req,res){
-        res.render('products-add.ejs',{
+        res.render('product-add.ejs',{
             catalogoZapatos:zapatos,
             userLogueado: true
         })
