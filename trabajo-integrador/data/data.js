@@ -12,16 +12,16 @@ let data = {
     {
       imagen: './images/amarillo.webp',
       nombre: 'Topper amarillas',
-      descripcion: 'hola' ,
+      descripcion: 'Talle disponible: 36, 38, 39, 40 Colores disponibles: Amarilla',
       comentarios:[ {
-        nombre: 'Daniel',
-        texto: 'hola',
-        imagen: './images/users/default-image'
+        nombre: 'Biza',
+        texto: 'Son cómodas, pero los colores disponibles no están tan buenos',
+        imagen: './images/bizarrap.webp'
       },
       {
-        nombre: 'Daniel',
-        texto: 'hola',
-        imagen: './images/users/default-image'
+        nombre: 'Duki',
+        texto: 'Son cómodas, muy buena calidad',
+        imagen: './images/users/default-image.png'
       }],
       fecha: 'fecha1',
       id:0
@@ -47,9 +47,9 @@ let data = {
       nombre: 'Zapatillas celeste',
       descripcion: 'hola' ,
       comentarios:[ {
-        nombre: 'Daniel',
-        texto: 'hola',
-        imagen: './images/users/default-image'
+        nombre: 'Harry Styles',
+        texto: 'I loved them, I am going to use them in my next show',
+        imagen: './images/harry-styles.jpeg'
       },
       {
         nombre: 'Daniel',
