@@ -28,6 +28,8 @@
                             <p> Descripción: <%= catalogoZapatos.productos[i].descripcion%> </p>
                             <%
                             for(let j=0;j<catalogoZapatos.productos[i].comentarios.length;j++){ %>
+                            <img class='fotocomentarios' src="<%=catalogoZapatos.productos[i].comentarios[j].imagen%>">
+                            <h3> <%=catalogoZapatos.productos[i].comentarios[j].nombre%> </h3>
                             <p>Comentarios: <%= catalogoZapatos.productos[i].comentarios[j].texto%> </p>
                             <%}%>
                             

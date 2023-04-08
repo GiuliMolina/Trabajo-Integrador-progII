@@ -54,6 +54,11 @@ img {
   width: 100%;
 }
 
+img.fotocomentarios {
+  width: 20%;
+  height: 50%;
+  border-radius: 150px;
+}
 
 
 input,
