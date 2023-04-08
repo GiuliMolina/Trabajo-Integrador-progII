@@ -21,7 +21,7 @@ let data = {
       {
         nombre: 'Duki',
         texto: 'Son cómodas, muy buena calidad',
-        imagen: './images/users/default-image.png'
+        imagen: './images/duki_104.webp'
       }],
       fecha: 'fecha1',
       id:0
@@ -31,9 +31,9 @@ let data = {
       nombre: 'Botitas blancas',
       descripcion: 'hola' ,
       comentarios:[ {
-        nombre: 'Daniel',
+        nombre: 'Miley Cyrus',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/miley.webp'
       },
       {
         nombre: 'Daniel',
