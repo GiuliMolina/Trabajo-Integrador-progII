@@ -84,9 +84,9 @@ let data = {
         imagen: './images/users/default-image'
       },
       {
-        nombre: 'Daniel',
+        nombre: 'Thiago pzk',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/thiago.webp'
       }],
       fecha: 'fecha5',
       id:4
@@ -100,9 +100,9 @@ let data = {
         imagen: './images/tini.webp'
       },
       {
-        nombre: 'D',
+        nombre: 'Antonella',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/anto.webp'
       }],
       fecha: 'fecha6',
       id:5
@@ -132,9 +132,9 @@ let data = {
         imagen: './images/maria.webp'
       },
       {
-        nombre: 'Daniel',
+        nombre: 'Chris Hemsworth',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/chris.webp'
       }],
       fecha: 'fecha8',
       id:7
