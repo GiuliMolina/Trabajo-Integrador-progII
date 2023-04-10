@@ -4,7 +4,7 @@ const controladorIndex = {
     index : function(req, res){
         res.render('index.ejs',{
             catalogoZapatos:zapatos,
-            userLogueado: true
+            userLogueado: false
         })
     },
 }
