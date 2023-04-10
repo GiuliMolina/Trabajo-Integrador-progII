@@ -36,9 +36,9 @@ let data = {
         imagen: './images/miley.webp'
       },
       {
-        nombre: 'Daniel',
+        nombre: 'Ariana Grande',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/ariana.webp'
       }],
       fecha: 'fecha2',
       id:1
@@ -52,9 +52,9 @@ let data = {
         imagen: './images/harry-styles.jpeg'
       },
       {
-        nombre: 'Daniel',
+        nombre: 'China Suarez',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/lachina.webp'
       }],
       fecha: 'fecha3',
       id:2
@@ -79,9 +79,9 @@ let data = {
       nombre: 'Converse All Star negras',
       descripcion: 'hola' ,
       comentarios:[ {
-        nombre: 'Daniel',
+        nombre: 'Robert Pattinson',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/robert.webp'
       },
       {
         nombre: 'Thiago pzk',
@@ -148,9 +148,9 @@ let data = {
         imagen: './images/dicaprio.webp'
       },
       {
-        nombre: 'Daniel',
+        nombre: 'Christina Aguilera',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/c.webp'
       }],
       fecha: 'fecha9',
       id:8
@@ -165,9 +165,9 @@ let data = {
         imagen: './images/chano.webp'
       },
       {
-        nombre: 'Daniel',
+        nombre: 'Nicky Nicole',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/nickynicole.webp'
       }],
       fecha: 'fecha10',
       id:9
