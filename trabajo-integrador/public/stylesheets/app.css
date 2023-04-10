@@ -173,7 +173,15 @@ hr {
   border-bottom: solid 1px var(--gray);
 }
 
+.seccion_header {
+  display: flex;
+  width: 50%;
+  align-items: center;
+}
 
+.container_header{
+  display: flex;
+}
 
 /*====== Banner ======*/
 .banner {

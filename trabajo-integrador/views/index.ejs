@@ -4,7 +4,7 @@
 <body>
     <%- include('./partials/header') %>
 	<div class="banner">
-		<img class="img_banner" src="images/fondo_zapatillas2.png" alt="Banner de ofertas">
+		<img class="img_banner" src="images/fondo_zapatillas4.png" alt="Banner de ofertas">
 	</div>
 
 	<div class="container products-wrapper">
@@ -24,11 +24,12 @@
                         <article class="product-box_data">
                             <h2> <%= catalogoZapatos.productos[i].nombre%> </h2>
                             <p> Descripción: <%= catalogoZapatos.productos[i].descripcion%> </p>
+                            <p> Comentarios: </p>
                             <%
                             for(let j=0;j<catalogoZapatos.productos[i].comentarios.length;j++){ %>
                             <img class='fotocomentarios' src="<%=catalogoZapatos.productos[i].comentarios[j].imagen%>">
                             <h3> <%=catalogoZapatos.productos[i].comentarios[j].nombre%> </h3>
-                            <p>Comentarios: <%= catalogoZapatos.productos[i].comentarios[j].texto%> </p>
+                            <p><%= catalogoZapatos.productos[i].comentarios[j].texto%> </p>
                             <%}%>
                             
                         </article>
@@ -49,7 +50,7 @@
             
             <%
                 for(let i=0;i<catalogoZapatos.productos.length;i++){ %>
-                    <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="col-md-4 col-sm-4 col-lg-3">
 
                 <section class="product-box">
                     <a href="/zapatos/<%= catalogoZapatos.productos[i].id%>">
