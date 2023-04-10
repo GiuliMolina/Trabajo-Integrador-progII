@@ -8,15 +8,18 @@
 	</div>
 
 	<div class="container products-wrapper">
+        <div class="col-12">
+            <h2 class="products-title">Novedades</h2>
+        </div>
 		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Novedades</h2>
-			</div>
+			
 			
              
-			<div class="col-12 col-sm-6 col-lg-3">
+			
+
                 <%
                 for(let i=0;i<catalogoZapatos.productos.length;i++){ %>
+                    <div class="col-md-3 col-sm-4 col-lg-4">
 
                 <section class="product-box">
                     <a href="/zapatos/<%= catalogoZapatos.productos[i].id%>">
@@ -36,8 +39,9 @@
                         </article>
                     </a>
 				</section>
+            </div>
                 <%}%>
-	        </div>
+	       
         </div>
     </div>
 
