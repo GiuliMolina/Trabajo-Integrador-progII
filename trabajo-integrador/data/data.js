@@ -12,7 +12,7 @@ let data = {
     {
       imagen: './images/amarillo.webp',
       nombre: 'Topper amarillas',
-      descripcion: 'hola' ,
+      descripcion: 'Zapatillas, sneaker, deportivas amarilla, blanca, gris y negra de marca TOPPER' ,
       comentarios:[ {
         nombre: 'Daniel',
         texto: 'hola',
