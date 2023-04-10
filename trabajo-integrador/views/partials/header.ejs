@@ -29,17 +29,17 @@
     <% if (userLogueado === true){%>
         <nav class="main-navbar">
             <ul class="left-navbar">
-                <li><a href="/">Todos los productos</a></li>
-                <li><a href="/zapatos/productAdd">Cargar productos</a></li>
+                <li><a class="texto" href="/">Todos los productos</a></li>
+                <li><a class="texto" href="/zapatos/productAdd">Cargar productos</a></li>
             </ul>
 
             <ul class="right-navbar">
-                <li><a href="/users/profile">
+                <li><a class="texto"  href="/users/profile">
                         <%=catalogoZapatos.usuario.nombre%> <i class="fas fa-user"></i>
                     </a>
                 </li>
                 <li>
-                    <form action="/" method="post">
+                    <form class="form_logout" action="/users/login" method="get">
                         <button class="logout" type="submit">
                             Cerrar sesión <i class="fas fa-sign-in-alt"></i>
                         </button>
