@@ -54,6 +54,11 @@ img {
   width: 100%;
 }
 
+img.fotocomentarios {
+  width: 20%;
+  height: 50%;
+  border-radius: 150px;
+}
 
 
 input,
@@ -70,7 +75,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: rgb(222, 188, 238);
 }
 
 .main-header_home-link,
@@ -82,6 +87,8 @@ hr {
   font-size: 1.5em;
   margin-top: 20px;
   text-align: center;
+  font-family: 'Gudea', sans-serif;
+  font-weight: bold;
 }
 
 .search-form {
@@ -111,6 +118,9 @@ hr {
   cursor: pointer;
 }
 
+.logo {
+  border-radius: 50px;
+}
 
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
@@ -134,11 +144,22 @@ hr {
   font-size: 1.5em;
 }
 
+.texto{
+  font-family: 'Gudea', sans-serif;
+  font-weight: bold;
+}
+
+.form_logout{
+  margin-bottom: 0px;
+}
+
 .logout{
   background: transparent;
   border: 0px;
   cursor: pointer;
   font-size: 1em;
+  font-family: 'Gudea', sans-serif;
+  font-weight: bold;
 }
 
 .logout:hover{
@@ -156,11 +177,15 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   height: 100px;
+  margin-top: 12px;
+}
+
+.img_banner{
+  height: 100%;
 }
 
 
@@ -171,9 +196,13 @@ hr {
 }
 
 .products-title {
-  font-size: 2.4em;
+  font-size: 45px;
   font-weight: 400;
-  color: var(--gray);
+  color: rgb(96, 96, 96);
+  font-family: 'Bebas Neue', cursive;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-inline-start: 3px;
 }
 
 .product-box {
@@ -463,7 +492,7 @@ textarea.form-input {
 }
 
 .foto-perfil{
-  border-radius: 50%;
+  border-radius: 11%;
 }
 
 .main-title{

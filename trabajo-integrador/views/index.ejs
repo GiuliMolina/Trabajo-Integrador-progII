@@ -4,7 +4,7 @@
 <body>
     <%- include('./partials/header') %>
 	<div class="banner">
-		<img src="images/img-home-banner.jpg" alt="Banner de ofertas">
+		<img class="img_banner" src="images/fondo_zapatillas2.png" alt="Banner de ofertas">
 	</div>
 
 	<div class="container products-wrapper">
@@ -28,6 +28,8 @@
                             <p> Descripción: <%= catalogoZapatos.productos[i].descripcion%> </p>
                             <%
                             for(let j=0;j<catalogoZapatos.productos[i].comentarios.length;j++){ %>
+                            <img class='fotocomentarios' src="<%=catalogoZapatos.productos[i].comentarios[j].imagen%>">
+                            <h3> <%=catalogoZapatos.productos[i].comentarios[j].nombre%> </h3>
                             <p>Comentarios: <%= catalogoZapatos.productos[i].comentarios[j].texto%> </p>
                             <%}%>
                             

@@ -14,14 +14,14 @@ let data = {
       nombre: 'Topper amarillas',
       descripcion: 'Zapatillas, sneaker, deportivas amarilla, blanca, gris y negra de marca TOPPER' ,
       comentarios:[ {
-        nombre: 'Daniel',
-        texto: 'hola',
-        imagen: './images/users/default-image'
+        nombre: 'Biza',
+        texto: 'Son cómodas, pero los colores disponibles no están tan buenos',
+        imagen: './images/bizarrap.webp'
       },
       {
-        nombre: 'Daniel',
-        texto: 'hola',
-        imagen: './images/users/default-image'
+        nombre: 'Duki',
+        texto: 'Son cómodas, muy buena calidad',
+        imagen: './images/duki_104.webp'
       }],
       fecha: 'fecha1',
       id:0
@@ -31,9 +31,9 @@ let data = {
       nombre: 'Botitas blancas',
       descripcion: 'hola' ,
       comentarios:[ {
-        nombre: 'Daniel',
+        nombre: 'Miley Cyrus',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/miley.webp'
       },
       {
         nombre: 'Daniel',
@@ -47,9 +47,9 @@ let data = {
       nombre: 'Zapatillas celeste',
       descripcion: 'hola' ,
       comentarios:[ {
-        nombre: 'Daniel',
-        texto: 'hola',
-        imagen: './images/users/default-image'
+        nombre: 'Harry Styles',
+        texto: 'I loved them, I am going to use them in my next show',
+        imagen: './images/harry-styles.jpeg'
       },
       {
         nombre: 'Daniel',
@@ -63,14 +63,14 @@ let data = {
       nombre: 'Nike botitas coloridas',
       descripcion: 'hola' ,
       comentarios:[ {
-        nombre: 'Daniel',
+        nombre: 'Emi Mernes',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/emi.webp'
       },
       {
-        nombre: 'Daniel',
+        nombre: 'Katy Perry',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/katy.webp'
       }],
       fecha: 'fecha4',
       id:3
@@ -84,9 +84,9 @@ let data = {
         imagen: './images/users/default-image'
       },
       {
-        nombre: 'Daniel',
+        nombre: 'Thiago pzk',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/thiago.webp'
       }],
       fecha: 'fecha5',
       id:4
@@ -95,14 +95,14 @@ let data = {
       nombre: 'Zapatillas 47 Street',
       descripcion: 'hola' ,
       comentarios:[ {
-        nombre: 'Daniel',
+        nombre: 'Tini',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/tini.webp'
       },
       {
-        nombre: 'Daniel',
+        nombre: 'Antonella',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/anto.webp'
       }],
       fecha: 'fecha6',
       id:5
@@ -111,14 +111,14 @@ let data = {
       nombre: 'Nike Air Force negras',
       descripcion: 'hola' ,
       comentarios:[ {
-        nombre: 'Daniel',
+        nombre: 'Messi',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/messi.webp'
       },
       {
-        nombre: 'Daniel',
+        nombre: 'Taylor Swift',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/taylor.webp'
       }],
       fecha: 'fecha7',
       id:6
@@ -127,14 +127,14 @@ let data = {
       nombre: 'Nike Air Force grises',
       descripcion: 'hola' ,
       comentarios:[ {
-        nombre: 'Daniel',
+        nombre: 'María Becerra',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/maria.webp'
       },
       {
-        nombre: 'Daniel',
+        nombre: 'Chris Hemsworth',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/chris.webp'
       }],
       fecha: 'fecha8',
       id:7
@@ -143,9 +143,9 @@ let data = {
       nombre: 'Nike Air Force negras y blanco',
       descripcion: 'hola' ,
       comentarios:[ {
-        nombre: 'Daniel',
+        nombre: 'Leonardo Dicaprio',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/dicaprio.webp'
       },
       {
         nombre: 'Daniel',
@@ -160,9 +160,9 @@ let data = {
       nombre: 'Vans negras',
       descripcion: 'hola' ,
       comentarios:[ {
-        nombre: 'Daniel',
+        nombre: 'Chano',
         texto: 'hola',
-        imagen: './images/users/default-image'
+        imagen: './images/chano.webp'
       },
       {
         nombre: 'Daniel',
