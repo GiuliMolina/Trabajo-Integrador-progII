@@ -121,7 +121,6 @@ hr {
 .col-12 {
   -ms-flex: 0 0 100%;
   flex: 0 0 100%;
-  max-width: 60%;
 }
 
 .logo {
@@ -301,6 +300,7 @@ hr {
   transform: rotate(360deg);
   box-shadow: 0 0 5px var(--green);
 }
+
 
 
 
