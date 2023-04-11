@@ -517,6 +517,17 @@ textarea.form-input {
   color: #fff;
 }
 
+button.ingresar {
+  color: purple;
+  position: relative;
+  margin: auto;
+}
+
+button.registrarse {
+  color: purple;
+  position: relative;
+  margin: auto;
+}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
