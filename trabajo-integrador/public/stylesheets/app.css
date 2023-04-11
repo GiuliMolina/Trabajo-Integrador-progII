@@ -310,7 +310,12 @@ hr {
 }
 
 
+.container_register{
+  background-color: #d5f2fb;
+  border: 1px solid black;
+  border-radius: 20px;
 
+}
 
 /*====== Footer ======*/
 .main-footer {
