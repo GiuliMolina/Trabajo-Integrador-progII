@@ -188,6 +188,14 @@ hr {
   display: flex;
 }
 
+.container_nav{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
 /*====== Banner ======*/
 .banner {
   background-repeat: no-repeat;
@@ -342,6 +350,18 @@ hr {
   color: var(--gray);
   padding: 15px 0;
 }
+
+.container_integrantes{
+  display: flex;
+  justify-content: center;
+}
+
+.integrantes{
+  font-size: 15px;
+  margin-left: 10px;
+  align-items: center;
+}
+
 
 
 /*====== Product Detail ======*/
