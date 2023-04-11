@@ -118,6 +118,12 @@ hr {
   cursor: pointer;
 }
 
+.col-12 {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 60%;
+}
+
 .logo {
   border-radius: 50%;
 }
@@ -410,7 +416,7 @@ hr {
 }
 
 .buy-now-button {
-  background-color: var(--light-blue);
+  background-color: purple;
   font-size: 1.6em;
   color: #ffffff;
   padding: 15px;
@@ -527,6 +533,10 @@ button.registrarse {
   color: purple;
   position: relative;
   margin: auto;
+}
+
+img.imgsearch {
+  width: 95%;
 }
 
 /*====== Media-Queries ======*/
