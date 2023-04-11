@@ -582,7 +582,8 @@ img.imgsearch {
   }
 
   .main-footer {
-    padding: 40px 0;
+    padding: 10px 0;
+    background-color: rgb(222, 188, 238);
   }
 
   .footer-data {
