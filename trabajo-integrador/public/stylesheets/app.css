@@ -73,6 +73,12 @@ hr {
 
 
 /*====== Main Header ======*/
+
+.div_header{
+  display: flex;
+  flex-direction: column;
+}
+
 .main-header {
   padding: 15px 0;
   background-color: rgb(222, 188, 238);
@@ -148,19 +154,36 @@ hr {
   display: none;
 }
 
-.left-navbar{
-  margin-left: 150px;
+.main-navbar-nologueado{
+  display: contents;
+}
+
+.left_navbar_logueado{
+  margin-left: 30px;
   font-size: 1.5em;
 }
 
-.right-navbar{
-  margin-right: 15px;
+.left-navbar-nologueado{
+  margin-left: 30px;
+}
+
+.right_navbar_logueado{
+  margin-right: 20px;
   font-size: 1.5em;
+}
+
+.right-navbar-nologueado{
+  margin-right: 50px;
+}
+
+.li_header{
+  margin-right: 30px;
 }
 
 .texto{
   font-family: 'Gudea', sans-serif;
   font-weight: bold;
+  font-size: 20px;
 }
 
 .form_logout{
@@ -171,7 +194,7 @@ hr {
   background: transparent;
   border: 0px;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 20px;
   font-family: 'Gudea', sans-serif;
   font-weight: bold;
 }
@@ -200,6 +223,11 @@ hr {
 }
 
 .container_nav{
+  display: flex;
+  justify-content: space-between;
+}
+
+.container_nav_logueado{
   display: flex;
   justify-content: space-between;
 }

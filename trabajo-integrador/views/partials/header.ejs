@@ -1,5 +1,6 @@
 
 <header class="main-header">
+<div class="div_header">
     <div class="container_header">
         <div class="seccion_header" class="row align-items-center">
             <div class="col-5 col-md-2">
@@ -17,21 +18,21 @@
         </div>
     </div>
         <% if (userLogueado === true){%>
-        <div class="container_nav">
+        <div class="container_nav_logueado">
                 <nav class="seccion_header" class="main-navbar">
-                    <ul class="left-navbar">
-                        <li><a class="texto" href="/">Todos los productos</a></li>
+                    <ul class="left-navbar left_navbar_logueado">
+                        <li><a class="texto li_header" href="/">Todos los productos</a></li>
                         <li><a class="texto" href="/zapatos/productAdd">Cargar productos</a></li>
                     </ul>
         
-                    <ul class="right-navbar">
-                        <li><a class="texto"  href="/users/profile">
+                    <ul class="right-navbar right_navbar_logueado">
+                        <li><a class="texto" href="/users/profile">
                                 <%=catalogoZapatos.usuario.nombre%> <i class="fas fa-user"></i>
                             </a>
                         </li>
                         <li>
                             <form class="form_logout" action="/users/login" method="get">
-                                <button class="logout" type="submit">
+                                <button class="logout li_header" type="submit">
                                     Cerrar sesión <i class="fas fa-sign-in-alt"></i>
                                 </button>
                             </form>
@@ -42,18 +43,18 @@
         
         <%} else{%>
         <div class="container_nav"> 
-                <nav class="main-navbar">
-                    <ul class="left-navbar">
-                        <li><a href="/">Todos los productos</a></li>
+                <nav class="main-navbar-nologueado">
+                    <ul class="left-navbar-nologueado">
+                        <li><a class="texto" href="/">Todos los productos</a></li>
                     </ul>
         
-                    <ul class="right-navbar">
+                    <ul class="right-navbar right-navbar-nologueado">
                         <li>
-                            <a href="/users/register">Creá tu cuenta <i class="far fa-address-card"></i>
+                            <a class="texto" href="/users/register">Creá tu cuenta <i class="far fa-address-card"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+                            <a class="texto" href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
                         </li>
                     </ul>
                 </nav>
@@ -61,4 +62,5 @@
         <%}%>
         
     </div>
+</div>
 </header>
