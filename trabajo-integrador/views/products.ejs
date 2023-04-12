@@ -12,8 +12,7 @@
 		    </div>
 
             <div class="product-detail">
-			<div class="product-detail">
-
+		
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="/<%= catalogoZapatos.productos[0].imagen %>" alt="" class="product-detail-img">
@@ -28,18 +27,18 @@
 							<div class="data">
 								<p class="user">
 								<strong> <a href="/users/profile">Nombre usuario: <%= catalogoZapatos.usuario.nombre %></a> </strong>
+								<p> Comentarios:</p>
                                 <%for(let j=0;j<catalogoZapatos.productos[0].comentarios.length;j++){ %>
-									<p>Comentarios: <%= catalogoZapatos.productos[0].comentarios[j].texto%> </p>
+									<p> <%= catalogoZapatos.productos[0].comentarios[j].texto%> </p>
 									<%}%>
 								</p>
-					</div>
+					        </div>
 						</article>
-					    </section>
+					 </section>
 					<form class="form" action="" method="POST">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
-					<hr>
 				</div>
 			</div>
 		</div>
