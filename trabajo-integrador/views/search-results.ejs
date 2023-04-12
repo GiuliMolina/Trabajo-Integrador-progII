@@ -10,18 +10,19 @@
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12">  
                 <section class="product-box search">
-                        <!-- <figure class="product-box_image"> -->
+                        <figure class="product-box_image">
                             <div class="searchdiv-img">
                                 <img class="imgsearch" src='/<%=catalogoZapatos.productos[2].imagen %>' alt='/<%= catalogoZapatos.productos[2].nombre%>'>
                             </div>
                             
-                        <!-- </figure> -->
+                        </figure> 
                         <article class="product-box_data">
                             <h2> <%= catalogoZapatos.productos[2].nombre%> </h2>
                             <p> Descripción: <%= catalogoZapatos.productos[2].descripcion%> </p>
+                            <p>Comentarios:</p>
                             <%
                             for(let i=0;i<catalogoZapatos.productos[2].comentarios.length;i++){ %>
-                            <p>Comentarios: <%= catalogoZapatos.productos[2].comentarios[i].texto%> </p>
+                            <p> <%= catalogoZapatos.productos[2].comentarios[i].texto%> </p>
                             <%}%>
                             
                         </article>

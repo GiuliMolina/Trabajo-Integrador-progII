@@ -21,7 +21,7 @@
 				<div>
 					<ul class="">
 						<li>8 productos</li>
-						<li>200 seguidores</li>
+						<li>10.000 seguidores</li>
 						<li>300 comentarios</li>
 					</ul>
 				</div>
@@ -50,11 +50,12 @@
                         <article class="product-box_data">
                             <h2> <%= catalogoZapatos.productos[i].nombre%> </h2>
                             <p> Descripción: <%= catalogoZapatos.productos[i].descripcion%> </p>
+							<p> Comentarios:</p>
                             <%
                             for(let j=0;j<catalogoZapatos.productos[i].comentarios.length;j++){ %>
-                            <img class='fotocomentarios' src="<%=catalogoZapatos.productos[i].comentarios[j].imagen%>">
+                            <img class='fotocomentarios' src="/<%=catalogoZapatos.productos[i].comentarios[j].imagen %>">
                             <h3> <%=catalogoZapatos.productos[i].comentarios[j].nombre%> </h3>
-                            <p>Comentarios: <%= catalogoZapatos.productos[i].comentarios[j].texto%> </p>
+                            <p> <%= catalogoZapatos.productos[i].comentarios[j].texto%> </p>
                             <%}%>
                             
                         </article>
