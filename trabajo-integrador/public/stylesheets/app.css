@@ -232,6 +232,9 @@ hr {
   overflow: hidden;
   transition: 300ms;
   margin: 20px 0;
+}
+
+section.product-box.search {
   width: 40%;
   height: 98%;
 }
