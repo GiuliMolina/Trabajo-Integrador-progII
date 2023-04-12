@@ -232,6 +232,8 @@ hr {
   overflow: hidden;
   transition: 300ms;
   margin: 20px 0;
+  width: 40%;
+  height: 98%;
 }
 
 .product-box a {
