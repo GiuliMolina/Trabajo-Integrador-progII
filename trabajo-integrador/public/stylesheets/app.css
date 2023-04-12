@@ -148,8 +148,13 @@ hr {
   display: none;
 }
 
-.left-navbar,
-.right-navbar {
+.left-navbar{
+  margin-left: 150px;
+  font-size: 1.5em;
+}
+
+.right-navbar{
+  margin-right: 15px;
   font-size: 1.5em;
 }
 
@@ -183,21 +188,20 @@ hr {
 }
 
 .seccion_header {
-  display: flex;
+  display: contents;
   width: 50%;
   align-items: center;
 }
 
 .container_header{
   display: flex;
+  width:50%;
+  margin-bottom: 30px;
 }
 
 .container_nav{
   display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  justify-content: space-between;
 }
 
 /*====== Banner ======*/
