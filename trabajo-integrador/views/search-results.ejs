@@ -8,26 +8,27 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12">  
-                <section class="product-box search">
-                        <figure class="product-box_image">
-                            <div class="searchdiv-img">
-                                <img class="imgsearch" src='/<%=catalogoZapatos.productos[2].imagen %>' alt='/<%= catalogoZapatos.productos[2].nombre%>'>
-                            </div>
+			
+            <section class="product-box search">
+                <figure class="product-box_image">
+                    <div class="searchdiv-img">
+                        <img class="imgsearch" src='/<%=catalogoZapatos.productos[2].imagen %>' alt='/<%= catalogoZapatos.productos[2].nombre%>'>
+                    </div>
                             
-                        </figure> 
-                        <article class="product-box_data">
-                            <h2> <%= catalogoZapatos.productos[2].nombre%> </h2>
-                            <p> Descripción: <%= catalogoZapatos.productos[2].descripcion%> </p>
-                            <p>Comentarios:</p>
-                            <%
-                            for(let i=0;i<catalogoZapatos.productos[2].comentarios.length;i++){ %>
+                </figure> 
+                <article class="product-box_data">
+                    <h2> <%= catalogoZapatos.productos[2].nombre%> </h2>
+                        <p> Descripción: <%= catalogoZapatos.productos[2].descripcion%> </p>
+                        <p> Comentarios:</p>
+                        <%
+                        for(let i=0;i<catalogoZapatos.productos[2].comentarios.length;i++){ %>
+                            <img  class='fotocomentarios' src="/<%=catalogoZapatos.productos[2].comentarios[i].imagen%>">
+                            <h3> <%=catalogoZapatos.productos[2].comentarios[i].nombre%> </h3>
                             <p> <%= catalogoZapatos.productos[2].comentarios[i].texto%> </p>
-                            <%}%>
+                        <%}%>
                             
-                        </article>
-				</section>
-            </h2>
+                </article>
+			</section>
         </div>
     </div>
 
