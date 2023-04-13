@@ -617,6 +617,20 @@ button.registrarse {
   margin: auto;
 }
 
+a.btn.mt-3.ml-4.seguir {
+  background-color: purple;
+}
+
+button.agregarproducto {
+  color: purple;
+  position: relative;
+  margin: auto;
+  margin-left: 1%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 15%;
+}
+
 img.imgsearch {
   width: 95%;
 }
