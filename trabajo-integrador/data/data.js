@@ -12,7 +12,7 @@ let data = {
     {
       imagen: './images/amarillo.webp',
       nombre: 'Topper amarillas',
-      descripcion: 'Zapatillas, sneaker, deportivas amarilla, blanca, gris y negra de marca TOPPER. Talle disponibles: 36, 37,39,40,41' ,
+      descripcion: 'Zapatillas, sneaker, deportivas amarilla, blanca, gris y negra de marca TOPPER. Talles disponibles: 36, 37,39,40,41' ,
       comentarios:[ {
         nombre: 'Biza',
         texto: 'Son cómodas, pero los colores disponibles no están tan buenos',
@@ -45,7 +45,7 @@ let data = {
     },{
       imagen: './images/celeste.webp',
       nombre: 'Zapatillas celeste',
-      descripcion: 'Zapatillas celestes, deportivas. Color: celeste. Talle disponibles: 38, 41, 42 ' ,
+      descripcion: 'Zapatillas celestes, deportivas. Color: celeste. Talles disponibles: 38, 41, 42 ' ,
       comentarios:[ {
         nombre: 'Harry Styles',
         texto: 'I loved them, I am going to use them in my next show',
@@ -61,7 +61,7 @@ let data = {
     },{
       imagen: './images/color.webp',
       nombre: 'Nike botitas coloridas',
-      descripcion: 'Botitas coloridas, urbanas. Talle disponible: 36, 38, 39, 40' ,
+      descripcion: 'Botitas coloridas, urbanas. Talles disponible: 36, 38, 39, 40' ,
       comentarios:[ {
         nombre: 'Emi Mernes',
         texto: 'Las amooooo!!! Maravilloso diseño!!',
@@ -77,7 +77,7 @@ let data = {
     },{
       imagen: './images/converse_negra.webp',
       nombre: 'Converse All Star negras',
-      descripcion: 'Ideales para recorrer la ciudad todos los días.Un calzado súper cómodo y duradero diseñado con el clásico estilo de la marca. Confeccionadas en textil con suela de goma.. Color: negro. Talle diponibles: 39, 40, 41, 42' ,
+      descripcion: 'Ideales para recorrer la ciudad todos los días.Un calzado súper cómodo y duradero diseñado con el clásico estilo de la marca. Confeccionadas en textil con suela de goma.. Color: negro. Talles diponibles: 39, 40, 41, 42' ,
       comentarios:[ {
         nombre: 'Robert Pattinson',
         texto: 'They are beautiful. I loved them. It is the first time that he used this brand. And I loved them. I am going to buy others. Very nice quality.',
@@ -141,7 +141,7 @@ let data = {
     },{
       imagen: './images/nike_negras.webp',
       nombre: 'Nike Air Force negras y blanco',
-      descripcion: 'Zapatillas urbanas originales. Talle disponibles: 37, 38, 40' ,
+      descripcion: 'Zapatillas urbanas originales. Talles disponibles: 37, 38, 40' ,
       comentarios:[ {
         nombre: 'Leonardo Dicaprio',
         texto: 'I loved these shoes',
@@ -158,7 +158,7 @@ let data = {
     ,{
       imagen: './images/vans_botita.jpeg',
       nombre: 'Vans negras',
-      descripcion: 'Zapatillas urbanas súper cómodas. Talle disponible: 26, 37, 38, 39. ' ,
+      descripcion: 'Zapatillas urbanas súper cómodas. Talles disponible: 26, 37, 38, 39. ' ,
       comentarios:[ {
         nombre: 'Chano',
         texto: 'Combinan absolutamente con todo!',
