@@ -1,66 +1,66 @@
 
 <header class="main-header">
-<div class="div_header">
-    <div class="container_header">
-        <div class="seccion_header" class="row align-items-center">
-            <div class="col-5 col-md-2">
-                <a href="/" class="main-header_home-link">
-                    <img class="logo" src="/images/LOGO.png">
-                </a>
+    <div class="div_header">
+        <div class="container_header">
+            <div class="seccion_header" class="row align-items-center">
+                <div class="col-5 col-md-2">
+                    <a href="/" class="main-header_home-link">
+                        <img class="logo" src="/images/LOGO.png">
+                    </a>
+                </div>
+            
+                <div class="col-7 col-md-6">
+                    <form action="/zapatos/searchResults/Zapatillasceleste" method="GET" class="search-form">
+                        <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input" value="">
+                        <button type="submit" class="search-form_button">Buscar<i class="fas fa-search"></i></button>
+                    </form>
+                </div>
             </div>
-        
-            <div class="col-7 col-md-6">
-                <form action="/zapatos/searchResults/Zapatillasceleste" method="GET" class="search-form">
-                    <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input" value="">
-                    <button type="submit" class="search-form_button">Buscar<i class="fas fa-search"></i></button>
-                </form>
+        </div>
+            <% if (userLogueado === true){%>
+            <div class="container_nav_logueado">
+                    <nav class="seccion_header" class="main-navbar">
+                        <ul class="left-navbar left_navbar_logueado">
+                            <li><a class="texto li_header" href="/">Todos los productos</a></li>
+                            <li><a class="texto" href="/zapatos/productAdd/Vansnegras">Cargar productos</a></li>
+                        </ul>
+            
+                        <ul class="right-navbar right_navbar_logueado">
+                            <li><a class="texto" href="/users/profile">
+                                    <%=catalogoZapatos.usuario.nombre%> <i class="fas fa-user"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <form class="form_logout" action="/users/login" method="get">
+                                    <button class="logout li_header" type="submit">
+                                        Cerrar sesión <i class="fas fa-sign-in-alt"></i>
+                                    </button>
+                                </form>
+                            </li> 
+                        </ul>
+                    </nav>
             </div>
+            
+            <%} else{%>
+            <div class="container_nav"> 
+                    <nav class="main-navbar-nologueado">
+                        <ul class="left-navbar-nologueado">
+                            <li><a class="texto" href="/">Todos los productos</a></li>
+                        </ul>
+            
+                        <ul class="right-navbar right-navbar-nologueado">
+                            <li>
+                                <a class="texto" href="/users/register">Creá tu cuenta <i class="far fa-address-card"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="texto" href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+            </div>
+            <%}%>
+            
         </div>
     </div>
-        <% if (userLogueado === true){%>
-        <div class="container_nav_logueado">
-                <nav class="seccion_header" class="main-navbar">
-                    <ul class="left-navbar left_navbar_logueado">
-                        <li><a class="texto li_header" href="/">Todos los productos</a></li>
-                        <li><a class="texto" href="/zapatos/productAdd/Vansnegras">Cargar productos</a></li>
-                    </ul>
-        
-                    <ul class="right-navbar right_navbar_logueado">
-                        <li><a class="texto" href="/users/profile">
-                                <%=catalogoZapatos.usuario.nombre%> <i class="fas fa-user"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <form class="form_logout" action="/users/login" method="get">
-                                <button class="logout li_header" type="submit">
-                                    Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-                                </button>
-                            </form>
-                        </li> 
-                    </ul>
-                </nav>
-        </div>
-        
-        <%} else{%>
-        <div class="container_nav"> 
-                <nav class="main-navbar-nologueado">
-                    <ul class="left-navbar-nologueado">
-                        <li><a class="texto" href="/">Todos los productos</a></li>
-                    </ul>
-        
-                    <ul class="right-navbar right-navbar-nologueado">
-                        <li>
-                            <a class="texto" href="/users/register">Creá tu cuenta <i class="far fa-address-card"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="texto" href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-                        </li>
-                    </ul>
-                </nav>
-        </div>
-        <%}%>
-        
-    </div>
-</div>
-</header>
+    </header>
