@@ -26,7 +26,6 @@ const controladorProducts = {
 
 }    
     
-module.exports = {controladorProducts}
-
+module.exports = controladorProducts
 
   

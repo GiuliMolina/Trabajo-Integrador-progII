@@ -10,7 +10,7 @@ const controladorIndex = {
 }
 
     
-module.exports = {controladorIndex}
+module.exports = controladorIndex
 
 
   

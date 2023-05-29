@@ -45,6 +45,7 @@ VALUES ('tomasm@gmail.com','tomas1234','foto', '2000-05-17', 95469117),
 ('marianal@gmail.com','mariana1234','foto', '2003-08-06', 21345879),
 ('sebass@gmail.com','sebas1234','foto','2004-05-06' , 63187653);
 
+
 INSERT INTO `productos` (usuario_id, nombre_producto, descripcion)
 VALUES (1, 'Zapatillas celestes', 'Todos los talles disponibles'),
 (2, 'Zapatillas negras', 'Todos los talles disponibles'),
