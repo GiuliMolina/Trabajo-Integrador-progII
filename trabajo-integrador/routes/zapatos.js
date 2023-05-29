@@ -3,9 +3,9 @@ const router = express.Router()
 const productsController = require ('../contollers/productsController')
 
 
-router.get('/:id', productsController.controladorProducts.products)
-router.get('/productAdd/:producto',productsController.controladorProducts.productAdd)
-router.get('/searchResults/:producto',productsController.controladorProducts.searchResults)
+router.get('/:id', productsController.products)
+router.get('/productAdd/:producto',productsController.productAdd)
+router.get('/searchResults/:producto',productsController.searchResults)
 
 
 module.exports = router

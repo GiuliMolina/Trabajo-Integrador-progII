@@ -9,7 +9,7 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <form action="/users/profile" method="GET">
+			<h2 class="col-12 container_register"> <form action="/users/profile" method="GET">
 				<ul>
 					<li>
 						<p> Imagen:<input type="file" name="imagen" placeholder="imagen" value=""></p>
@@ -24,11 +24,13 @@
 						<p>Fecha de carga: <input type="date" name="date" value=""></p>
 					</li>
 					<li>
-						<button type="submit" class="search-form_button">Agregar producto<i class="fas fa-search"></i></button>
+						<button type="submit" class="agregarproducto">Agregar producto<i class="fas fa-search"></i></button>
 					</li>
 				</ul>
 			</form>
 			</h2>
+		</div>
+	</div>
     <%- include('./partials/footer')%>
 </body>
 

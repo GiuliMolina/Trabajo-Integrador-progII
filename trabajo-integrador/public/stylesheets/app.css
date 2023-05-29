@@ -73,6 +73,12 @@ hr {
 
 
 /*====== Main Header ======*/
+
+.div_header{
+  display: flex;
+  flex-direction: column;
+}
+
 .main-header {
   padding: 15px 0;
   background-color: rgb(222, 188, 238);
@@ -148,14 +154,36 @@ hr {
   display: none;
 }
 
-.left-navbar,
-.right-navbar {
+.main-navbar-nologueado{
+  display: contents;
+}
+
+.left_navbar_logueado{
+  margin-left: 30px;
   font-size: 1.5em;
+}
+
+.left-navbar-nologueado{
+  margin-left: 30px;
+}
+
+.right_navbar_logueado{
+  margin-right: 20px;
+  font-size: 1.5em;
+}
+
+.right-navbar-nologueado{
+  margin-right: 50px;
+}
+
+.li_header{
+  margin-right: 30px;
 }
 
 .texto{
   font-family: 'Gudea', sans-serif;
   font-weight: bold;
+  font-size: 20px;
 }
 
 .form_logout{
@@ -166,7 +194,7 @@ hr {
   background: transparent;
   border: 0px;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 20px;
   font-family: 'Gudea', sans-serif;
   font-weight: bold;
 }
@@ -183,21 +211,25 @@ hr {
 }
 
 .seccion_header {
-  display: flex;
+  display: contents;
   width: 50%;
   align-items: center;
 }
 
 .container_header{
   display: flex;
+  width:50%;
+  margin-bottom: 30px;
 }
 
 .container_nav{
   display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  justify-content: space-between;
+}
+
+.container_nav_logueado{
+  display: flex;
+  justify-content: space-between;
 }
 
 /*====== Banner ======*/
@@ -217,7 +249,7 @@ hr {
 /*====== Products ======*/
 .products-wrapper {
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 150px;
 }
 
 .products-title {
@@ -330,7 +362,7 @@ section.product-box.search {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color: rgb(222, 188, 238);
   padding: 20px 0;
   margin-top: 80px;
 }
@@ -563,12 +595,40 @@ button.ingresar {
   color: purple;
   position: relative;
   margin: auto;
+  margin-left: 1%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 10%;
+}
+
+button.edit {
+  color: purple;
+  position: relative;
+  margin: auto;
+  margin-left: 1%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 15%;
 }
 
 button.registrarse {
   color: purple;
   position: relative;
   margin: auto;
+}
+
+a.btn.mt-3.ml-4.seguir {
+  background-color: purple;
+}
+
+button.agregarproducto {
+  color: purple;
+  position: relative;
+  margin: auto;
+  margin-left: 1%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 15%;
 }
 
 img.imgsearch {

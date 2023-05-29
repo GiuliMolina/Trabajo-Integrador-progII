@@ -30,7 +30,7 @@ const controladorUsers = {
 
 
     
-module.exports = {controladorUsers}
+module.exports = controladorUsers
 
 
   
