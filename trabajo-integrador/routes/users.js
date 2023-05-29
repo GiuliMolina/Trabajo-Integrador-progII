@@ -8,3 +8,4 @@ router.get('/login',usersController.controladorUsers.login)
 router.get('/register',usersController.controladorUsers.register)
 
 module.exports = router;
+   
