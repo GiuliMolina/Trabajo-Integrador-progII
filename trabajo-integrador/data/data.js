@@ -140,7 +140,7 @@ let data = {
       id:7
     },{
       imagen: './images/nike_negras.webp',
-      nombre: 'Nike Air Force negras y blanco',
+      nombre: 'Nike Air Force negras y blancas',
       descripcion: 'Zapatillas urbanas originales. Talles disponibles: 37, 38, 40' ,
       comentarios:[ {
         nombre: 'Leonardo Dicaprio',
