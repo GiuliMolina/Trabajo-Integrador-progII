@@ -32,6 +32,32 @@ db.Producto.findAll({
     include:[
         {association: "user"},
         {association: "comentario"}
-
     ]
+    .then(function(data){
+
+    })
+    .catch(function(error){
+        console.log(error)
+    })
 })
+
+const controladorProducts = {
+    products: function(req, res){
+        db.Producto.findAll({
+            include:[
+                {association: "user"},
+                {association: "comentario"}
+            ]
+            .then(function(data){
+                res.render('products.ejs',{
+                    idProducto:req.params.id,
+                    catalogoZapatos:zapatos,
+                    userLogueado: false
+                })
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+        })
+    },   
+}
