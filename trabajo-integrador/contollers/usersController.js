@@ -36,6 +36,7 @@ db.User.findAll({
         {association: 'comentario'}
    ]
    .then(function(data){
+    console.log(data)
 
   })
      .catch(function(error){
