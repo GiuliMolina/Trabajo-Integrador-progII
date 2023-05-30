@@ -57,6 +57,6 @@ module.exports = function(sequelize,DataTypes){
             )
     }
 
-        return Comentarios
+    return Comentario
 }
 
