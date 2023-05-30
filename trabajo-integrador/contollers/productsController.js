@@ -30,8 +30,8 @@ const db = require('../database/models');
 
 db.Producto.findAll({
     include:[
-        {association: "user"},
-        {association: "comentario"}
+        {association: 'user'},
+        {association: 'comentario'}
     ]
     .then(function(data){
 
