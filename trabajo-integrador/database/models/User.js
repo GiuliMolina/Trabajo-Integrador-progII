@@ -4,11 +4,14 @@ module.exports = function(sequelize, dataTypes){
         id: {
             primaryKey : true,
             autoincrement: true,
-            type:  dataTypes.INTEGER
+            type:  dataTypes.INTEGER,
+            unsigned: true,
+            allowNull: false,
         },
         email: {
             type: dataTypes.STRING,
             unique: true,
+            allowNull: false,
         },
         password: {
             type: dataTypes.STRING,
@@ -24,6 +27,7 @@ module.exports = function(sequelize, dataTypes){
         dni: {
             type: dataTypes.INTEGER,
             allownull: false,
+            unique: true,
         },
         createdAd:{
             type: dataTypes.DATE,
