@@ -1,4 +1,5 @@
-// const zapatos = require('../data/data')
+const zapatos = require('../data/data')
+const db = require('../database/models/Producto');
 
 // const controladorProducts = {
 //     products: function(req, res){
@@ -21,29 +22,13 @@
 //             nombre: req.params.nombre,
 //         })
 //     }
-
 // }    
     
-// module.exports = controladorProducts
-
-const db = require('../database/models');
-
-db.Producto.findAll({
-    include:[
-        {association: "user"},
-        {association: "comentario"}
-    ]
-    .then(function(data){
-
-    })
-    .catch(function(error){
-        console.log(error)
-    })
-})
-
 const controladorProducts = {
     products: function(req, res){
         db.Producto.findAll({
+            raw: true,
+            nested:true,
             include:[
                 {association: "user"},
                 {association: "comentario"}
@@ -61,3 +46,5 @@ const controladorProducts = {
         })
     },   
 }
+
+module.exports = controladorProducts
