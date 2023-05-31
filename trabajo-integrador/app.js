@@ -24,6 +24,29 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use ('/zapatos',zapatosRouter);
 
+app.use(session({
+  secret:"Mensaje oculto",
+  resave:false,
+  saveUnintialized:true
+}));
+
+app.use(function(req,res,next){
+  req.session.user ={
+    name: "Desmond",
+    mail: "Desrattagan@gmai.com"
+  }
+});
+
+app.use(function(req,res,next){
+  res.locals.usuarioLogueado = {
+    nombreDeUsuario: "Justin"
+  };
+  if(req.session.usuarioLogueado != undefined){
+    res.locals.user = req.session.usuarioLogueado
+  };
+  return next();
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

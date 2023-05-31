@@ -47,10 +47,14 @@ const controladorProducts = {
         })
     },   
     productAdd: function(req,res){
-        res.render('product-add.ejs',{
-            catalogoZapatos:zapatos,
-            userLogueado: true
-        })
+        if(req.session.user != undefined){
+            res.render('product-add.ejs',{
+                catalogoZapatos:zapatos,
+                userLogueado: true
+            })
+        }else{
+            res.redirect('/')
+        }
     },
     searchResults:function(req,res){
         res.render('search-results.ejs',{
