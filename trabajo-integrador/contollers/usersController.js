@@ -62,10 +62,12 @@ const controladorUsers = {
             res.locals.errors = errors;
             return res.render('register')
         }
-       
 
-       
+        if(email = undefined){//falta la condición de que no se repita
+           errors.message = 'Su mail es inválido'
+        } 
     },
+
     login: function(req,res){
         let {email, password, recordarme} = req.body
         db.User.findOne({
