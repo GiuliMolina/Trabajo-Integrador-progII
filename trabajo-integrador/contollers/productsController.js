@@ -15,13 +15,13 @@ const db = require('../database/models/Producto');
 //             userLogueado: true
 //         })
 //     },
-//     searchResults:function(req,res){
-//         res.render('search-results.ejs',{
-//             catalogoZapatos:zapatos,
-//             userLogueado: false,
-//             nombre: req.params.nombre,
-//         })
-//     }
+    // searchResults:function(req,res){
+    //     res.render('search-results.ejs',{
+    //         catalogoZapatos:zapatos,
+    //         userLogueado: false,
+    //         nombre: req.params.nombre,
+    //     })
+    // }
 // }    
     
 const controladorProducts = {
@@ -45,6 +45,19 @@ const controladorProducts = {
             })
         })
     },   
+    productAdd: function(req,res){
+        res.render('product-add.ejs',{
+            catalogoZapatos:zapatos,
+            userLogueado: true
+        })
+    },
+    searchResults:function(req,res){
+        res.render('search-results.ejs',{
+            catalogoZapatos:zapatos,
+            userLogueado: false,
+            nombre: req.params.nombre,
+        })
+    }
 }
 
 module.exports = controladorProducts
