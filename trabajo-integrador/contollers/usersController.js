@@ -82,12 +82,12 @@ const controladorUsers = {
                     name: user.name,
                     email: user.email,
                 }
-                if(recordarme === 'on'){
-                    res.cookie(
-                        
-                    )
-                }
-            }
+            //     if(recordarme === 'on'){
+            //         res.cookie(
+
+            //         )
+            //     }
+             }
         })
         res.render('login.ejs',{
             catalogoZapatos:zapatos,
