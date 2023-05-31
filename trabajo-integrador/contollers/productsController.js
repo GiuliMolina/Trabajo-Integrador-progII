@@ -27,25 +27,25 @@ const bcrypt = require('bcryptjs')
     
 const controladorProducts = {
     products: function(req, res){
-        db.Producto.findAll({
+        let id = req.params.id;
+        db.Producto.findByPk(id,{
             raw: true,
-            nested:true,
-            include:[
-                {association: "user"},
-                {association: "comentario"}
-            ]
+            nested:true,include:[
+            {association: "user"},
+            {association: "comentario"}
+        ]
+        })
             .then(function(data){
                 res.render('products.ejs',{
                     idProducto:req.params.id,
                     catalogoZapatos:zapatos,
-                    userLogueado: false
+                    // userLogueado: [false,true]
                 })
             })
             .catch(function(error){
                 console.log(error)
             })
-        })
-    },   
+    },
     productAdd: function(req,res){
         if(req.session.user != undefined){
             res.render('product-add.ejs',{
@@ -70,6 +70,28 @@ const controladorProducts = {
             res.redirect('/zapatos/productAdd')
         })
     },
+    edit: function(req,res){
+        let id = req.params.id
+        let errors = {}
+
+        if(userLogueado == user){
+            db.Producto.findByPk(id)
+                .then(function(data){
+                    res.redirect('product-edit.ejs',{
+                        userLogueado:true,
+                        user:user,
+                    })
+                })
+                .catch(function(error){
+                    console.log(error)
+                })
+        }else{
+            errors.message = "No puedes editar este producto";
+            res.locals.errors = errors;
+            return res.render('products')
+        }
+        
+    },
     searchResults:function(req,res){
         res.render('search-results.ejs',{
             catalogoZapatos:zapatos,
@@ -78,5 +100,4 @@ const controladorProducts = {
         })
     }
 }
-
 module.exports = controladorProducts
