@@ -35,13 +35,6 @@ const controladorUsers = {
         })
     },
 
-    login: function(req,res){
-        res.render('login.ejs',{
-            catalogoZapatos:zapatos,
-            userLogueado: false
-        })
-    },
-
     register:function(req,res){
         let name = req.body.name
         let email = req.body.email
@@ -72,6 +65,34 @@ const controladorUsers = {
        
 
        
+    },
+    login: function(req,res){
+        let {email, password, recordarme} = req.body
+        db.User.findOne({
+            where:{
+                email: email
+            },
+            raw: true
+        })
+        .then(function(user){
+            let compararPass = bcrypt.compareSync(password, user.password)
+            if(compararPass){
+                req.session.user = {
+                    id : user.id,
+                    name: user.name,
+                    email: user.email,
+                }
+                if(recordarme === 'on'){
+                    res.cookie(
+                        
+                    )
+                }
+            }
+        })
+        res.render('login.ejs',{
+            catalogoZapatos:zapatos,
+            userLogueado: false
+        })
     },
 
     update: function(req, res){
