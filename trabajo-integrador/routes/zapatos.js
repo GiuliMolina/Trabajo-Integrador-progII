@@ -4,7 +4,10 @@ const productsController = require ('../contollers/productsController')
 
 
 router.get('/:id', productsController.products)
+
 router.get('/productAdd/:producto',productsController.productAdd)
+router.post('/productAdd/create',productsController.create)
+
 router.get('/searchResults/:producto',productsController.searchResults)
 
 

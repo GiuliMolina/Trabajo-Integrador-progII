@@ -30,19 +30,24 @@ app.use(session({
   saveUnintialized:true
 }));
 
-app.use(function(req,res,next){
-  req.session.user ={
-    name: "Desmond",
-    mail: "Desrattagan@gmai.com"
-  }
-});
+// app.use(function(req,res,next){
+//   req.session.user ={
+//     name: "Justin Bieber",
+//     mail: "justinb@gmail.com"
+//   }
+// });
 
 app.use(function(req,res,next){
-  res.locals.usuarioLogueado = {
-    nombreDeUsuario: "Justin"
-  };
-  if(req.session.usuarioLogueado != undefined){
-    res.locals.user = req.session.usuarioLogueado
+  console.log(req.cookies.rememberMe)
+
+  // res.locals.usuarioLogueado = {
+  //   nombreDeUsuario: "Justin"
+  // };
+  if(req.session.user !== undefined){
+    res.locals.usuarioLogueado = true
+    res.locals.user = req.session.user
+  }else{
+    res.locals.usuarioLogueado = false
   };
   return next();
 });

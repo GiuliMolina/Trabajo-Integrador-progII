@@ -56,6 +56,20 @@ const controladorProducts = {
             res.redirect('/')
         }
     },
+    create: function(req,res){
+        let {imagen,nombre,text,date} = req.body
+
+        db.Producto.create({
+            imagen: imagen,
+            nombre:nombre,
+            descripcion:text,
+            fechaDeCarga: date,
+        })
+        .then(function(data){
+            console.log(data.id)
+            res.redirect('/zapatos/productAdd')
+        })
+    },
     searchResults:function(req,res){
         res.render('search-results.ejs',{
             catalogoZapatos:zapatos,

@@ -1,36 +1,36 @@
-module.exports = function(sequelize,DataTypes){
-    let alias= Comentario;
-    let cols={
+module.exports = function (sequelize, dataTypes) {
+    let alias = 'Comentario';
+    let cols = {
         id:{
             primaryKey: true,
             autoIncrement:true,
             allowNull:false,
             unsigned: true,
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         id_post:{
            unsigned: true,
-           type: DataTypes.INTEGER,
+           type: dataTypes.INTEGER,
            allowNull:false
 
         },
         usuario_id:{
             unsigned: true,
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             allowNull:false
         },
         comentario:{
-            type:DataTypes.STRING,
-            allowNull: False
+            type:dataTypes.STRING,
+            allowNull: false
         },
         created_at:{
-            type: DataTypes.DATE
+            type: dataTypes.DATE
         },
         updated_at:{
-            type: DataTypes.DATE
+            type: dataTypes.DATE
         },
         deleted_at:{
-            type: DataTypes.DATE
+            type: dataTypes.DATE
         }
 
     };
@@ -41,22 +41,17 @@ module.exports = function(sequelize,DataTypes){
         underscored: true
     };
 
-    const Comentario = sequelize.define(alias,cols,config);
+    const Comentarios = sequelize.define(alias,cols,config);
         
-    Comentario.associate = function(models){
-        Comentario.belongsto(models.User,{
+    Comentarios.associate = function(models){
+        Comentarios.belongsTo(models.User,{
             as:'user',
             foreignKey: 'fk_comentarios_usuarios'
-            }
-            ),
-        Comentario.belongsto(models.Producto,{
+            }),
+        Comentarios.belongsTo(models.Producto,{
             as:'producto',
             foreignKey: 'fk_comentarios_productos'
-
-            }
-            )
-    }
-
-    return Comentario
+            })
+    };
+    return Comentarios
 }
-

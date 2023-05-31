@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes){
-    let alias = "user"
+    let alias = "User"
     let cols = {
         id: {
             primaryKey : true,
@@ -49,7 +49,7 @@ module.exports = function(sequelize, dataTypes){
     const Usuarios = sequelize.define(alias, cols, config);
 
     Usuarios.associate = function(models){
-        Usuarios.hasMany(models.Prodcuto, {
+        Usuarios.hasMany(models.Producto, {
             as: 'producto',
             foreignKey: 'fk_productos_usuarios'
         })
