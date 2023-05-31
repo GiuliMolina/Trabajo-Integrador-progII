@@ -36,36 +36,40 @@ const controladorUsers = {
     },
 
     register:function(req,res){
+        
         let name = req.body.name
         let email = req.body.email
         let password = req.body.password
         let errors = {}
-
         let passEncriptada = bcrypt.hashSync(password, 10)
-        if(passEncriptada.length > 3 && passEncriptada != null){
-            db.User.create({
-                name: name,
-                email: email,
-                password: passEncriptada
-            })
-            .then(function(resp){
-                console.log(resp.id)
-                res.redirect('/users/profile')
-               
-            
-            })
-            .catch(function(error){
-                console.log(error)
-            })
-        }else{
-            errors.message = 'La contraseña debe tener al menos tres caracteres';
-            res.locals.errors = errors;
-            return res.render('register')
-        }
 
-        if(email = undefined){//falta la condición de que no se repita
-           errors.message = 'Su mail es inválido'
-        } 
+        if( user === false){
+            if(passEncriptada.length > 3 && passEncriptada != null){
+                db.User.create({
+                    name: name,
+                    email: email,
+                    password: passEncriptada
+                })
+                .then(function(resp){
+                    console.log(resp.id)
+                    res.redirect('/users/profile')
+                   
+                
+                })
+                .catch(function(error){
+                    console.log(error)
+                })
+            }else{
+                errors.message = 'La contraseña debe tener al menos tres caracteres';
+                res.locals.errors = errors;
+                return res.render('register')
+            }
+    
+            if(email = undefined){//falta la condición de que no se repita
+               errors.message = 'Su mail es inválido'
+            } 
+        }
+        
     },
 
     login: function(req,res){
