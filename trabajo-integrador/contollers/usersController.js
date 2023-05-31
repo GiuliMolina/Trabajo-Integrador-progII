@@ -49,29 +49,29 @@ const controladorUsers = {
         let errors = {}
 
         let passEncriptada = bcrypt.hashSync(password, 10)
-    
+        if(passEncriptada.length > 3 && passEncriptada != null){
+            db.User.create({
+                name: name,
+                email: email,
+                password: passEncriptada
+            })
+            .then(function(resp){
+                console.log(resp.id)
+                res.redirect('/users/profile')
+               
+            
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+        }else{
+            errors.message = 'La contraseña debe tener al menos tres caracteres';
+            res.locals.errors = errors;
+            return res.render('register')
+        }
        
 
-        .then(function(resp){
-            console.log(resp.id)
-            res.redirect('/users/profile')
-            if(passEncriptada.length > 3 && passEncriptada != null){
-                db.User.create({
-                    name: name,
-                    email: email,
-                    password: passEncriptada
-                })
-            }else{
-                errors.message = 'La contraseña debe tener al menos tres caracteres';
-                res.locals.errors = errors;
-                return res.render('register')
-            }
-        
-        })
-
-        .catch(function(error){
-            console.log(error)
-        })
+       
     },
 
     update: function(req, res){
