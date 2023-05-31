@@ -1,5 +1,6 @@
 const zapatos = require('../data/data')
 const db = require('../database/models/Producto');
+const bcrypt = require('bcryptjs')
 
 // const controladorProducts = {
 //     products: function(req, res){
