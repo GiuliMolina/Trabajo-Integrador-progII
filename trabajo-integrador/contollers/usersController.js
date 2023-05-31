@@ -20,6 +20,7 @@ const controladorUsers = {
             })
         })
     }, 
+
     profileEdit: function(req, res){
         let id = req.params.id
 
@@ -33,27 +34,39 @@ const controladorUsers = {
             console.log(error)
         })
     },
+
     login: function(req,res){
         res.render('login.ejs',{
             catalogoZapatos:zapatos,
             userLogueado: false
         })
     },
+
     register:function(req,res){
         let name = req.body.name
         let email = req.body.email
         let password = req.body.password
+        let errors = {}
 
         let passEncriptada = bcrypt.hashSync(password, 10)
-        db.User.create({
-            name,
-            email,
-            password: passEncriptada
-        })
+    
+       
 
         .then(function(resp){
             console.log(resp.id)
             res.redirect('/users/profile')
+            if(passEncriptada.length > 3 && passEncriptada != null){
+                db.User.create({
+                    name: name,
+                    email: email,
+                    password: passEncriptada
+                })
+            }else{
+                errors.message = 'La contraseña debe tener al menos tres caracteres';
+                res.locals.errors = errors;
+                return res.render('register')
+            }
+        
         })
 
         .catch(function(error){
@@ -80,7 +93,23 @@ const controladorUsers = {
         .catch(function(error){
             console.log(error)
         })
+    },
+
+    delete: function(req, res){
+        let id = req.params.id
+        db.User.destroy({
+            where: {
+                id: id
+            }
+        })
+        .then(function(resp){
+            res.redirect('/')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
     }
+
 }
 
 
