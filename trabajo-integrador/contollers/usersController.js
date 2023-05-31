@@ -44,7 +44,7 @@ const controladorUsers = {
         let email = req.body.email
         let password = req.body.password
 
-        let passEncriptada = bcrypt.hashSync(password, 8)
+        let passEncriptada = bcrypt.hashSync(password, 10)
         db.User.create({
             name,
             email,
@@ -54,6 +54,27 @@ const controladorUsers = {
         .then(function(resp){
             console.log(resp.id)
             res.redirect('/users/profile')
+        })
+
+        .catch(function(error){
+            console.log(error)
+        })
+    },
+
+    update: function(req, res){
+        let id = req.params.id
+        let {name, emai} = req.body
+        db.User.update({
+            name: name,
+            email: email,
+        }, {
+            where: {
+                id: id
+            }
+        })
+
+        .then(function(resp){
+            res.redirect('/users/profile/')
         })
 
         .catch(function(error){
