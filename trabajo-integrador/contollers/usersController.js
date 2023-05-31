@@ -1,48 +1,6 @@
 const zapatos = require('../data/data')
-
-
-// const controladorUsers = {
-//     profile: function(req,res){
-//         res.render('profile.ejs',{
-//             catalogoZapatos:zapatos,
-//             userLogueado: true
-//         })
-//     },
-//     profileEdit:function(req,res){
-//         res.render('profile-edit.ejs',{
-//             catalogoZapatos:zapatos,
-//             userLogueado: true
-//         })
-//     },
-//     login: function(req,res){
-//         res.render('login.ejs',{
-//             catalogoZapatos:zapatos,
-//             userLogueado: false
-//         })
-//     },
-//     register:function(req,res){
-//         res.render('register.ejs',{
-//             catalogoZapatos:zapatos,
-//             userLogueado: false
-//         })
-//     }
-// }
-
 const db = require('../database/models');
-
-db.User.findAll({
-    include:[
-        {association: 'producto'},
-        {association: 'comentario'}
-   ]
-   .then(function(data){
-    console.log(data)
-
-  })
-     .catch(function(error){
-        console.log(error)
-   })
-}) 
+const op = db.Sequelize.Op;
 
 const controladorUsers = {
     users: function(req, res){
@@ -52,8 +10,7 @@ const controladorUsers = {
                 {association: 'comentario'}
             ]
             .then(function(data){
-                res.render('profile.ejs',{
-                    idProducto:req.params.id,
+                res.render('profile',{
                     catalogoZapatos:zapatos,
                     userLogueado: false
                 })
@@ -62,7 +19,68 @@ const controladorUsers = {
                 console.log(error)
             })
         })
-    },   
+    }, 
+    profileEdit: function(req, res){
+        let id = req.params.id
+
+        db.User.findByPk(id)
+        .then(function(user){
+            res.render('profile-edit', {
+                user: user
+            })
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    },
+    login: function(req,res){
+        res.render('login.ejs',{
+            catalogoZapatos:zapatos,
+            userLogueado: false
+        })
+    },
+    register:function(req,res){
+        let name = req.body.name
+        let email = req.body.email
+        let password = req.body.password
+
+        let passEncriptada = bcrypt.hashSync(password, 10)
+        db.User.create({
+            name,
+            email,
+            password: passEncriptada
+        })
+
+        .then(function(resp){
+            console.log(resp.id)
+            res.redirect('/users/profile')
+        })
+
+        .catch(function(error){
+            console.log(error)
+        })
+    },
+
+    update: function(req, res){
+        let id = req.params.id
+        let {name, emai} = req.body
+        db.User.update({
+            name: name,
+            email: email,
+        }, {
+            where: {
+                id: id
+            }
+        })
+
+        .then(function(resp){
+            res.redirect('/users/profile/')
+        })
+
+        .catch(function(error){
+            console.log(error)
+        })
+    }
 }
 
 
