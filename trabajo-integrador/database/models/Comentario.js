@@ -8,13 +8,13 @@ module.exports = function (sequelize, dataTypes) {
             unsigned: true,
             type: dataTypes.INTEGER
         },
-        id_post:{
+        idPost:{
            unsigned: true,
            type: dataTypes.INTEGER,
            allowNull:false
 
         },
-        usuario_id:{
+        usuarioId:{
             unsigned: true,
             type: dataTypes.INTEGER,
             allowNull:false
@@ -23,13 +23,13 @@ module.exports = function (sequelize, dataTypes) {
             type:dataTypes.STRING,
             allowNull: false
         },
-        created_at:{
+        createdAt:{
             type: dataTypes.DATE
         },
-        updated_at:{
+        updatedAt:{
             type: dataTypes.DATE
         },
-        deleted_at:{
+        deletedAt:{
             type: dataTypes.DATE
         }
 

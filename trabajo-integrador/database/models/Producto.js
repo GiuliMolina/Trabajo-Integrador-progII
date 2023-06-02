@@ -8,12 +8,12 @@ module.exports = function (sequelize, dataTypes) {
             unsigned: true,
             allowNull: false
         },
-        usuario_id: {
+        usuarioId: {
             unsigned: true,
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        nombre_producto:{
+        nombreProducto:{
             type: dataTypes.STRING,
             allowNull: false
         },
@@ -21,13 +21,13 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.STRING,
             null: false
         },
-        created_at: {
+        createdAt: {
             type: dataTypes.DATE
         },
-        updated_at:{
+        updatedAt:{
             type: dataTypes.DATE
         },
-        deleted_at: {
+        deletedAt: {
             type: dataTypes.DATE
         },
     };
