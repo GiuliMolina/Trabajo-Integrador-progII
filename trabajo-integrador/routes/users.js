@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const usersController = require ('../contollers/usersController')
+const usersController = require('../contollers/usersController')
 
-router.get('/profile',usersController.profile)
-router.get('/profileEdit',usersController.profileEdit)
+router.get('/profile', usersController.profile)
+router.get('/profileEdit', usersController.profileEdit)
 //router.get('/login',usersController.login)
 //router.get('/register',usersController.register)
 
