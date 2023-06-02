@@ -101,16 +101,34 @@ const controladorProducts = {
         
     // },
     searchResults:function(req,res){
+        let palabraBuscada = req.query.search //falta hacer validacion de si es algo del nombre o de la descripcion
         // res.render('search-results.ejs',{
         //     catalogoZapatos:zapatos,
         //     userLogueado: false,
         //     nombre: req.params.nombre,
         // })
-        // db.Producto.findAll({
-        //     where:[
-        //         { name:{[op.like]}}
-        //     ]
-        // })
+        db.Producto.findAll({
+            where:[
+                { name:{[op.like]: palabraBuscada }} //faltan los % %, y que sea un string?
+            ],
+            order: [
+                {name:DESC} //va entre comillas?
+            ]
+        })
+        .then(function(resultado){
+            if(resultado == undefined || resultado == null){
+                console.log('No hay resultados para su criterio de búsqueda')
+            }else{
+                res.render('search-results',{
+                    catalogoZapatos:zapatos,
+                    userLogueado: false,
+                    nombre: req.params.nombre,
+                })
+            }
+        })
+        .catch(function(error){
+            console.log(error)
+        })
     }
 }
 module.exports = controladorProducts
