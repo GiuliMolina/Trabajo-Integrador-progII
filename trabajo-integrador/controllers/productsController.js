@@ -27,10 +27,16 @@ const bcrypt = require('bcryptjs')
     
 const controladorProducts = {
     products: function(req, res){
-        let id = req.params.id;
-        db.Producto.findByPk(id,{
+        let idProducto = req.params.id;
+        // res.render('products',{
+        //     catalogoZapatos:zapatos,
+        //     idProducto,
+        //     userLogueado: true
+        // })
+        db.Producto.findByPk(idProducto,{
             raw: true,
-            nested:true,include:[
+            nested:true,
+            include:[
             {association: "user"},
             {association: "comentario"}
         ]
@@ -47,7 +53,8 @@ const controladorProducts = {
             })
     },
     productAdd: function(req,res){
-        if(req.session.user == undefined){ 
+        // if(req.session.user.name == undefined){ 
+        if(userLogueado==true){ 
             res.redirect('/')
             // res.render('product-add.ejs',{
             //     catalogoZapatos:zapatos,
@@ -58,7 +65,7 @@ const controladorProducts = {
 
             db.Producto.create({
                 imagen: imagen,
-                nombre:nombre,
+                nombre: nombre,
                 descripcion:text,
                 fechaDeCarga: date,
             })
@@ -66,36 +73,44 @@ const controladorProducts = {
                 console.log(data.id)
                 res.redirect('/zapatos/productAdd')
             })
+            .catch(function(error){
+                console.log(error)
+            })
         }
     },
-    edit: function(req,res){
-        let id = req.params.id
-        let errors = {}
+    // edit: function(req,res){
+    //     let idProducto = req.params.id
+    //     let errors = {}
 
-        if(userLogueado == user){
-            db.Producto.findByPk(id)
-                .then(function(data){
-                    res.redirect('product-edit.ejs',{
-                        userLogueado:true,
-                        user:user,
-                    })
-                })
-                .catch(function(error){
-                    console.log(error)
-                })
-        }else{
-            errors.message = "No puedes editar este producto";
-            res.locals.errors = errors;
-            return res.render('products')
-        }
+    //     if(userLogueado == user){
+    //         db.Producto.findByPk(id)
+    //             .then(function(data){
+    //                 res.redirect('product-edit.ejs',{
+    //                     userLogueado:true,
+    //                     user:user,
+    //                 })
+    //             })
+    //             .catch(function(error){
+    //                 console.log(error)
+    //             })
+    //     }else{
+    //         errors.message = "No puedes editar este producto";
+    //         res.locals.errors = errors;
+    //         return res.render('products')
+    //     }
         
-    },
+    // },
     searchResults:function(req,res){
-        res.render('search-results.ejs',{
-            catalogoZapatos:zapatos,
-            userLogueado: false,
-            nombre: req.params.nombre,
-        })
+        // res.render('search-results.ejs',{
+        //     catalogoZapatos:zapatos,
+        //     userLogueado: false,
+        //     nombre: req.params.nombre,
+        // })
+        // db.Producto.findAll({
+        //     where:[
+        //         { name:{[op.like]}}
+        //     ]
+        // })
     }
 }
 module.exports = controladorProducts

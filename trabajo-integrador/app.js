@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 const zapatosRouter = require ('./routes/zapatos');
 
 var app = express();
-const session = require('express-session');
+// const session = require('express-session');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,27 +31,25 @@ app.use ('/zapatos',zapatosRouter);
 //   saveUnintialized:true
 // }));
 
+
 // app.use(function(req,res,next){
-//   req.session.user ={
+//   // console.log(req.cookies.rememberMe)
+//   req.session.user = {
 //     name: "Justin Bieber",
 //     mail: "justinb@gmail.com"
 //   }
+
+//   res.locals.userLogueado = {
+//     nombreDeUsuario: "Justin"
+//   };
+//   if(req.session.user !== undefined){
+//     res.locals.userLogueado = true
+//     res.locals.user = req.session.user
+//   }else{
+//     res.locals.userLogueado = false
+//   };
+//   return next();
 // });
-
-app.use(function(req,res,next){
-  console.log(req.cookies.rememberMe)
-
-  // res.locals.usuarioLogueado = {
-  //   nombreDeUsuario: "Justin"
-  // };
-  if(req.session.user !== undefined){
-    res.locals.usuarioLogueado = true
-    res.locals.user = req.session.user
-  }else{
-    res.locals.usuarioLogueado = false
-  };
-  return next();
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
