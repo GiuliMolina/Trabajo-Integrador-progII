@@ -1,6 +1,7 @@
 const zapatos = require('../data/data')
 const db = require('../database/models');
 const op = db.Sequelize.Op;
+let bcrypt = requiere('bcryptjs');
 
 const controladorUsers = {
     users: function(req, res){
@@ -88,17 +89,13 @@ const controladorUsers = {
                     name: user.name,
                     email: user.email,
                 }
-            //     if(recordarme === 'on'){
-            //         res.cookie(
-
-            //         )
-            //     }
-             }
+            }
+            res.render('login.ejs',{
+                catalogoZapatos:zapatos,
+                userLogueado: false
+            })
         })
-        res.render('login.ejs',{
-            catalogoZapatos:zapatos,
-            userLogueado: false
-        })
+    
     },
 
     update: function(req, res){
@@ -142,6 +139,5 @@ const controladorUsers = {
 
     
 module.exports = controladorUsers
-
 
   
