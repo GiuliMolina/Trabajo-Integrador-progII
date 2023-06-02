@@ -25,11 +25,11 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use ('/zapatos',zapatosRouter);
 
-app.use(session({
-  secret:"Mensaje oculto",
-  resave:false,
-  saveUnintialized:true
-}));
+// app.use(session({
+//   secret:"Mensaje oculto",
+//   resave:false,
+//   saveUnintialized:true
+// }));
 
 // app.use(function(req,res,next){
 //   req.session.user ={

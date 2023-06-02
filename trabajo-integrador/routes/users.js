@@ -4,8 +4,8 @@ const usersController = require ('../contollers/usersController')
 
 router.get('/profile',usersController.profile)
 router.get('/profileEdit',usersController.profileEdit)
-router.get('/login',usersController.login)
-router.get('/register',usersController.register)
+//router.get('/login',usersController.login)
+//router.get('/register',usersController.register)
 
 module.exports = router;
    
