@@ -29,13 +29,13 @@ module.exports = function(sequelize, dataTypes){
             allownull: false,
             unique: true,
         },
-        createdAd:{
+        createdAt:{
             type: dataTypes.DATE,
         },
-        updatedAd: {
+        updatedAt: {
             type: dataTypes.DATE,
         },
-        deletedAd: {
+        deletedAt: {
             type: dataTypes.DATE,
         }
     }

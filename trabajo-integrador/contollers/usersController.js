@@ -13,7 +13,7 @@ const controladorUsers = {
                 res.render('profile',{
                     catalogoZapatos:zapatos,
                     userLogueado: false
-                })
+                }) 
             })
             .catch(function(error){
                 console.log(error)
