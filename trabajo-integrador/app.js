@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 const zapatosRouter = require ('./routes/zapatos');
 
 var app = express();
+const session = require('express-session');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

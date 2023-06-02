@@ -47,28 +47,26 @@ const controladorProducts = {
             })
     },
     productAdd: function(req,res){
-        if(req.session.user != undefined){
-            res.render('product-add.ejs',{
-                catalogoZapatos:zapatos,
-                userLogueado: true
-            })
-        }else{
+        if(req.session.user == undefined){ 
             res.redirect('/')
-        }
-    },
-    create: function(req,res){
-        let {imagen,nombre,text,date} = req.body
+            // res.render('product-add.ejs',{
+            //     catalogoZapatos:zapatos,
+            //     userLogueado: true
+            // })
+        }else{
+            let {imagen,nombre,text,date} = req.body
 
-        db.Producto.create({
-            imagen: imagen,
-            nombre:nombre,
-            descripcion:text,
-            fechaDeCarga: date,
-        })
-        .then(function(data){
-            console.log(data.id)
-            res.redirect('/zapatos/productAdd')
-        })
+            db.Producto.create({
+                imagen: imagen,
+                nombre:nombre,
+                descripcion:text,
+                fechaDeCarga: date,
+            })
+            .then(function(data){
+                console.log(data.id)
+                res.redirect('/zapatos/productAdd')
+            })
+        }
     },
     edit: function(req,res){
         let id = req.params.id
