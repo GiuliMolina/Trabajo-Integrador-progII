@@ -16,6 +16,32 @@ const controladorProducts = {
             userLogueado: true
         })
     },
+    // productAdd: function(req,res){
+    //     // if(req.session.user.name == undefined){ 
+    //     if(userLogueado==false){ 
+    //         res.redirect('/')
+    //         // res.render('product-add.ejs',{
+    //         //     catalogoZapatos:zapatos,
+    //         //     userLogueado: true
+    //         // })
+    //     }else{
+    //         let {imagen,nombre,text,date} = req.body
+
+    //         db.Producto.create({
+    //             imagen: imagen,
+    //             nombre: nombre,
+    //             descripcion:text,
+    //             fechaDeCarga: date,
+    //         })
+    //         .then(function(data){
+    //             console.log(data.id)
+    //             res.redirect('/')
+    //         })
+    //         .catch(function(error){
+    //             console.log(error)
+    //         })
+    //     }
+    // },
     searchResults:function(req,res){
         let productoBuscado = req.query.search //falta hacer validacion de si es algo del nombre o de la descripcion
         db.Producto.findAll({
@@ -48,7 +74,20 @@ const controladorProducts = {
         .catch(function(error){
             console.log(error)
         })
-    }
+    },
+    // delete: function(req,res){
+    //     let id = req.params.id
+
+    //     db.Producto.destroy({
+    //         where: {id:id}
+    //     })
+    //     .then(function(data){
+    //         res.redirect('/')
+    //     })
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // }
 }    
     
 // const controladorProducts = {
@@ -78,32 +117,32 @@ const controladorProducts = {
 //                 console.log(error)
 //             })
 //     },
-//     productAdd: function(req,res){
-//         // if(req.session.user.name == undefined){ 
-//         if(userLogueado==true){ 
-//             res.redirect('/')
-//             // res.render('product-add.ejs',{
-//             //     catalogoZapatos:zapatos,
-//             //     userLogueado: true
-//             // })
-//         }else{
-//             let {imagen,nombre,text,date} = req.body
+    // productAdd: function(req,res){
+    //     // if(req.session.user.name == undefined){ 
+    //     if(userLogueado==true){ 
+    //         res.redirect('/')
+    //         // res.render('product-add.ejs',{
+    //         //     catalogoZapatos:zapatos,
+    //         //     userLogueado: true
+    //         // })
+    //     }else{
+    //         let {imagen,nombre,text,date} = req.body
 
-//             db.Producto.create({
-//                 imagen: imagen,
-//                 nombre: nombre,
-//                 descripcion:text,
-//                 fechaDeCarga: date,
-//             })
-//             .then(function(data){
-//                 console.log(data.id)
-//                 res.redirect('/zapatos/productAdd')
-//             })
-//             .catch(function(error){
-//                 console.log(error)
-//             })
-//         }
-//     },
+    //         db.Producto.create({
+    //             imagen: imagen,
+    //             nombre: nombre,
+    //             descripcion:text,
+    //             fechaDeCarga: date,
+    //         })
+    //         .then(function(data){
+    //             console.log(data.id)
+    //             res.redirect('/zapatos/productAdd')
+    //         })
+    //         .catch(function(error){
+    //             console.log(error)
+    //         })
+    //     }
+    // },
 //     // edit: function(req,res){
 //     //     let idProducto = req.params.id
 //     //     let errors = {}
