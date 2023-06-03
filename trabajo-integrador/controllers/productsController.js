@@ -101,7 +101,7 @@ const controladorProducts = {
         
     // },
     searchResults:function(req,res){
-        let palabraBuscada = req.query.search //falta hacer validacion de si es algo del nombre o de la descripcion
+        let productoBuscado = req.query.search //falta hacer validacion de si es algo del nombre o de la descripcion
         // res.render('search-results.ejs',{
         //     catalogoZapatos:zapatos,
         //     userLogueado: false,
@@ -109,22 +109,29 @@ const controladorProducts = {
         // })
         db.Producto.findAll({
             where:[
-                { name:{[op.like]: palabraBuscada }} //faltan los % %, y que sea un string?
+                { name:{[op.like]: `%${productoBuscado}%` }} 
             ],
             order: [
                 {name:DESC} //va entre comillas?
-            ]
+            ],
+            raw:true
         })
-        .then(function(resultado){
-            if(resultado == undefined || resultado == null){
-                console.log('No hay resultados para su criterio de búsqueda')
+        .then(function(resultadoBusqueda){
+            let resultadosBusquedaEncontrados
+
+            if(resultadoBusqueda.length>0){
+                resultadosBusquedaEncontrados = true
             }else{
-                res.render('search-results',{
-                    catalogoZapatos:zapatos,
-                    userLogueado: false,
-                    nombre: req.params.nombre,
-                })
+                resultadosBusquedaEncontrados = false
+                console.log('No hay resultados para su criterio de búsqueda')
             }
+            res.render('search-results',{
+                catalogoZapatos:zapatos,
+                busquedaDelUsuario:productoBuscado,
+                userLogueado: false,
+                resultadosDeBusqueda: resultadosBusquedaEncontrados,
+                nombre: req.params.name, //name o nombre?
+            })
         })
         .catch(function(error){
             console.log(error)
