@@ -6,7 +6,7 @@ var path = require('path');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const zapatosRouter = require ('./routes/zapatos');
+const zapatosRouter = require('./routes/zapatos');
 
 var app = express();
 // const session = require('express-session');
@@ -33,7 +33,7 @@ app.use ('/zapatos',zapatosRouter);
 
 
 // app.use(function(req,res,next){
-//   // console.log(req.cookies.rememberMe)
+//   // console.log(req.cookies.recordarme)
 //   req.session.user = {
 //     name: "Justin Bieber",
 //     mail: "justinb@gmail.com"
