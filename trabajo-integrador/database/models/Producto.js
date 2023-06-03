@@ -39,16 +39,16 @@ module.exports = function (sequelize, dataTypes) {
     
     const Productos = sequelize.define(alias,cols,config);
     
-    // Productos.associate = function(models){
-    //     Productos.belongsTo(models.User, {
-    //         as: "user",
-    //         foreignKey: "fk_productos_usuarios"
-    //     }),
+    Productos.associate = function(models){
+        Productos.belongsTo(models.User, {
+            as: "user",
+            foreignKey: "fk_productos_usuarios"
+        })
     //     Productos.hasMany(models.Comentario,{
     //         as: "comentario",
     //         foreignKey: "fk_comentarios_productos"
-    //     })
-    // }
+    //    })
 
+    }
     return Productos
 }
