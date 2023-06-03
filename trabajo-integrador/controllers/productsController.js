@@ -34,7 +34,6 @@ const controladorProducts = {
                 resultadosBusquedaEncontrados = true
             }else{
                 resultadosBusquedaEncontrados = false
-                console.log('No hay resultados para su criterio de búsqueda')
             }
             res.render('search-results',{
                 catalogoZapatos:zapatos,

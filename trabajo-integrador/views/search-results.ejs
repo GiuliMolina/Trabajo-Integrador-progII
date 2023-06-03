@@ -9,26 +9,32 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			
+            <%if (resultadosDeBusqueda){%>
             <section class="product-box search">
-                <figure class="product-box_image">
-                    <div class="searchdiv-img">
-                        <img class="imgsearch" src='/<%=catalogoZapatos.productos[2].imagen %>' alt='/<%= catalogoZapatos.productos[2].nombre%>'>
-                    </div>
-                            
-                </figure> 
-                <article class="product-box_data">
-                    <h2> <%= catalogoZapatos.productos[2].nombre%> </h2>
-                        <p> Descripción: <%= catalogoZapatos.productos[2].descripcion%> </p>
-                        <p> Comentarios:</p>
-                        <%
-                        for(let i=0;i<catalogoZapatos.productos[2].comentarios.length;i++){ %>
-                            <img  class='fotocomentarios' src="/<%=catalogoZapatos.productos[2].comentarios[i].imagen%>">
-                            <h3> <%=catalogoZapatos.productos[2].comentarios[i].nombre%> </h3>
-                            <p> <%= catalogoZapatos.productos[2].comentarios[i].texto%> </p>
-                        <%}%>
-                            
-                </article>
+                <h2>Estos son los resultados para su busqueda: <%=busquedaDelUsuario%></h2>
+                <%for (let i=0; i<resultadosDeBusqueda.length; i++){%>
+                    <figure class="product-box_image">
+                        <div class="searchdiv-img">
+                            <img class="imgsearch" src='/<%=resultadosDeBusqueda[i].imagen %>' alt='/<%= catalogoZapatos.productos[2].nombre%>'>
+                        </div>
+                                
+                    </figure> 
+                    <article class="product-box_data">
+                        <h2> <%= resultadosDeBusqueda[i].nombre%> </h2>
+                            <p> Descripción: <%= resultadosDeBusqueda[i].descripcion%> </p>
+                            <p> Comentarios:</p>
+                            <%
+                            for(let j=0;j<resultadosDeBusqueda[i].comentarios.length;i++){ %>
+                                <img  class='fotocomentarios' src="/<%=resultadosDeBusqueda[i].comentarios[j].imagen%>">
+                                <h3> <%=resultadosDeBusqueda[i].comentarios[j].nombre%> </h3>
+                                <p> <%= resultadosDeBusqueda[i].comentarios[j].texto%> </p>
+                            <%}%>
+                    </article>
+                <%}%>
 			</section>
+            <%}else{%>
+                <h2>No hay resultados para su criterio de búsqueda</h2>
+            <%}%> 
         </div>
     </div>
 
