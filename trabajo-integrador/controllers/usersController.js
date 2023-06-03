@@ -91,9 +91,9 @@ const controladorUsers = {
     //                 email: user.email,
     //             }
     //         }
-    //         res.render('login.ejs',{
+    //         res.redirect('/profile/'+ user.id,{
     //             catalogoZapatos:zapatos,
-    //             userLogueado: false
+    //             userLogueado: true)
     //         })
     //     })
     
