@@ -20,15 +20,15 @@ const controladorIndex = {
 //                 {association: "user"},
 //                 {association: "comentario"}
 //             ]
-//             .then(function(data){
-//                 res.render('index.ejs',{
-//                     catalogoZapatos:zapatos,
-//                     userLogueado: false
-//                 })
+//         })
+//         .then(function(data){
+//             res.render('index.ejs',{
+//                 catalogoZapatos:data,
+//                 userLogueado: false
 //             })
-//             .catch(function(error){
-//                 console.log(error)
-//             })
+//         })
+//         .catch(function(error){
+//             console.log(error)
 //         })
 //     }
 // }

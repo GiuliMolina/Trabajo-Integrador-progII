@@ -27,20 +27,22 @@ const controladorProducts = {
             ],
             raw:true
         })
-        .then(function(resultadoBusqueda){
+        .then(function(data){
             let resultadosBusquedaEncontrados
 
-            if(resultadoBusqueda.length>0){
+            if(data.length>0){
                 resultadosBusquedaEncontrados = true
             }else{
                 resultadosBusquedaEncontrados = false
             }
+            
             res.render('search-results',{
-                catalogoZapatos:zapatos,
+                catalogoZapatos:data,
                 busquedaDelUsuario:productoBuscado,
                 userLogueado: false,
                 resultadosDeBusqueda: resultadosBusquedaEncontrados,
-                nombre: req.params.name, //name o nombre?
+                nombre: req.params.nombre, //name o nombre?
+                nombreUsuario: req.body.user // no estoy segura
             })
         })
         .catch(function(error){

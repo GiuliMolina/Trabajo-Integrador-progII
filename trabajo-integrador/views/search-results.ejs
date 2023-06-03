@@ -12,22 +12,22 @@
             <%if (resultadosDeBusqueda){%>
             <section class="product-box search">
                 <h2>Estos son los resultados para su busqueda: <%=busquedaDelUsuario%></h2>
-                <%for (let i=0; i<resultadosDeBusqueda.length; i++){%>
+                <%for (let i=0; i<catalogoZapatos.length; i++){%>
                     <figure class="product-box_image">
                         <div class="searchdiv-img">
-                            <img class="imgsearch" src='/<%=resultadosDeBusqueda[i].imagen %>' alt='/<%= catalogoZapatos.productos[2].nombre%>'>
+                            <img class="imgsearch" src='/<%=catalogoZapatos[i].imagen %>' alt='/<%= catalogoZapatos.productos[2].nombre%>'>
                         </div>
                                 
                     </figure> 
                     <article class="product-box_data">
-                        <h2> <%= resultadosDeBusqueda[i].nombre%> </h2>
-                            <p> Descripción: <%= resultadosDeBusqueda[i].descripcion%> </p>
+                        <h2> <%= catalogoZapatos[i].nombre%> </h2>
+                            <p> Descripción: <%= catalogoZapatos[i].descripcion%> </p>
                             <p> Comentarios:</p>
                             <%
-                            for(let j=0;j<resultadosDeBusqueda[i].comentarios.length;i++){ %>
-                                <img  class='fotocomentarios' src="/<%=resultadosDeBusqueda[i].comentarios[j].imagen%>">
-                                <h3> <%=resultadosDeBusqueda[i].comentarios[j].nombre%> </h3>
-                                <p> <%= resultadosDeBusqueda[i].comentarios[j].texto%> </p>
+                            for(let j=0;j<catalogoZapatos[i].comentarios.length;i++){ %>
+                                <img  class='fotocomentarios' src="/<%=catalogoZapatos[i].comentarios[j].imagen%>">
+                                <h3> <%=catalogoZapatos[i].comentarios[j].nombre%> </h3>
+                                <p> <%= catalogoZapatos[i].comentarios[j].texto%> </p>
                             <%}%>
                     </article>
                 <%}%>

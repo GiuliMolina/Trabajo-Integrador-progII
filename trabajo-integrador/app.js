@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 const zapatosRouter = require('./routes/zapatos');
 
 var app = express();
-// const session = require('express-session');
+const session = require('express-session');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,22 +26,21 @@ app.use('/users', usersRouter);
 app.use ('/zapatos',zapatosRouter);
 
 // app.use(session({
-//   secret:"Mensaje oculto",
+//   cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 },
+//   secret:"secret",
 //   resave:false,
-//   saveUnintialized:true
+//   saveUnintialized:false
 // }));
 
 
 // app.use(function(req,res,next){
+  
 //   // console.log(req.cookies.recordarme)
 //   req.session.user = {
-//     name: "Justin Bieber",
+//     name: req.body.user,
 //     mail: "justinb@gmail.com"
 //   }
 
-//   res.locals.userLogueado = {
-//     nombreDeUsuario: "Justin"
-//   };
 //   if(req.session.user !== undefined){
 //     res.locals.userLogueado = true
 //     res.locals.user = req.session.user
