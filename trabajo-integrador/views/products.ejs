@@ -7,7 +7,7 @@
 			<div class="d-flex align-items-center">
                 <h2 class="products-title"><%= catalogoZapatos.productos[0].nombre %> </h2> 
                 <p class="product-detail-description">
-                    <a href="/zapatos/productAdd/Vansnegras">Editar</a>
+                    <a href="/zapatos/product-edit">Editar</a>
                 </p>
 		    </div>
 
@@ -41,7 +41,7 @@
 					</form>
 
 					<% if (userLogueado === catalogoZapatos.usuario.nombre){%>
-					<form class="form" action="/zapatos/product-add<%= catalogoZapatos.productos[0].id %>" method="post">
+					<form class="form" action="/zapatos/product-edit<%= catalogoZapatos.productos[0].id %>" method="post">
 						<input class="form-input" type="text" value="" placeholder="Editar producto">
 						<button type="submit" class="buy-now-button">EDITAR PRODUCTO</button>
 					</form>

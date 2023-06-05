@@ -42,32 +42,58 @@ const controladorProducts = {
             userLogueado: true
         })
     },
-    // productAdd: function(req,res){
-    //     // if(req.session.user.name == undefined){ 
-    //     if(userLogueado==false){ 
-    //         res.redirect('/')
-    //         // res.render('product-add.ejs',{
-    //         //     catalogoZapatos:zapatos,
-    //         //     userLogueado: true
-    //         // })
-    //     }else{
-    //         let {imagen,nombre,text,date} = req.body
+   create: function(req,res){
+        // if(req.session.user.name == undefined){ 
+        // if(userLogueado==false){ 
+        //     res.redirect('/')
+        //     // res.render('product-add.ejs',{
+        //     //     catalogoZapatos:zapatos,
+        //     //     userLogueado: true
+        //     // })
+        // }else{
+            let {imagen,nombre,text,date} = req.body
 
-    //         db.Producto.create({
-    //             imagen: imagen,
-    //             nombre: nombre,
-    //             descripcion:text,
-    //             fechaDeCarga: date,
-    //         })
-    //         .then(function(data){
-    //             console.log(data.id)
-    //             res.redirect('/')
-    //         })
-    //         .catch(function(error){
-    //             console.log(error)
-    //         })
-    //     }
-    // },
+            db.Producto.create({
+                imagen: imagen,
+                nombre: nombre,
+                descripcion:text,
+                fechaDeCarga: date,
+            })
+            .then(function(data){
+                console.log(data.id)
+                res.redirect('/')
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+    },
+    edit: function(req,res){
+        res.render('product-edit.ejs',{
+            catalogoZapatos:zapatos,
+            userLogueado: true
+        })
+
+        // let idProducto = req.params.id
+        // let errors = {}
+
+        // if(userLogueado == user){
+        //     db.Producto.findByPk(id)
+        //         .then(function(data){
+        //             res.redirect('product-add.ejs',{
+        //                 userLogueado:true,
+        //                 user:user,
+        //             })
+        //         })
+        //         .catch(function(error){
+        //             console.log(error)
+        //         })
+        // }else{
+        //     errors.message = "No puedes editar este producto";
+        //     res.locals.errors = errors;
+        //     return res.render('products')
+        // }
+        
+    },
     searchResults:function(req,res){
         let productoBuscado = req.query.search //falta hacer validacion de si es algo del nombre o de la descripcion
         db.Producto.findAll({
@@ -162,35 +188,35 @@ const controladorProducts = {
     //         })
     //         .then(function(data){
     //             console.log(data.id)
-    //             res.redirect('/zapatos/productAdd')
+    //             res.redirect('/zapatos/product-add')
     //         })
     //         .catch(function(error){
     //             console.log(error)
     //         })
     //     }
     // },
-//     // edit: function(req,res){
-//     //     let idProducto = req.params.id
-//     //     let errors = {}
+    // edit: function(req,res){
+    //     let idProducto = req.params.id
+    //     let errors = {}
 
-//     //     if(userLogueado == user){
-//     //         db.Producto.findByPk(id)
-//     //             .then(function(data){
-//     //                 res.redirect('product-add.ejs',{
-//     //                     userLogueado:true,
-//     //                     user:user,
-//     //                 })
-//     //             })
-//     //             .catch(function(error){
-//     //                 console.log(error)
-//     //             })
-//     //     }else{
-//     //         errors.message = "No puedes editar este producto";
-//     //         res.locals.errors = errors;
-//     //         return res.render('products')
-//     //     }
+    //     if(userLogueado == user){
+    //         db.Producto.findByPk(id)
+    //             .then(function(data){
+    //                 res.redirect('product-add.ejs',{
+    //                     userLogueado:true,
+    //                     user:user,
+    //                 })
+    //             })
+    //             .catch(function(error){
+    //                 console.log(error)
+    //             })
+    //     }else{
+    //         errors.message = "No puedes editar este producto";
+    //         res.locals.errors = errors;
+    //         return res.render('products')
+    //     }
         
-//     // },
+    // },
 //     searchResults:function(req,res){
 //         let palabraBuscada = req.query.search //falta hacer validacion de si es algo del nombre o de la descripcion
 //         // res.render('search-results.ejs',{
