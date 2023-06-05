@@ -5,6 +5,7 @@ USE `proyecto_integrador`;
 
 CREATE TABLE `usuarios`(
 id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nombre TEXT NOT NULL
 email VARCHAR(30) NOT NULL UNIQUE,
 password VARCHAR(30) NOT NULL,
 foto_de_perfil VARCHAR(200),
@@ -40,12 +41,12 @@ CONSTRAINT fk_comentarios_usuarios FOREIGN KEY(usuario_id) REFERENCES usuarios(i
 CONSTRAINT fk_comentarios_productos FOREIGN KEY(id_post) REFERENCES productos(id)
 );
 
-INSERT INTO `usuarios`( email, password , foto_de_perfil, fecha, dni)
-VALUES ('tomasm@gmail.com','tomas1234','foto', '2000-05-17', 95469117),
-('justinb@gmail.com','justin1234','foto', '2003-09-8', 38809234),
-('danielag@gmail.com','daniela1234','foto','2004-05-28', 45789123),
-('marianal@gmail.com','mariana1234','foto', '2003-08-06', 21345879),
-('sebass@gmail.com','sebas1234','foto','2004-05-06' , 63187653);
+INSERT INTO `usuarios`( nombre, email, password , foto_de_perfil, fecha, dni)
+VALUES ( 'Tomas','tomasm@gmail.com','tomas1234','foto', '2000-05-17', 95469117),
+('Justin','justinb@gmail.com','justin1234','foto', '2003-09-8', 38809234),
+('Daniel','danielag@gmail.com','daniela1234','foto','2004-05-28', 45789123),
+('Mariana','marianal@gmail.com','mariana1234','foto', '2003-08-06', 21345879),
+('Sebastian','sebass@gmail.com','sebas1234','foto','2004-05-06' , 63187653);
 
 
 INSERT INTO `productos` (usuario_id, nombre_producto, descripcion)
