@@ -8,12 +8,12 @@ module.exports = function (sequelize, dataTypes) {
             unsigned: true,
             allowNull: false
         },
-        usuarioId: {
+        usuario_id: {
             unsigned: true,
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        nombreProducto:{
+        nombre_producto:{
             type: dataTypes.STRING,
             allowNull: false
         },
@@ -21,13 +21,13 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.STRING,
             null: false
         },
-        createdAt: {
+        created_at: {
             type: dataTypes.DATE
         },
-        updatedAt:{
+        updated_at:{
             type: dataTypes.DATE
         },
-        deletedAt: {
+        deleted_at: {
             type: dataTypes.DATE
         },
     };
@@ -48,7 +48,6 @@ module.exports = function (sequelize, dataTypes) {
             as: "comentario",
             foreignKey: "fk_comentarios_productos"
        })
-
     }
     return Productos
 }
