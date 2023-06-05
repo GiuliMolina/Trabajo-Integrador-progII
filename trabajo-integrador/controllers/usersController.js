@@ -14,7 +14,7 @@ const controladorUsers = {
         .then(function(data){
             console.log(data)
             res.render('profile',{
-                catalogoZapatos: zapatos,
+                catalogoZapatos: zapatos ,
                 userLogueado: true
             }) 
         })
@@ -23,19 +23,21 @@ const controladorUsers = {
         })
     }, 
 
-    // profileEdit: function(req, res){
-    //     let id = req.params.id
+    profileEdit: function(req, res){
+        let id = req.params.id
 
-    //     db.User.findByPk(id)
-    //     .then(function(user){
-    //         res.render('profile-edit', {
-    //             user: user
-    //         })
-    //     })
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // },
+        db.User.findByPk(id)
+        .then(function(user){
+            res.render('profile-edit.ejs', {
+                catalogoZapatos: zapatos, 
+                userLogueado: true,
+                user: user
+            })
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    },
 
     // register:function(req,res){
         
