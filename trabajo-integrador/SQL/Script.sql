@@ -5,6 +5,7 @@ USE `proyecto_integrador`;
 
 CREATE TABLE `usuarios`(
 id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nombre TEXT NOT NULL
 email VARCHAR(30) NOT NULL UNIQUE,
 password VARCHAR(30) NOT NULL,
 foto_de_perfil VARCHAR(200),
