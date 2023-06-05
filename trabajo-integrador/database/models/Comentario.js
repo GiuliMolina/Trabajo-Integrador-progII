@@ -34,7 +34,6 @@ module.exports = function (sequelize, dataTypes) {
         }
 
     };
-
     let config= {
         tableName: 'comentarios',
         timestamps: true,
@@ -46,11 +45,11 @@ module.exports = function (sequelize, dataTypes) {
     Comentarios.associate = function(models){
         Comentarios.belongsTo(models.User,{
             as:'user',
-            foreignKey: 'fk_comentarios_usuarios'
+            foreignKey: 'usuario_id'
             })
         Comentarios.belongsTo(models.Producto,{
             as:'producto',
-            foreignKey: 'fk_comentarios_productos'
+            foreignKey: 'id_post'
             })
     };
     return Comentarios

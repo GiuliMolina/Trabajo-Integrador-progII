@@ -29,7 +29,7 @@ const controladorProducts = {
                 res.render('products.ejs',{
                     idProducto:req.params.id,
                     catalogoZapatos:zapatos,
-                    // userLogueado: [false,true]
+                    userLogueado: true
                 })
             })
             .catch(function(error){
