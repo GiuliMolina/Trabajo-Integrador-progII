@@ -1,14 +1,40 @@
 const zapatos = require('../data/data')
-const db = require('../database/models/Producto');
+const db = require('../database/models');
 const bcrypt = require('bcryptjs')
 
 const controladorProducts = {
-    products: function(req, res){
-        res.render('products.ejs',{
-            idProducto:req.params.id,
-            catalogoZapatos:zapatos,
-            userLogueado: false
+    // products: function(req, res){
+    //     res.render('products.ejs',{
+    //         idProducto:req.params.id,
+    //         catalogoZapatos:zapatos,
+    //         userLogueado: false
+    //     })
+    // },
+        products: function(req, res){
+        let idProducto = req.params.id;
+        // res.render('products',{
+        //     catalogoZapatos:zapatos,
+        //     idProducto,
+        //     userLogueado: true
+        // })
+        db.Producto.findByPk(idProducto,{
+            raw: true,
+            nested:true,
+            include:[
+            {association: "user"},
+            {association: "comentario"}
+        ]
         })
+            .then(function(data){
+                res.render('products.ejs',{
+                    idProducto:req.params.id,
+                    catalogoZapatos:zapatos,
+                    // userLogueado: [false,true]
+                })
+            })
+            .catch(function(error){
+                console.log(error)
+            })
     },
     productAdd: function(req,res){
         res.render('product-add.ejs',{
@@ -49,7 +75,7 @@ const controladorProducts = {
                 { name:{[op.like]: `%${productoBuscado}%` }} 
             ],
             order: [
-                {name:DESC} //va entre comillas?
+                {'name':'DESC'} //va entre comillas?
             ],
             raw:true
         })
@@ -150,7 +176,7 @@ const controladorProducts = {
 //     //     if(userLogueado == user){
 //     //         db.Producto.findByPk(id)
 //     //             .then(function(data){
-//     //                 res.redirect('product-edit.ejs',{
+//     //                 res.redirect('product-add.ejs',{
 //     //                     userLogueado:true,
 //     //                     user:user,
 //     //                 })
