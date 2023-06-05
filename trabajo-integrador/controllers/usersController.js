@@ -14,7 +14,7 @@ const controladorUsers = {
         .then(function(data){
             console.log(data)
             res.render('profile',{
-                catalogoZapatos: zapatos ,
+                catalogoZapatos: db ,
                 userLogueado: true
             }) 
         })
@@ -29,7 +29,7 @@ const controladorUsers = {
         db.User.findByPk(id)
         .then(function(user){
             res.render('profile-edit.ejs', {
-                catalogoZapatos: zapatos, 
+                catalogoZapatos: db, 
                 userLogueado: true,
                 user: user
             })
