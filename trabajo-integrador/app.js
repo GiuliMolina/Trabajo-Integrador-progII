@@ -25,30 +25,25 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use ('/zapatos',zapatosRouter);
 
-// app.use(session({
-//   cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 },
-//   secret:"secret",
-//   resave:false,
-//   saveUnintialized:false
-// }));
+app.use(session({
+  secret:"secret",
+  resave:false,
+  saveUninitialized:false
+}));
 
 
-// app.use(function(req,res,next){
+app.use(function(req,res,next){
   
-//   // console.log(req.cookies.recordarme)
-//   req.session.user = {
-//     name: req.body.user,
-//     mail: "justinb@gmail.com"
-//   }
-
-//   if(req.session.user !== undefined){
-//     res.locals.userLogueado = true
-//     res.locals.user = req.session.user
-//   }else{
-//     res.locals.userLogueado = false
-//   };
-//   return next();
-// });
+  console.log(req.cookies.recordarme)
+  
+  if(req.session.user !== undefined){
+    res.locals.userLogueado = true
+    res.locals.user = req.session.user
+  }else{
+    res.locals.userLogueado = false
+  };
+  return next();
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
