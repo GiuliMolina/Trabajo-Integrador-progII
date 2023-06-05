@@ -17,7 +17,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.STRING,
             allownull: false,
         },
-        fotoDePerfil: {
+        foto_de_perfil: {
             type: dataTypes.STRING,
         },
         fecha: {
@@ -29,13 +29,13 @@ module.exports = function(sequelize, dataTypes){
             allownull: false,
             unique: true,
         },
-        createdAt:{
+        created_at:{
             type: dataTypes.DATE,
         },
-        updatedAt: {
+        updated_at: {
             type: dataTypes.DATE,
         },
-        deletedAt: {
+        deleted_at: {
             type: dataTypes.DATE,
         }
     }
