@@ -48,10 +48,10 @@ module.exports = function (sequelize, dataTypes) {
             as:'user',
             foreignKey: 'fk_comentarios_usuarios'
             })
-        // Comentarios.belongsTo(models.Producto,{
-        //     as:'producto',
-        //     foreignKey: 'fk_comentarios_productos'
-        //     })
+        Comentarios.belongsTo(models.Producto,{
+            as:'producto',
+            foreignKey: 'fk_comentarios_productos'
+            })
     };
     return Comentarios
 }
