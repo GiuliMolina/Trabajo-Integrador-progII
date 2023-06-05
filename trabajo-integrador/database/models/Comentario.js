@@ -8,13 +8,13 @@ module.exports = function (sequelize, dataTypes) {
             unsigned: true,
             type: dataTypes.INTEGER
         },
-        idPost:{
+        id_post:{
            unsigned: true,
            type: dataTypes.INTEGER,
            allowNull:false
 
         },
-        usuarioId:{
+        usuario_id:{
             unsigned: true,
             type: dataTypes.INTEGER,
             allowNull:false
@@ -23,13 +23,13 @@ module.exports = function (sequelize, dataTypes) {
             type:dataTypes.STRING,
             allowNull: false
         },
-        createdAt:{
+        created_at:{
             type: dataTypes.DATE
         },
-        updatedAt:{
+        updated_at:{
             type: dataTypes.DATE
         },
-        deletedAt:{
+        deleted_at:{
             type: dataTypes.DATE
         }
 
@@ -38,7 +38,7 @@ module.exports = function (sequelize, dataTypes) {
     let config= {
         tableName: 'comentarios',
         timestamps: true,
-        underscored: false
+        underscored: true
     };
 
     const Comentarios = sequelize.define(alias,cols,config);
