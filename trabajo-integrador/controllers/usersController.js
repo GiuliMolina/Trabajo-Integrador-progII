@@ -12,9 +12,9 @@ const controladorUsers = {
             ]
         })
         .then(function(data){
-            console.log(data)
+            res.send(data)
             res.render('profile',{
-                catalogoZapatos: data ,
+                catalogoZapatos: zapatos ,
                 userLogueado: true
             }) 
         })
@@ -33,7 +33,9 @@ const controladorUsers = {
             ]
         })
         .then(function(data){
+            console.log(data),
             res.render('profile-edit.ejs', {
+               
                 catalogoZapatos: data, 
                 userLogueado: true,
                 user: user
