@@ -68,11 +68,25 @@ const controladorProducts = {
             })
     },
     edit: function(req,res){
-        res.render('product-edit.ejs',{
-            catalogoZapatos:zapatos,
-            userLogueado: true
-        })
+        let id = req.params.id
 
+        db.Producto.findByPk(id,{
+            raw: true,
+            nested:true,
+            include:[
+            {association: "user"},
+            {association: "comentario"}
+        ]
+        })
+        .then(function(data){
+            res.render('product-edit.ejs',{
+                catalogoZapatos: data,
+                userLogueado: true
+            })
+        })
+        .catch(function(error){
+            console.log(error)
+        })
         // let idProducto = req.params.id
         // let errors = {}
 
