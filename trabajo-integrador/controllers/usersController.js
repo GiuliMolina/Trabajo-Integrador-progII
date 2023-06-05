@@ -14,7 +14,7 @@ const controladorUsers = {
         .then(function(data){
             console.log(data)
             res.render('profile',{
-                catalogoZapatos:data,
+                catalogoZapatos: zapatos,
                 userLogueado: true
             }) 
         })
