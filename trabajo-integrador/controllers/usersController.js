@@ -14,7 +14,7 @@ const controladorUsers = {
         .then(function(data){
             console.log(data)
             res.render('profile',{
-                catalogoZapatos:data,
+                catalogoZapatos: db ,
                 userLogueado: true
             }) 
         })
@@ -23,19 +23,21 @@ const controladorUsers = {
         })
     }, 
 
-    // profileEdit: function(req, res){
-    //     let id = req.params.id
+    profileEdit: function(req, res){
+        let id = req.params.id
 
-    //     db.User.findByPk(id)
-    //     .then(function(user){
-    //         res.render('profile-edit', {
-    //             user: user
-    //         })
-    //     })
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // },
+        db.User.findByPk(id)
+        .then(function(user){
+            res.render('profile-edit.ejs', {
+                catalogoZapatos: db, 
+                userLogueado: true,
+                user: user
+            })
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    },
 
     // register:function(req,res){
         
@@ -99,41 +101,41 @@ const controladorUsers = {
     
     // },
 
-    // update: function(req, res){
-    //     let id = req.params.id
-    //     let {name, emai} = req.body
-    //     db.User.update({
-    //         name: name,
-    //         email: email,
-    //     }, {
-    //         where: {
-    //             id: id
-    //         }
-    //     })
+    update: function(req, res){
+        let id = req.params.id
+        let {name, emai} = req.body
+        db.User.update({
+            name: name,
+            email: email,
+        }, {
+            where: {
+                id: id
+            }
+        })
 
-    //     .then(function(resp){
-    //         res.redirect('/users/profile/')
-    //     })
+        .then(function(resp){
+            res.redirect('/users/profile/')
+        })
 
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // },
+        .catch(function(error){
+            console.log(error)
+        })
+    },
 
-    // delete: function(req, res){
-    //     let id = req.params.id
-    //     db.User.destroy({
-    //         where: {
-    //             id: id
-    //         }
-    //     })
-    //     .then(function(resp){
-    //         res.redirect('/')
-    //     })
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // }
+    delete: function(req, res){
+        let id = req.params.id
+        db.User.destroy({
+            where: {
+                id: id
+            }
+        })
+        .then(function(resp){
+            res.redirect('/')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }
 
 }
 
