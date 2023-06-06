@@ -21,29 +21,28 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use ('/zapatos',zapatosRouter);
-
 app.use(session({
   secret:"secret",
   resave:false,
   saveUninitialized:false
 }));
 
-
 app.use(function(req,res,next){
   
   console.log(req.cookies.recordarme)
   
   if(req.session.user !== undefined){
-    res.locals.userLogueado = true
+    res.locals.estaLogueado = true
     res.locals.user = req.session.user
   }else{
-    res.locals.userLogueado = false
+    res.locals.estaLogueado = false
   };
   return next();
 });
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use ('/zapatos',zapatosRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

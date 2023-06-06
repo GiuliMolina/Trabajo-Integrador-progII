@@ -1,6 +1,6 @@
 <%- include('./partials/head') %>
 <body>
-	<%- include('./partials/header') %>
+	<%-include('./partials/header')%>
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
@@ -10,7 +10,7 @@
 			<!-- Show the "ultimos" products -->
 
 			<h2 class='col-12 container_register'>
-			<form action = '/' method="GET">
+			<form action = '/users/login' method="post">
 				<p> Email:<input type="email" name="email" placeholder="email" value=""> </p>
 				<p> Password:<input type="password" name="password" placeholder="password" value=""> </p>
 				<label><input type="checkbox" name="recordame" value=""> Recordarme </label>

@@ -4,58 +4,60 @@ const op = db.Sequelize.Op;
 let bcrypt = require('bcryptjs');
 
 const controladorUsers = {
-    profile: function(req, res){
-        db.User.findAll({
-            include:[
-                {association: 'producto'},
-                {association: 'comentario'}
-            ]
-        })
-        .then(function(data){
-            //res.send(data)
-            res.render('profile',{
-                catalogoZapatos: data ,
-                userLogueado: true
-            }) 
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-    }, 
+    // profile: function(req, res){
+    //     db.User.findAll({
+    //         include:[
+    //             {association: 'producto'},
+    //             {association: 'comentario'}
+    //         ]
+    //     })
+    //     .then(function(data){
+    //         //res.send(data)
+    //         res.render('profile',{
+    //             catalogoZapatos: data ,
+    //             userLogueado: true
+    //         }) 
+    //     })
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // }, 
 
-    profileEdit: function(req, res){
-        let id = req.params.id
+    // profileEdit: function(req, res){
+    //     let id = req.params.id
 
-        db.User.findByPk(id, {
-            include:[
-                {association: 'producto'},
-                {association: 'comentario'}
-            ]
-        })
-        .then(function(data){
-            console.log(data),
-            res.render('profile-edit.ejs', {
+    //     db.User.findByPk(id, {
+    //         include:[
+    //             {association: 'producto'},
+    //             {association: 'comentario'}
+    //         ]
+    //     })
+    //     .then(function(data){
+    //         console.log(data),
+    //         res.render('profile-edit.ejs', {
                
-                catalogoZapatos: data, 
-                userLogueado: true,
-                user: user
-            })
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-    },
-
+    //             catalogoZapatos: data, 
+    //             userLogueado: true,
+    //             user: user
+    //         })
+    //     })
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // },
     register:function(req,res){
+        res.render('register')
+    },
+    create:function(req,res){
         
-        let name = req.body.name
+        let name = req.body.user
         let email = req.body.email
         let password = req.body.password
         let errors = {}
         let passEncriptada = bcrypt.hashSync(password, 10)
 
-        if( user === false){
-            if(passEncriptada.length > 3 && passEncriptada != null){
+        // if( user === false){
+            // if(passEncriptada.length > 3 && passEncriptada != null){
                 db.User.create({
                     name: name,
                     email: email,
@@ -70,20 +72,22 @@ const controladorUsers = {
                 .catch(function(error){
                     console.log(error)
                 })
-            }else{
-                errors.message = 'La contraseña debe tener al menos tres caracteres';
-                res.locals.errors = errors;
-                return res.render('register')
-            }
+            // }else{
+            //     errors.message = 'La contraseña debe tener al menos tres caracteres';
+            //     res.locals.errors = errors;
+            //     return res.render('register')
+            // }
     
-            if(email = undefined){//falta la condición de que no se repita
-               errors.message = 'Su mail es inválido'
-            } 
-        }
+        //     if(email = undefined){//falta la condición de que no se repita
+        //        errors.message = 'Su mail es inválido'
+        //     } 
+        // // }
         
     },
-
     login: function(req,res){
+        res.render('login')
+    },
+    checkUser: function(req,res){
         let {email, password, recordarme} = req.body
         db.User.findOne({
             where:{
@@ -115,7 +119,7 @@ const controladorUsers = {
                 )
             }
 
-            res.redirect('/profile/'+ user.id,{
+            res.redirect('/users/profile/'+ user.id,{
                 catalogoZapatos:user,
                 userLogueado: true
             })
@@ -124,44 +128,44 @@ const controladorUsers = {
         .catch(function(error){
             console.log(error)
         })
-    },
+    }
     
 
-    update: function(req, res){
-        let id = req.params.id
-        let {name, emai} = req.body
-        db.User.update({
-            name: name,
-            email: email,
-        }, {
-            where: {
-                id: id
-            }
-        })
+    // update: function(req, res){
+    //     let id = req.params.id
+    //     let {name, emai} = req.body
+    //     db.User.update({
+    //         name: name,
+    //         email: email,
+    //     }, {
+    //         where: {
+    //             id: id
+    //         }
+    //     })
 
-        .then(function(resp){
-            res.redirect('/users/profile/')
-        })
+    //     .then(function(resp){
+    //         res.redirect('/users/profile/')
+    //     })
 
-        .catch(function(error){
-            console.log(error)
-        })
-    },
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // },
 
-    delete: function(req, res){
-        let id = req.params.id
-        db.User.destroy({
-            where: {
-                id: id
-            }
-        })
-        .then(function(resp){
-            res.redirect('/')
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-    }
+    // delete: function(req, res){
+    //     let id = req.params.id
+    //     db.User.destroy({
+    //         where: {
+    //             id: id
+    //         }
+    //     })
+    //     .then(function(resp){
+    //         res.redirect('/')
+    //     })
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // }
 
 }
 

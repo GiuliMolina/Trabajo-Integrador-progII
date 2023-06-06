@@ -6,12 +6,12 @@ module.exports = function(sequelize, dataTypes){
             autoincrement: true,
             type:  dataTypes.INTEGER,
             unsigned: true,
-            allowNull: false,
+            // allowNull: false,
         },
-        nombre: {
-            type: dataTypes.STRING,
-            allowNull: false
-        },
+        // nombre: {
+        //     type: dataTypes.STRING,
+        //     allowNull: false
+        // },
         email: {
             type: dataTypes.STRING,
             unique: true,
