@@ -6,16 +6,16 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src=" /<%= locals.userLogueado.imagen%>" alt="foto de perfil" class="foto-perfil">
+				<img src=" /<%= locals.estaLogueado.imagen%>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title">  <%= locals.userLogueado.nombre%>
+					<h1 class="main-title">  <%= locals.estaLogueado.nombre%>
 						<a href="/users/profileEdit">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
-					<p> <%= locals.userLogueado.email%></p>
+					<p> <%= locals.estaLogueado.email%></p>
 					<a class="btn mt-3 ml-4 seguir" href="">SEGUIR</a>
 				</div>
 				<div>

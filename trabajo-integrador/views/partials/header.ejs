@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-            <% if (userLogueado){%>
+            <% if (estaLogueado){%>
             <div class="container_nav_logueado">
                     <nav class="seccion_header" class="main-navbar">
                         <ul class="left-navbar left_navbar_logueado">
@@ -27,7 +27,7 @@
             
                         <ul class="right-navbar right_navbar_logueado">
                             <li><a class="texto" href="/users/profile">
-                                    <%=locals.usuarioLogueado.nombre%> <i class="fas fa-user"></i>
+                                    <%= locals.estaLogueado.nombre%> <i class="fas fa-user"></i>
                                 </a>
                             </li>
                             <li>

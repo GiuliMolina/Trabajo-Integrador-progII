@@ -27,6 +27,15 @@ app.use(session({
   saveUninitialized:false
 }));
 
+app.use(function(req, res,next){
+  res.locals.estaLogueado = {
+    nombre: 'Justin',
+    imagen: '../images/justinbieber.webp',
+    email: 'justinb@gmail.com',
+  }
+  return next()
+})
+
 app.use(function(req,res,next){
   
   console.log(req.cookies.recordarme)
@@ -40,13 +49,7 @@ app.use(function(req,res,next){
   return next();
 });
 
-app.use(function(req, res,next){
-  res.locals.usuarioLogueado = {
-    nombre: 'Justin',
-    imagen: './images/justinbieber.webp',
-    email: 'justinb@gmail.com',
-  }
-})
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

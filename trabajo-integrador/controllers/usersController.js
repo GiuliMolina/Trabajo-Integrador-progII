@@ -14,8 +14,8 @@ const controladorUsers = {
         .then(function(data){
             //res.send(data)
             res.render('profile',{
-                catalogoZapatos: data ,
-                userLogueado: true
+                catalogoZapatos: zapatos,
+                estaLogueado: true
             }) 
         })
         .catch(function(error){
