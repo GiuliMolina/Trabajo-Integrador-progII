@@ -1,3 +1,4 @@
 node_modules
 .DS_Store
-/database/config/config.js
+trabajo-integrador/database/config/*
+database/config/*

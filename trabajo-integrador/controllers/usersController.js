@@ -56,8 +56,8 @@ const controladorUsers = {
         let errors = {}
         let passEncriptada = bcrypt.hashSync(password, 10)
 
-        // if( user === false){
-            // if(passEncriptada.length > 3 && passEncriptada != null){
+        // if( estaLogueado === false){
+            if(passEncriptada.length > 3 && passEncriptada != null){
                 db.User.create({
                     name: name,
                     email: email,
@@ -72,18 +72,18 @@ const controladorUsers = {
                 .catch(function(error){
                     console.log(error)
                 })
-            // }else{
-            //     errors.message = 'La contraseña debe tener al menos tres caracteres';
-            //     res.locals.errors = errors;
-            //     return res.render('register')
-            // }
+            }else{
+                errors.message = 'La contraseña debe tener al menos tres caracteres';
+                res.locals.errors = errors;
+                return res.render('register')
+            }
     
-        //     if(email = undefined){//falta la condición de que no se repita
-        //        errors.message = 'Su mail es inválido'
-        //     } 
-        // // }
+            if(email = undefined){//falta la condición de que no se repita
+               errors.message = 'Su mail es inválido'
+            } 
+        } , 
         
-    },
+    //},
     login: function(req,res){
         res.render('login')
     },
