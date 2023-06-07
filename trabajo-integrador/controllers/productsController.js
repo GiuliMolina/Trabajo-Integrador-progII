@@ -7,7 +7,7 @@ const controladorProducts = {
         let idProducto = req.params.id;
         db.Producto.findByPk(idProducto,{
             raw: true,
-            nested:true,
+            nest:true,
             include:[
             {association: "user"},
             {association: "comentario"}
