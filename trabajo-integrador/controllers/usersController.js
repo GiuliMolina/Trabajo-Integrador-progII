@@ -14,8 +14,8 @@ const controladorUsers = {
         .then(function(data){
             //res.send(data)
             res.render('profile',{
-                catalogoZapatos: zapatos,
-                estaLogueado: true
+                catalogoZapatos: data ,
+                userLogueado: true
             }) 
         })
         .catch(function(error){
@@ -23,40 +23,38 @@ const controladorUsers = {
         })
     }, 
 
-    // profileEdit: function(req, res){
-    //     let id = req.params.id
+    profileEdit: function(req, res){
+        let id = req.params.id
 
-    //     db.User.findByPk(id, {
-    //         include:[
-    //             {association: 'producto'},
-    //             {association: 'comentario'}
-    //         ]
-    //     })
-    //     .then(function(data){
-    //         console.log(data),
-    //         res.render('profile-edit.ejs', {
+        db.User.findByPk(id, {
+            include:[
+                {association: 'producto'},
+                {association: 'comentario'}
+            ]
+        })
+        .then(function(data){
+            console.log(data),
+            res.render('profile-edit.ejs', {
                
-    //             catalogoZapatos: data, 
-    //             userLogueado: true,
-    //             user: user
-    //         })
-    //     })
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // },
-    register:function(req,res){
-        res.render('register')
+                catalogoZapatos: data, 
+                userLogueado: true,
+                user: user
+            })
+        })
+        .catch(function(error){
+            console.log(error)
+        })
     },
-    create:function(req,res){
+
+    register:function(req,res){
         
-        let name = req.body.user
+        let name = req.body.name
         let email = req.body.email
         let password = req.body.password
         let errors = {}
         let passEncriptada = bcrypt.hashSync(password, 10)
 
-        // if( estaLogueado === false){
+        if( user === false){
             if(passEncriptada.length > 3 && passEncriptada != null){
                 db.User.create({
                     name: name,
@@ -81,13 +79,11 @@ const controladorUsers = {
             if(email = undefined){//falta la condición de que no se repita
                errors.message = 'Su mail es inválido'
             } 
-        } , 
+        }
         
-    //},
-    login: function(req,res){
-        res.render('login')
     },
-    checkUser: function(req,res){
+
+    login: function(req,res){
         let {email, password, recordarme} = req.body
         db.User.findOne({
             where:{
@@ -119,7 +115,7 @@ const controladorUsers = {
                 )
             }
 
-            res.redirect('/users/profile/'+ user.id,{
+            res.redirect('/profile/'+ user.id,{
                 catalogoZapatos:user,
                 userLogueado: true
             })
@@ -128,44 +124,44 @@ const controladorUsers = {
         .catch(function(error){
             console.log(error)
         })
-    }
+    },
     
 
-    // update: function(req, res){
-    //     let id = req.params.id
-    //     let {name, emai} = req.body
-    //     db.User.update({
-    //         name: name,
-    //         email: email,
-    //     }, {
-    //         where: {
-    //             id: id
-    //         }
-    //     })
+    update: function(req, res){
+        let id = req.params.id
+        let {name, emai} = req.body
+        db.User.update({
+            name: name,
+            email: email,
+        }, {
+            where: {
+                id: id
+            }
+        })
 
-    //     .then(function(resp){
-    //         res.redirect('/users/profile/')
-    //     })
+        .then(function(resp){
+            res.redirect('/users/profile/')
+        })
 
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // },
+        .catch(function(error){
+            console.log(error)
+        })
+    },
 
-    // delete: function(req, res){
-    //     let id = req.params.id
-    //     db.User.destroy({
-    //         where: {
-    //             id: id
-    //         }
-    //     })
-    //     .then(function(resp){
-    //         res.redirect('/')
-    //     })
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // }
+    delete: function(req, res){
+        let id = req.params.id
+        db.User.destroy({
+            where: {
+                id: id
+            }
+        })
+        .then(function(resp){
+            res.redirect('/')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }
 
 }
 
