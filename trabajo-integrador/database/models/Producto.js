@@ -19,7 +19,11 @@ module.exports = function (sequelize, dataTypes) {
         },
         descripcion: {
             type: dataTypes.STRING,
-            null: false
+            allowNull: false
+        },
+        imagen: {
+            type: dataTypes.STRING,
+            allowNull: false
         },
         created_at: {
             type: dataTypes.DATE

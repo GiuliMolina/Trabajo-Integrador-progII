@@ -5,9 +5,9 @@
     <!-- product detail -->
 	<div class="container products-wrapper">
 			<div class="d-flex align-items-center">
-                <h2 class="products-title"><%= catalogoZapatos.productos[1].nombre %> </h2> 
+                <h2 class="products-title"><%= catalogoZapatos.nombre %> </h2> 
                 <p class="product-detail-description">
-                    <a href="/zapatos/product-edit/<%= catalogoZapatos.productos[1].id %>">Editar</a> 
+                    <a href="/zapatos/product-edit/<%= catalogoZapatos.id %>">Editar</a> 
 					<!-- va :id? -->
                 </p>
 		    </div>
@@ -16,27 +16,27 @@
 		
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/<%= catalogoZapatos.productos[1].imagen %>" alt="" class="product-detail-img">
+					<img src="/<%= catalogoZapatos.imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 
-						<%= catalogoZapatos.productos[1].descripcion %> </p>
+						<%= catalogoZapatos.descripcion %> </p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<article>
-							<img src="/<%=catalogoZapatos.usuario.imagen%>" alt="">
+							<img src="/<%=catalogoZapatos.user.foto_de_perfil%>" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users/profile">Nombre usuario: <%= catalogoZapatos.usuario.nombre %></a> </strong>
-								<p> Comentarios:</p>
-                                <%for(let j=0;j<catalogoZapatos.productos[0].comentarios.length;j++){ %>
-									<p> <%= catalogoZapatos.productos[0].comentarios[j].texto%> </p>
-									<%}%>
-								</p>
+								<strong> <a href="/users/profile">Nombre usuario: <%= catalogoZapatos.user.nombre %></a> </strong>
+								<!-- <p> Comentarios:</p>
+                                <%//for(let j=0;j<catalogoZapatos.comentrario.length;j++){ %>
+									<p> <//%= catalogoZapatos.productos[0].comentarios[j].texto%> </p>
+									<%//}%>
+								</p> -->
 					        </div>
 						</article>
 					 </section>
-					<form class="form" action="/zapatos/<%= catalogoZapatos.productos[0].id %>" method="get">
+					<form class="form" action="/zapatos/<%= catalogoZapatos.id %>" method="get">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
