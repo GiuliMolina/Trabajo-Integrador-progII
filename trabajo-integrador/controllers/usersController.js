@@ -56,7 +56,7 @@ const controladorUsers = {
         let errors = {}
         let passEncriptada = bcrypt.hashSync(password, 10)
 
-        if( user === false){
+        // if( estaLogueado === false){
             if(passEncriptada.length > 3 && passEncriptada != null){
                 db.User.create({
                     name: name,
@@ -81,9 +81,9 @@ const controladorUsers = {
             if(email = undefined){//falta la condición de que no se repita
                errors.message = 'Su mail es inválido'
             } 
-        }  
+        } , 
         
-    },
+    //},
     login: function(req,res){
         res.render('login')
     },
