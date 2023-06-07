@@ -5,7 +5,6 @@ USE `proyecto_integrador`;
 
 CREATE TABLE `usuarios`(
 id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
--- nombre TEXT NOT NULL
 email VARCHAR(30) NOT NULL UNIQUE,
 password VARCHAR(30) NOT NULL,
 foto_de_perfil VARCHAR(200),
@@ -108,3 +107,14 @@ INSERT INTO `comentarios` (usuario_id, id_post, comentario) VALUES (1,1,'Me enca
 (2,10,'Las mejores zapatillas'),
 (3,10,'Tremendas'),
 (4,10,'Las ame');
+
+-- USE `proyecto_integrador`;
+
+-- ALTER TABLE `usuarios` ADD nombre VARCHAR(30) NOT NULL;
+
+-- INSERT INTO `usuarios`(nombre)
+-- VALUES ('Tomas'),
+-- ('Justin'),
+-- ('Daniel'),
+-- ('Mariana'),
+-- ('Sebastian');

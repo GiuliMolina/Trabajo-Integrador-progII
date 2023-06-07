@@ -50,6 +50,12 @@ const controladorProducts = {
             .then(function(data){
                 console.log(data.id)
                 res.redirect('/')
+            //     let puedeAgregarProducto 
+            //     if (req.session.user === user){
+            //         puedeAgregarProducto = true
+            //     } else{
+            //         puedeAgregarProducto = false
+            //     } //validar si el usuario que quiere agregar producto s el mismo que esta logueado
             })
             .catch(function(error){
                 console.log(error)
@@ -119,19 +125,19 @@ const controladorProducts = {
             console.log(error)
         })
     },
-    // delete: function(req,res){
-    //     let id = req.params.id
+    delete: function(req,res){
+        let id = req.params.id
 
-    //     db.Producto.destroy({
-    //         where: {id:id}
-    //     })
-    //     .then(function(data){
-    //         res.redirect('/')
-    //     })
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // }
+        db.Producto.destroy({
+            where: {id:id}
+        })
+        .then(function(data){
+            res.redirect('/')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }
 }    
 
 module.exports = controladorProducts
