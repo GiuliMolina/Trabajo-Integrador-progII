@@ -4,24 +4,24 @@ const op = db.Sequelize.Op;
 let bcrypt = require('bcryptjs');
 
 const controladorUsers = {
-    // profile: function(req, res){
-    //     db.User.findAll({
-    //         include:[
-    //             {association: 'producto'},
-    //             {association: 'comentario'}
-    //         ]
-    //     })
-    //     .then(function(data){
-    //         //res.send(data)
-    //         res.render('profile',{
-    //             catalogoZapatos: data ,
-    //             userLogueado: true
-    //         }) 
-    //     })
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // }, 
+    profile: function(req, res){
+        db.User.findAll({
+            include:[
+                {association: 'producto'},
+                {association: 'comentario'}
+            ]
+        })
+        .then(function(data){
+            //res.send(data)
+            res.render('profile',{
+                catalogoZapatos: zapatos,
+                estaLogueado: true
+            }) 
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }, 
 
     // profileEdit: function(req, res){
     //     let id = req.params.id
