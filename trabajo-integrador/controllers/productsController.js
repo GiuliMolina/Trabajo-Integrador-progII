@@ -14,11 +14,12 @@ const controladorProducts = {
         ]
         })
             .then(function(data){
-                res.render('products.ejs',{
-                    idProducto:req.params.id,
-                    catalogoZapatos:zapatos,
-                    userLogueado: true
-                })
+                res.send(data)
+                // res.render('products.ejs',{
+                //     idProducto:req.params.id,
+                //     catalogoZapatos:data,
+                //     userLogueado: true
+                // })
             })
             .catch(function(error){
                 console.log(error)

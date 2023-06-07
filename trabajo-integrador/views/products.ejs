@@ -5,9 +5,9 @@
     <!-- product detail -->
 	<div class="container products-wrapper">
 			<div class="d-flex align-items-center">
-                <h2 class="products-title"><%= catalogoZapatos.productos[0].nombre %> </h2> 
+                <h2 class="products-title"><%= catalogoZapatos.productos[1].nombre %> </h2> 
                 <p class="product-detail-description">
-                    <a href="/zapatos/product-edit/:id">Editar</a> 
+                    <a href="/zapatos/product-edit/<%= catalogoZapatos.productos[1].id %>">Editar</a> 
 					<!-- va :id? -->
                 </p>
 		    </div>
@@ -16,10 +16,10 @@
 		
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/<%= catalogoZapatos.productos[0].imagen %>" alt="" class="product-detail-img">
+					<img src="/<%= catalogoZapatos.productos[1].imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 
-						<%= catalogoZapatos.productos[0].descripcion %> </p>
+						<%= catalogoZapatos.productos[1].descripcion %> </p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
