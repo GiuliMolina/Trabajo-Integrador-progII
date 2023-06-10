@@ -3,15 +3,15 @@ module.exports = function(sequelize, dataTypes){
     let cols = {
         id: {
             primaryKey : true,
-            autoincrement: true,
+            autoIncrement: true,
             type:  dataTypes.INTEGER,
             unsigned: true,
             allowNull: false,
         },
-        // nombre: {
-        //     type: dataTypes.STRING,
-        //     allowNull: false
-        // },
+        nombre: {
+            type: dataTypes.STRING,
+            allowNull: false
+        },
         email: {
             type: dataTypes.STRING,
             unique: true,

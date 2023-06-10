@@ -12,22 +12,22 @@
             <h2 class="products-title">Novedades</h2>
         </div>
 		<div class="row">
-                <%
-                for(let i=0;i<catalogoZapatos.length;i++){ %>
-                <div class="col-md-4 col-sm-4 col-lg-3">
+                <%for(let i=0;i<catalogoZapatos.length;i++){ %>
+                    <div class="col-md-4 col-sm-4 col-lg-3">
 
-                <section class="product-box">
-                    <a href="/zapatos/product/<%= catalogoZapatos[i].id%>">
-                        <figure class="product-box_image">
-                            <img src='/<%=catalogoZapatos[i].imagen %>' alt='/<%= catalogoZapatos[i].nombre_producto%>'>
-                        </figure>
-                        <article class="product-box_data">
-                            <h2> <%= catalogoZapatos[i].nombre_producto%> </h2>
-                            <p> Descripción: <%= catalogoZapatos[i].descripcion%> </p>
-                        </article>
-                    </a>
-				</section>
-            </div>
+                        <section class="product-box">
+                            <a href="/zapatos/product/<%= catalogoZapatos[i].id%>">
+                                <figure class="product-box_image">
+                                    <img src='/<%=catalogoZapatos[i].imagen %>' alt='/<%= catalogoZapatos[i].nombre_producto%>'>
+                                </figure>
+                                <article class="product-box_data">
+                                    <h2> <%= catalogoZapatos[i].nombre_producto%> </h2>
+                                    <p> Descripción: <%= catalogoZapatos[i].descripcion%> </p>
+                                    <!-- faltan los comentarios -->
+                                </article>
+                            </a>
+                        </section>
+                    </div>
                 <%}%>
 	       
         </div>
@@ -40,7 +40,7 @@
 			</div>
 			
             
-            <%for(let i=0;i<catalogoZapatos.length;i++){ %>
+            <%for(let i=1;i<catalogoZapatos.length;i++){ %>
                 <div class="col-md-4 col-sm-4 col-lg-3">
 
                     <section class="product-box">
@@ -51,7 +51,8 @@
                             <article class="product-box_data">
                                 <h2> <%= catalogoZapatos[i].nombre_producto%> </h2>
                                 <p> Descripción: <%= catalogoZapatos[i].descripcion%> </p>
-                                
+                                <h3> Cargado por:<%= catalogoZapatos[i].user.nombre%></h3>
+                                <!-- faltan los comentarios -->
                             </article>
                         </a>
                     </section>

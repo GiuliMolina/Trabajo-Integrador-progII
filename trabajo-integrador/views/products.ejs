@@ -28,15 +28,16 @@
 							<div class="data">
 								<p class="user">
 								<strong> <a href="/users/profile">Nombre usuario: <%= catalogoZapatos.user.nombre %></a> </strong>
-								<!-- <p> Comentarios:</p>
-                                <%//for(let j=0;j<catalogoZapatos.comentrario.length;j++){ %>
+								<p> Comentarios:</p>
+								<p> <%=catalogoZapatos.comentario.comentario%></p>
+                                <!-- <%//for(let j=0;j<catalogoZapatos.comentrario.length;j++){ %>
 									<p> <//%= catalogoZapatos.productos[0].comentarios[j].texto%> </p>
 									<%//}%>
-								</p> -->
+								</p> --> 
 					        </div>
 						</article>
 					 </section>
-					<form class="form" action="/zapatos/<%= catalogoZapatos.id %>" method="get">
+					<form class="form" action="/zapatos/<%= catalogoZapatos.id %>" method="post">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
