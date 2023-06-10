@@ -49,7 +49,7 @@ const controladorUsers = {
     },
 
     register:function(req,res){
-        res.sender('register')
+        res.render('register')
     },
 
     create: function(req, res){
@@ -90,6 +90,16 @@ const controladorUsers = {
     },
 
     login: function(req,res){
+        if (req.session.usuario == undefined){
+            res.render('login')
+        }else{
+            res.redirect('/')
+        }
+        
+
+    },
+    
+    checkUser: function(req,res){
         let {email, password, recordarme} = req.body
         db.User.findOne({
             where:{
@@ -100,13 +110,21 @@ const controladorUsers = {
         .then(function(user){
             let compararPass = bcrypt.compareSync(password, user.password)
             if(compararPass){
-                req.session.user = {
+                req.session.prueba= 'Lo asigno en login'
+                req.session.usuarioLogueado = {
                     id : user.id,
                     name: user.name,
                     email: user.email,
                 }
 
+                res.redirect('/users/profile/' + user.id)
+            
+            } else {
+                errors.message = 'La contraseña no es valida';
+                res.locals.errors = errors;
+                return res.render('login')
             }
+        
             if(recordarme === 'on'){
                 res.cookie(
                     'rememberUser', 
