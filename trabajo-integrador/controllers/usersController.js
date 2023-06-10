@@ -5,6 +5,7 @@ let bcrypt = require('bcryptjs');
 
 const controladorUsers = {
     profile: function(req, res){
+        let id = req.session.user.id
         db.User.findAll({
             include:[
                 {association: 'producto'},
@@ -12,10 +13,10 @@ const controladorUsers = {
             ]
         })
         .then(function(data){
-            // res.send(data)
+            res.send(data)
             res.render('profile',{
                 catalogoZapatos: data,
-                id: req.params.id,
+                id: id,
                 userLogueado: true
             }) 
         })
@@ -54,39 +55,49 @@ const controladorUsers = {
     create: function(req, res){
         let name = req.body.name
         let email = req.body.email
+        let fecha = req.body.fecha
+        let dni = req.body.dni
+        let foto = req.body.foto_deperfil
         let password = req.body.password
-        let errors = {}
         let passEncriptada = bcrypt.hashSync(password, 10)
 
-        if( user === false){
-            if(passEncriptada.length > 3 && passEncriptada != null){
-                db.User.create({
-                    name: name,
-                    email: email,
-                    password: passEncriptada
-                    //agregar los otros datos que se llenan del register (dni,)
-                })
-                .then(function(resp){
-                    console.log(resp.id)
-                    res.redirect('/users/profile')
-                   
-                
-                })
-                .catch(function(error){
-                    console.log(error)
-                })
-            }else{
-                errors.message = 'La contraseña debe tener al menos tres caracteres';
-                res.locals.errors = errors;
-                return res.render('register')
+        db.User.findOne({
+            where:{
+                email: email
             }
-    
-            if(email = undefined){//falta la condición de que no se repita
-               errors.message = 'Su mail es inválido'
-            } 
-        }
+        })
+
+        if(email === ''){
+            let errors = {}
+            errors.message = 'El campo email es obligatorio'
+            res.locals.errors = errors
+            res.render('register')
+        }else if(password == '' || password.length < 3){
+            let errors = {}
+            errors.message = 'La contraseña debe tener al menos 3 caracteres'
+            res.locasl.errors = errors
+            res.render('reguster')
+        }else {
+            db.User.create({
+                email: email,
+                name: name,
+                pass: passEncriptada,
+                fecha: fecha,
+                dni: dni,
+                foto: foto
+            })
         
-    },
+        .then(function(data){
+            res.redirect('/users/login')
+        })
+        .catch(function(error){
+            console.log(error)
+            let errors = {}
+            errors.message = 'Ya existe un usuario con este mail'
+            res.locals.errosr = errors
+            res.render('register')
+        })
+    }},
 
     login: function(req,res){
         if (req.session.usuario == undefined){

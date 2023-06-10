@@ -5,6 +5,12 @@ const bcrypt = require('bcryptjs')
 const controladorProducts = {
     products: function(req, res){
         let idProducto = req.params.id;
+        let user
+        if(usuarioLogueado === true){
+            userLogueado = true
+        }else{
+            userLogueado = false
+        }
         db.Producto.findByPk(idProducto,{
             raw: true,
             nest:true,
@@ -16,9 +22,9 @@ const controladorProducts = {
             .then(function(data){
                 // res.send(data)
                 res.render('products.ejs',{
-                    idProducto:req.params.id,
+                    id: idProducto,
                     catalogoZapatos:data,
-                    userLogueado: true
+                    userLogueado : userLogueado
                 })
             })
             .catch(function(error){
