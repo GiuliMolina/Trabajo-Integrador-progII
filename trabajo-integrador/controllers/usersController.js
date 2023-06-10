@@ -5,7 +5,7 @@ let bcrypt = require('bcryptjs');
 
 const controladorUsers = {
     profile: function(req, res){
-        //let id = req.session.user.id
+        let id = req.session.user.id
         db.User.findAll({
             include:[
                 {association: 'producto'},
@@ -13,7 +13,7 @@ const controladorUsers = {
             ]
         })
         .then(function(data){
-            // res.send(data)
+            res.send(data)
             res.render('profile',{
                 catalogoZapatos: data,
                 id: id,
@@ -55,11 +55,28 @@ const controladorUsers = {
     create: function(req, res){
         let name = req.body.name
         let email = req.body.email
-        let password = req.body.password
+        //let password = req.body.password
         let errors = {}
         let passEncriptada = bcrypt.hashSync(password, 10)
 
-        if( user === false){
+        db.User.findOne({
+            where:{
+                email: email
+            }
+        })
+
+        if(email === ''){
+            errors.message = 'El campo email es obligatorio'
+            res.locals.errors = errors
+            res.render('register')
+        }else{
+            db.User.create({
+                email: email,
+                name: name,
+                pass
+            })
+        }
+
             if(passEncriptada.length > 3 && passEncriptada != null){
                 db.User.create({
                     name: name,
@@ -85,7 +102,7 @@ const controladorUsers = {
             if(email = undefined){//falta la condición de que no se repita
                errors.message = 'Su mail es inválido'
             } 
-        }
+        
         
     },
 
