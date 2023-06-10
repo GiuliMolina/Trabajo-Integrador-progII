@@ -53,7 +53,7 @@ const controladorUsers = {
     },
 
     create: function(req, res){
-        let name = req.body.user
+        let nombre = req.body.user
         let email = req.body.email
         let fecha = req.body.fecha_de_nacimiento
         let dni = req.body.dni
@@ -80,7 +80,7 @@ const controladorUsers = {
         }else {
             let passEncriptada = bcrypt.hashSync(password, 10)
             db.User.create({
-                name: name,
+                nombre: nombre,
                 email: email,
                 pass: passEncriptada,
                 fecha: fecha,
@@ -110,64 +110,63 @@ const controladorUsers = {
 
     },
     
-    checkUser: function(req,res){
-        let {email, password, recordarme} = req.body
-        db.User.findOne({
-            where:{
-                email: email
-            },
-            raw: true
-        })
-        if (email == ''){ //|| (email == undefined)// 
-            let errors = {}
-            errors.message = 'el email no es valido'
-        }
-        }
+    // checkUser: function(req,res){
+    //     let {email, password, recordarme} = req.body
+    //     db.User.findOne({
+    //         where:{
+    //             email: email
+    //         },
+    //         raw: true
+    //     })
+    //     if (email == ''){ //|| (email == undefined)// 
+    //         let errors = {}
+    //         errors.message = 'el email no es valido'
+    //     }
+    //     }
 
-        .then(function(user){
-            let compararPass = bcrypt.compareSync(password, user.password)
-            if(compararPass){
-                req.session.prueba= 'Lo asigno en login'
-                req.session.usuarioLogueado = {
-                    id : user.id,
-                    name: user.name,
-                    email: user.email,
-                }
+    //     .then(function(user){
+    //         let compararPass = bcrypt.compareSync(password, user.password)
+    //         if(compararPass){
+    //             req.session.prueba= 'Lo asigno en login'
+    //             req.session.usuarioLogueado = {
+    //                 id : user.id,
+    //                 name: user.name,
+    //                 email: user.email,
+    //             }
 
-                res.redirect('/users/profile/' + user.id)
+    //             res.redirect('/users/profile/' + user.id)
             
-            } else {
-                let errors = {}
-                errors.message = 'La contraseña no es valida';
-                res.locals.error = errors;
-                return res.render('login')
-            }
+    //         } else {
+    //             let errors = {}
+    //             errors.message = 'La contraseña no es valida';
+    //             res.locals.error = errors;
+    //             return res.render('login')
+    //         }
         
-            // if(recordarme === 'on'){
-            //     res.cookie(
-            //         'recordarme', 
-            //         {
-            //             id: user.id,
-            //             name: user.name,
-            //             email:user.email
-            //         },
-            //         {
-            //             maxAge: 1000 * 60 * 15
-            //         }
-            //     )
-            //}
+    //         if(recordarme === 'on'){
+    //             res.cookie(
+    //                 'recordarme', 
+    //                 {
+    //                     id: user.id,
+    //                     name: user.name,
+    //                     email:user.email
+    //                 },
+    //                 {
+    //                     maxAge: 1000 * 60 * 15
+    //                 }
+    //             )
+    //         }
 
-            // res.redirect('/users/profile/'+ user.id,{
-            //     catalogoZapatos:user,
-            //     userLogueado: true
-            // })
+    //         res.redirect('/users/profile/'+ user.id,{
+    //             catalogoZapatos:user,
+    //             userLogueado: true
+    //         })
 
-    })        
-        .catch(function(error){
-            console.log(error)
-        })
-    }
-    //,
+    // })        
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // },
     
 
     // update: function(req, res){
@@ -206,7 +205,7 @@ const controladorUsers = {
     //     })
     // }
 
-//}
+}
 
 
     

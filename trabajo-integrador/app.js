@@ -46,23 +46,21 @@ app.use(function(req,res,next){
     res.locals.estaLogueado = false
   };
   return next();
+  if ( req.cookies.recordarme != undefined && req.session.user == undefined){
+    let idUsuarioEnCookie = req.cookies.recordarme;
+  
+    db.User.findByPk(idUsuarioEnCookie)
+    .then((user)=> {
+      req.session.user = user.dataValues
+      req.locals.user = user.dataValuesr
+      return next();
+    }).catch((err)=>{
+      console.log(err)
+    });
+  } else {
+    return next()
+  }
 });
-
-if ( req.cookies.recordarme != undefined && req.session.user == undefined){
-  let idUsuarioEnCookie = req.cookies.recordarme;
-
-  db.User.findByPk(idUsuarioEnCookie)
-  .then((user)=> {
-    req.session.user = user.dataValues
-    req.locals.user = user.dataValuesr
-    return next();
-  }).catch((err)=>{
-    console.log(err)
-  });
-} else {
-  return next()
-}
-
 
 
 app.use('/', indexRouter);
