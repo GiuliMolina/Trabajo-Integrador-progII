@@ -11,25 +11,23 @@
 			
             <%if (resultadosDeBusqueda){%>
             <section class="product-box search">
-                <h2>Estos son los resultados para su busqueda: <%=busquedaDelUsuario%></h2>
-                <%for (let i=0; i<catalogoZapatos.length; i++){%>
+                <h2 class="texto">Estos son los resultados para su busqueda: <%=busquedaDelUsuario%></h2>
+                <%for (let i=0; i<resultados.length; i++){%>
+                    <a href="/zapatos/product/<%= resultados[i].id%>">
                     <figure class="product-box_image">
                         <div class="searchdiv-img">
-                            <img class="imgsearch" src='/<%=catalogoZapatos[i].imagen %>' alt='/<%= catalogoZapatos.productos[2].nombre%>'>
-                        </div>
-                                
+                            <img class="imgsearch" src='/<%=resultados[i].imagen %>' alt='/<%= resultados[i].nombre_producto%>'>
+                        </div>              
                     </figure> 
                     <article class="product-box_data">
-                        <h2> <%= catalogoZapatos[i].nombre%> </h2>
-                            <p> Descripción: <%= catalogoZapatos[i].descripcion%> </p>
+                        <h2> <%= resultados[i].nombre_producto%> </h2>
+                            <p> Descripción: <%= resultados[i].descripcion%> </p>
+                            <!-- <p class="user">
+								<strong> <a href="/users/profile">Cargado por: <%=// resultados.user.nombre %></a> </strong>
+							</p> -->
                             <p> Comentarios:</p>
-                            <%
-                            for(let j=0;j<catalogoZapatos[i].comentarios.length;i++){ %>
-                                <img  class='fotocomentarios' src="/<%=catalogoZapatos[i].comentarios[j].imagen%>">
-                                <h3> <%=catalogoZapatos[i].comentarios[j].nombre%> </h3>
-                                <p> <%= catalogoZapatos[i].comentarios[j].texto%> </p>
-                            <%}%>
                     </article>
+                    </a>
                 <%}%>
 			</section>
             <%}else{%>

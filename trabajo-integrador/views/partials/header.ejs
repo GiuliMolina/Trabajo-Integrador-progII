@@ -10,7 +10,7 @@
                 </div>
             
                 <div class="col-7 col-md-6">
-                    <form action="/zapatos/searchResults" method="GET" class="search-form">
+                    <form action="/zapatos/search-results" method="GET" class="search-form">
                         <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input" value="">
                         <button type="submit" class="search-form_button">Buscar<i class="fas fa-search"></i></button>
                     </form>
@@ -26,9 +26,7 @@
                         </ul>
             
                         <ul class="right-navbar right_navbar_logueado">
-                            <li><a class="texto" href="/users/profile">
-                                    <%= locals.estaLogueado.nombre%> <i class="fas fa-user"></i>
-                                </a>
+                            <li><a class="texto" href="/users/profile"><%= user.name%> <i class="fas fa-user"></i></a>
                             </li>
                             <li>
                                 <form class="form_logout" action="/" method="post">

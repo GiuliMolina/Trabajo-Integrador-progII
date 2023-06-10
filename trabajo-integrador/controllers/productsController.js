@@ -1,16 +1,17 @@
 const zapatos = require('../data/data')
 const db = require('../database/models');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const op = db.Sequelize.Op;
 
 const controladorProducts = {
     products: function(req, res){
         let idProducto = req.params.id;
-        let user
-        if(usuarioLogueado === true){
-            userLogueado = true
-        }else{
-            userLogueado = false
-        }
+        let userLogueado
+        // if(usuarioLogueado === true){
+        //     userLogueado = true
+        // }else{
+        //     userLogueado = false
+        // }
         db.Producto.findByPk(idProducto,{
             raw: true,
             nest:true,
@@ -24,7 +25,7 @@ const controladorProducts = {
                 res.render('products.ejs',{
                     id: idProducto,
                     catalogoZapatos:data,
-                    userLogueado : userLogueado
+                    // userLogueado : userLogueado
                 })
             })
             .catch(function(error){
@@ -131,33 +132,37 @@ const controladorProducts = {
         })
     },
     searchResults:function(req,res){
-        let productoBuscado = req.query.search //falta hacer validacion de si es algo del nombre o de la descripcion
+        let productoBuscado = req.query.search 
         db.Producto.findAll({
-            where:[
-                { name:{[op.like]: `%${productoBuscado}%` }} 
-            ],
+            where:{
+                [op.or]: [{nombre_producto:{[op.like]: `%${productoBuscado}%`}},{descripcion:{[op.like]: `%${productoBuscado}%`}}]
+            },
             order: [
-                ['name','DESC']
+                ['nombre_producto','DESC']
             ],
             raw:true
         })
         .then(function(data){
-            let resultadosBusquedaEncontrados
+            // if (req.query.search === 0 || req.query.search === undefined ){
+            //     alert("Tu campo de busqueda no puede estar vacio")
+            // }else{
+                let resultadosBusquedaEncontrados
 
-            if(data.length>0){
-                resultadosBusquedaEncontrados = true
-            }else{
-                resultadosBusquedaEncontrados = false
-            }
-            
-            res.render('search-results',{
-                catalogoZapatos:data,
-                busquedaDelUsuario:productoBuscado,
-                userLogueado: false,
-                resultadosDeBusqueda: resultadosBusquedaEncontrados,
-                nombre: req.params.nombre, //name o nombre?
-                nombreUsuario: req.body.user // no estoy segura
-            })
+                if(data.length>0){
+                    resultadosBusquedaEncontrados = true
+                }else{
+                    resultadosBusquedaEncontrados = false
+                }
+                
+                res.render('search-results',{
+                    resultados:data,
+                    busquedaDelUsuario:productoBuscado,
+                    userLogueado: false,
+                    resultadosDeBusqueda: resultadosBusquedaEncontrados,
+                    // nombre: req.params.nombre, //name o nombre?
+                    // nombreUsuario: req.body.user // no estoy segura
+                })
+            // }
         })
         .catch(function(error){
             console.log(error)
