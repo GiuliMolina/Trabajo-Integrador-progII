@@ -14,12 +14,12 @@ const controladorProducts = {
         ]
         })
             .then(function(data){
-                res.send(data)
-                // res.render('products.ejs',{
-                //     idProducto:req.params.id,
-                //     catalogoZapatos:data,
-                //     userLogueado: true
-                // })
+                // res.send(data)
+                res.render('products.ejs',{
+                    idProducto:req.params.id,
+                    catalogoZapatos:data,
+                    userLogueado: true
+                })
             })
             .catch(function(error){
                 console.log(error)
@@ -67,7 +67,7 @@ const controladorProducts = {
 
         db.Producto.findByPk(id,{
             raw: true,
-            nested:true,
+            nest:true,
             include:[
             {association: "user"},
             {association: "comentario"}
@@ -92,6 +92,37 @@ const controladorProducts = {
         //     return res.render('products')
         // }
         
+    },
+    update: function(req,res){
+        let id = req.params.id
+        let {imagen,nombre,descripcion} = req.body
+
+        db.Producto.update({
+            imagen:imagen,
+            nombre:nombre,
+            descripcion:descripcion,
+        },{
+            where:{id:id}
+        })
+        .then(function(data){
+            res.redirect('zapatos/product/' + id)
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    },
+    delete: function(req,res){
+        let id = req.params.id
+
+        db.Producto.destroy({
+            where: {id:id}
+        })
+        .then(function(data){
+            res.redirect('/')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
     },
     searchResults:function(req,res){
         let productoBuscado = req.query.search //falta hacer validacion de si es algo del nombre o de la descripcion
@@ -121,19 +152,6 @@ const controladorProducts = {
                 nombre: req.params.nombre, //name o nombre?
                 nombreUsuario: req.body.user // no estoy segura
             })
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-    },
-    delete: function(req,res){
-        let id = req.params.id
-
-        db.Producto.destroy({
-            where: {id:id}
-        })
-        .then(function(data){
-            res.redirect('/')
         })
         .catch(function(error){
             console.log(error)

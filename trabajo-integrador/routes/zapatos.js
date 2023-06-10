@@ -10,7 +10,9 @@ router.post('/product-add/create',productsController.create)
 
 router.get('/search-results',productsController.searchResults)
 
-router.get('/product-edit',productsController.edit) // va o no el :id?
+router.get('/product-edit/:id',productsController.edit) 
+router.post('/product-edit/:id',productsController.edit) 
+
 router.post('/delete/:id',productsController.delete)
 
 module.exports = router
