@@ -89,6 +89,16 @@ const controladorUsers = {
     },
 
     login: function(req,res){
+        if (req.session.usuario == undefined){
+            res.render('login')
+        }else{
+            res.redirect('/')
+        }
+        
+
+    },
+    
+    checkUser: function(req,res){
         let {email, password, recordarme} = req.body
         db.User.findOne({
             where:{
@@ -99,12 +109,15 @@ const controladorUsers = {
         .then(function(user){
             let compararPass = bcrypt.compareSync(password, user.password)
             if(compararPass){
-                req.session.user = {
+                req.session.prueba= 'Lo asigno en login'
+                req.session.usuarioLogueado = {
                     id : user.id,
                     name: user.name,
                     email: user.email,
                 }
 
+                res.redirect('/users/profile/' + user.id)
+            
             }
             if(recordarme === 'on'){
                 res.cookie(
