@@ -118,6 +118,12 @@ const controladorUsers = {
             },
             raw: true
         })
+        if (email == ''){ //|| (email == undefined)// 
+            let errors = {}
+            errors.message = 'el email no es valido'
+        }
+        }
+
         .then(function(user){
             let compararPass = bcrypt.compareSync(password, user.password)
             if(compararPass){
@@ -160,7 +166,8 @@ const controladorUsers = {
         .catch(function(error){
             console.log(error)
         })
-    },
+    }
+    //,
     
 
     // update: function(req, res){
@@ -199,7 +206,7 @@ const controladorUsers = {
     //     })
     // }
 
-}
+//}
 
 
     
