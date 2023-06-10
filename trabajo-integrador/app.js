@@ -27,13 +27,12 @@ app.use(session({
   saveUninitialized:false
 }));
 
-app.use(function(req, res,next){
-  res.locals.estaLogueado = {
-    nombre: 'Justin',
-    imagen: '../images/justinbieber.webp',
-    email: 'justinb@gmail.com',
+app.use(function(req, res, next){
+  console.log(req.session)
+  res.locals.usuarioLogueado = {
+    prueba: 'prueba'
   }
-  return next()
+  next()
 })
 
 app.use(function(req,res,next){
