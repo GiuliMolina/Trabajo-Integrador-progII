@@ -37,7 +37,7 @@ app.use(function(req, res, next){
 
 app.use(function(req,res,next){
   
-  console.log(req.cookies.recordarme)
+  // console.log(req.cookies.recordarme)
   
   if(req.session.user !== undefined){
     res.locals.estaLogueado = true
