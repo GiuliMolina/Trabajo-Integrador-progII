@@ -1,4 +1,3 @@
-const zapatos = require('../data/data')
 const db = require('../database/models');
 const bcrypt = require('bcryptjs')
 

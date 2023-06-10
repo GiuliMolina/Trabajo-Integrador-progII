@@ -8,10 +8,10 @@ module.exports = function(sequelize, dataTypes){
             unsigned: true,
             allowNull: false,
         },
-        // nombre: {
-        //     type: dataTypes.STRING,
-        //     allowNull: false
-        // },
+        nombre: {
+            type: dataTypes.STRING,
+            allowNull: false
+        },
         email: {
             type: dataTypes.STRING,
             unique: true,
