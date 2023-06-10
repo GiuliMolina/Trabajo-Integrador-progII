@@ -131,29 +131,30 @@ const controladorUsers = {
                 res.redirect('/users/profile/' + user.id)
             
             } else {
+                let errors = {}
                 errors.message = 'La contraseña no es valida';
                 res.locals.error = errors;
                 return res.render('login')
             }
         
-            if(recordarme === 'on'){
-                res.cookie(
-                    'recordarme', 
-                    {
-                        id: user.id,
-                        name: user.name,
-                        email:user.email
-                    },
-                    {
-                        maxAge: 1000 * 60 * 15
-                    }
-                )
-            }
+            // if(recordarme === 'on'){
+            //     res.cookie(
+            //         'recordarme', 
+            //         {
+            //             id: user.id,
+            //             name: user.name,
+            //             email:user.email
+            //         },
+            //         {
+            //             maxAge: 1000 * 60 * 15
+            //         }
+            //     )
+            //}
 
-            res.redirect('/profile/'+ user.id,{
-                catalogoZapatos:user,
-                userLogueado: true
-            })
+            // res.redirect('/users/profile/'+ user.id,{
+            //     catalogoZapatos:user,
+            //     userLogueado: true
+            // })
 
     })        
         .catch(function(error){
@@ -162,41 +163,41 @@ const controladorUsers = {
     },
     
 
-    update: function(req, res){
-        let id = req.params.id
-        let {name, emai} = req.body
-        db.User.update({
-            name: name,
-            email: email,
-        }, {
-            where: {
-                id: id
-            }
-        })
+    // update: function(req, res){
+    //     let id = req.params.id
+    //     let {name, emai} = req.body
+    //     db.User.update({
+    //         name: name,
+    //         email: email,
+    //     }, {
+    //         where: {
+    //             id: id
+    //         }
+    //     })
 
-        .then(function(resp){
-            res.redirect('/users/profile/')
-        })
+    //     .then(function(resp){
+    //         res.redirect('/users/profile/')
+    //     })
 
-        .catch(function(error){
-            console.log(error)
-        })
-    },
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // },
 
-    delete: function(req, res){
-        let id = req.params.id
-        db.User.destroy({
-            where: {
-                id: id
-            }
-        })
-        .then(function(resp){
-            res.redirect('/')
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-    }
+    // delete: function(req, res){
+    //     let id = req.params.id
+    //     db.User.destroy({
+    //         where: {
+    //             id: id
+    //         }
+    //     })
+    //     .then(function(resp){
+    //         res.redirect('/')
+    //     })
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // }
 
 }
 
