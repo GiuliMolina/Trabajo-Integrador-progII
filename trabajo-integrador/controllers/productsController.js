@@ -51,12 +51,12 @@ const controladorProducts = {
 
             db.Producto.create({
                 imagen: imagen,
-                nombre: nombre,
-                descripcion:text,
-                fechaDeCarga: date,
+                nombre_producto: nombre,
+                descripcion: text,
+                created_at: date,
+                usuario_id:10
             })
             .then(function(data){
-                console.log(data.id)
                 res.redirect('/')
             //     let puedeAgregarProducto 
             //     if (req.session.user === user){
