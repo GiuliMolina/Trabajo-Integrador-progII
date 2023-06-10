@@ -48,7 +48,7 @@ const controladorUsers = {
     },
 
     register:function(req,res){
-        res.sender('register')
+        res.render('register')
     },
 
     create: function(req, res){
@@ -118,7 +118,12 @@ const controladorUsers = {
 
                 res.redirect('/users/profile/' + user.id)
             
+            } else {
+                errors.message = 'La contraseña no es valida';
+                res.locals.errors = errors;
+                return res.render('login')
             }
+        
             if(recordarme === 'on'){
                 res.cookie(
                     'rememberUser', 
