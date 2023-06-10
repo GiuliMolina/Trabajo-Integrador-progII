@@ -16,9 +16,9 @@ const controladorIndex = {
             ],
         })
         .then(function(data){
-            // res.send(data)
+            //res.send(data)
             res.render('index.ejs',{
-                catalogoZapatos:data,
+                catalogoZapatos: data,
                 userLogueado: false
             })
         })
