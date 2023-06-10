@@ -85,7 +85,7 @@ const controladorUsers = {
                 pass: passEncriptada,
                 fecha: fecha,
                 dni: dni,
-                //foto: foto
+                // foto: foto
             })
         
         .then(function(data){
@@ -123,7 +123,6 @@ const controladorUsers = {
             errors.message = 'el email no es valido'
         }
         }
-
         .then(function(user){
             let compararPass = bcrypt.compareSync(password, user.password)
             if(compararPass){
