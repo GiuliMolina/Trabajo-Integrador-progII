@@ -60,7 +60,7 @@ const controladorUsers = {
                     name: name,
                     email: email,
                     password: passEncriptada
-                    //agregar los otros datos que se llenan del register (dni, fecha de nacimiento, y foto)
+                    //agregar los otros datos que se llenan del register (dni,)
                 })
                 .then(function(resp){
                     console.log(resp.id)
