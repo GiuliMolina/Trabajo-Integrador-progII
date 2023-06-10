@@ -10,7 +10,7 @@ router.get('/register',usersController.register)
 
 router.get('/profile', usersController.profile)
 // router.get('/profileEdit', usersController.profileEdit)
-
+//no se si hay que agregar una ruta para cuando tocas el boton de cerrar sesion
 
 module.exports = router;
    
