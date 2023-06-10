@@ -40,7 +40,7 @@
 			</div>
 			
             
-            <%for(let i=0;i<catalogoZapatos.length;i++){ %>
+            <%for(let i=1;i<catalogoZapatos.length;i++){ %>
                 <div class="col-md-4 col-sm-4 col-lg-3">
 
                     <section class="product-box">
@@ -51,6 +51,7 @@
                             <article class="product-box_data">
                                 <h2> <%= catalogoZapatos[i].nombre_producto%> </h2>
                                 <p> Descripción: <%= catalogoZapatos[i].descripcion%> </p>
+                                <h3> Cargado por:<%= catalogoZapatos[i].user.nombre%></h3>
                                 <!-- faltan los comentarios -->
                             </article>
                         </a>

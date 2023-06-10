@@ -6,11 +6,14 @@ const controladorIndex = {
     index : function(req, res){
         db.Producto.findAll({
             raw: true,
-            nested:true,
+            nest:true,
+            order:[
+                ['created_at','DESC']
+            ],
             include:[
                 {association: "user"},
                 {association: "comentario"}
-            ]
+            ],
         })
         .then(function(data){
             // res.send(data)

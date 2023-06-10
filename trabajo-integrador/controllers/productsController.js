@@ -131,7 +131,7 @@ const controladorProducts = {
                 { name:{[op.like]: `%${productoBuscado}%` }} 
             ],
             order: [
-                {'name':'DESC'} //va entre comillas?
+                ['name','DESC']
             ],
             raw:true
         })
