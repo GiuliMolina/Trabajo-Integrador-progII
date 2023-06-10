@@ -14,11 +14,11 @@ const controladorIndex = {
             ]
         })
         .then(function(data){
-            res.send(data)
-            // res.render('index.ejs',{
-            //     catalogoZapatos:data,
-            //     userLogueado: false
-            // })
+            //res.send(data)
+            res.render('index.ejs',{
+                catalogoZapatos: data,
+                userLogueado: false
+            })
         })
         .catch(function(error){
             console.log(error)

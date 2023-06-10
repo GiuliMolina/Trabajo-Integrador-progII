@@ -12,9 +12,10 @@ const controladorUsers = {
             ]
         })
         .then(function(data){
-            //res.send(data)
+            res.send(data)
             res.render('profile',{
                 catalogoZapatos: data ,
+                
                 userLogueado: true
             }) 
         })
@@ -47,7 +48,10 @@ const controladorUsers = {
     },
 
     register:function(req,res){
-        
+        res.sender('register')
+    },
+
+    create: function(req, res){
         let name = req.body.name
         let email = req.body.email
         let password = req.body.password
