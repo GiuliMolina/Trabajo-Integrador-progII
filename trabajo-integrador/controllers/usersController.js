@@ -5,6 +5,7 @@ let bcrypt = require('bcryptjs');
 
 const controladorUsers = {
     profile: function(req, res){
+        //let id = req.session.user.id
         db.User.findAll({
             include:[
                 {association: 'producto'},
@@ -15,7 +16,7 @@ const controladorUsers = {
             // res.send(data)
             res.render('profile',{
                 catalogoZapatos: data,
-                id: req.params.id,
+                id: id,
                 userLogueado: true
             }) 
         })
