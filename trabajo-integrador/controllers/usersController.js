@@ -12,10 +12,10 @@ const controladorUsers = {
             ]
         })
         .then(function(data){
-            res.send(data)
+            // res.send(data)
             res.render('profile',{
-                catalogoZapatos: data ,
-                
+                catalogoZapatos: data,
+                id: req.params.id,
                 userLogueado: true
             }) 
         })
