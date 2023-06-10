@@ -36,7 +36,7 @@ const controladorUsers = {
         })
         .then(function(data){
             console.log(data),
-            res.render('profile-edit.ejs', {
+            res.render('profile-edit', {
                
                 catalogoZapatos: data, 
                 userLogueado: true,
@@ -53,13 +53,13 @@ const controladorUsers = {
     },
 
     create: function(req, res){
-        let name = req.body.name
+        let name = req.body.user
         let email = req.body.email
-        let fecha = req.body.fecha
+        let fecha = req.body.fecha_de_nacimiento
         let dni = req.body.dni
-        let foto = req.body.foto_deperfil
+        //let foto = req.body.foto_de_perfil
         let password = req.body.password
-        let passEncriptada = bcrypt.hashSync(password, 10)
+        
 
         db.User.findOne({
             where:{
@@ -70,21 +70,22 @@ const controladorUsers = {
         if(email === ''){
             let errors = {}
             errors.message = 'El campo email es obligatorio'
-            res.locals.errors = errors
+            res.locals.error = errors
             res.render('register')
-        }else if(password == '' || password.length < 3){
+        }else if(password === '' || password.length < 3){
             let errors = {}
             errors.message = 'La contraseña debe tener al menos 3 caracteres'
-            res.locasl.errors = errors
-            res.render('reguster')
+            res.locals.error = errors
+            res.render('register')
         }else {
+            let passEncriptada = bcrypt.hashSync(password, 10)
             db.User.create({
-                email: email,
                 name: name,
+                email: email,
                 pass: passEncriptada,
                 fecha: fecha,
                 dni: dni,
-                foto: foto
+                //foto: foto
             })
         
         .then(function(data){
@@ -93,8 +94,8 @@ const controladorUsers = {
         .catch(function(error){
             console.log(error)
             let errors = {}
-            errors.message = 'Ya existe un usuario con este mail'
-            res.locals.errosr = errors
+            errors.message = 'Ya existe un usuario con este email'
+            res.locals.error = errors
             res.render('register')
         })
     }},
@@ -117,6 +118,12 @@ const controladorUsers = {
             },
             raw: true
         })
+        if (email == ''){ //|| (email == undefined)// 
+            let errors = {}
+            errors.message = 'el email no es valido'
+        }
+        }
+
         .then(function(user){
             let compararPass = bcrypt.compareSync(password, user.password)
             if(compararPass){
@@ -130,74 +137,76 @@ const controladorUsers = {
                 res.redirect('/users/profile/' + user.id)
             
             } else {
+                let errors = {}
                 errors.message = 'La contraseña no es valida';
-                res.locals.errors = errors;
+                res.locals.error = errors;
                 return res.render('login')
             }
         
-            if(recordarme === 'on'){
-                res.cookie(
-                    'rememberUser', 
-                    {
-                        id: user.id,
-                        name: user.name,
-                        email:user.email
-                    },
-                    {
-                        maxAge: 1000 * 60 * 15
-                    }
-                )
-            }
+            // if(recordarme === 'on'){
+            //     res.cookie(
+            //         'recordarme', 
+            //         {
+            //             id: user.id,
+            //             name: user.name,
+            //             email:user.email
+            //         },
+            //         {
+            //             maxAge: 1000 * 60 * 15
+            //         }
+            //     )
+            //}
 
-            res.redirect('/profile/'+ user.id,{
-                catalogoZapatos:user,
-                userLogueado: true
-            })
+            // res.redirect('/users/profile/'+ user.id,{
+            //     catalogoZapatos:user,
+            //     userLogueado: true
+            // })
 
     })        
         .catch(function(error){
             console.log(error)
         })
-    },
+    }
+    //,
     
 
-    update: function(req, res){
-        let id = req.params.id
-        let {name, emai} = req.body
-        db.User.update({
-            name: name,
-            email: email,
-        }, {
-            where: {
-                id: id
-            }
-        })
+    // update: function(req, res){
+    //     let id = req.params.id
+    //     let {name, emai} = req.body
+    //     db.User.update({
+    //         name: name,
+    //         email: email,
+    //     }, {
+    //         where: {
+    //             id: id
+    //         }
+    //     })
 
-        .then(function(resp){
-            res.redirect('/users/profile/')
-        })
+    //     .then(function(resp){
+    //         res.redirect('/users/profile/')
+    //     })
 
-        .catch(function(error){
-            console.log(error)
-        })
-    },
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // },
 
-    delete: function(req, res){
-        let id = req.params.id
-        db.User.destroy({
-            where: {
-                id: id
-            }
-        })
-        .then(function(resp){
-            res.redirect('/')
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-    }
+    // delete: function(req, res){
+    //     let id = req.params.id
+    //     db.User.destroy({
+    //         where: {
+    //             id: id
+    //         }
+    //     })
+    //     .then(function(resp){
+    //         res.redirect('/')
+    //     })
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // }
 
-}
+//}
 
 
     
