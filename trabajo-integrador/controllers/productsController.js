@@ -55,7 +55,7 @@ const controladorProducts = {
                 nombre_producto: nombre,
                 descripcion: text,
                 created_at: date,
-                usuario_id: idUsuario
+                // usuario_id: idUsuario
             })
             .then(function(data){
                 res.redirect('/')
