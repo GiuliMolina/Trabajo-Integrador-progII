@@ -11,7 +11,7 @@ router.post('/product-add/create',productsController.create)
 router.get('/search-results',productsController.searchResults)
 
 router.get('/product-edit/:id',productsController.edit) 
-router.post('/',productsController.update) 
+router.post('/product-edit/:id',productsController.update) 
 
 router.post('/delete/:id',productsController.delete)
 

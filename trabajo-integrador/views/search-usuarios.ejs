@@ -1,0 +1,36 @@
+<%- include('./partials/head') %>
+<body>
+	<%- include('./partials/header') %>
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Resultados de búsqueda</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			
+            <%if (resultadosDeBusqueda){%>
+            <section class="product-box search">
+                <h2 class="texto">Estos son los resultados para su busqueda: <%=busquedaDelUsuario%></h2>
+                <%for (let i=0; i<resultados.length; i++){%>
+                    <a href="/users/profile/<%= resultados[i].id%>">
+                    <figure class="product-box_image">
+                        <div class="searchdiv-img">
+                            <img class="imgsearch" src='/<%=resultados[i].imagen %>' alt='/<%= resultados[i].nombre%>'>
+                        </div>              
+                    </figure> 
+                    <article class="product-box_data">
+                        <h2> <%= resultados[i].nombre%> </h2>
+                    </article>
+                    </a>
+                <%}%>
+			</section>
+            <%}else{%>
+                <h2>No hay resultados para el usuario que busca</h2>
+            <%}%> 
+        </div>
+    </div>
+
+	<%- include('./partials/footer')%>
+</body>
+</html>

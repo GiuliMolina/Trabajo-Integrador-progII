@@ -39,7 +39,7 @@ const controladorProducts = {
         })
     },
    create: function(req,res){
-        let idUsuario = req.user.id
+        // let idUsuario = req.session.usuarioLogueado.id
         // if(req.session.user.name == undefined){ 
         // if(userLogueado==false){ 
         //     res.redirect('/')
@@ -55,7 +55,7 @@ const controladorProducts = {
                 nombre_producto: nombre,
                 descripcion: text,
                 created_at: date,
-                // usuario_id: idUsuario
+                usuario_id:10
             })
             .then(function(data){
                 res.redirect('/')
@@ -144,8 +144,8 @@ const controladorProducts = {
             raw:true
         })
         .then(function(data){
-            // if (req.query.search === 0 || req.query.search === undefined ){
-            //     alert("Tu campo de busqueda no puede estar vacio")
+            // if (productoBuscado === 0 || productoBuscado === undefined ){
+            //     res.redirect('/')
             // }else{
                 let resultadosBusquedaEncontrados
 

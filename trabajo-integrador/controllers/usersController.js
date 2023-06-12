@@ -135,12 +135,13 @@ const controladorUsers = {
             let compararPass = bcrypt.compareSync(password, user.password)
             if(compararPass){
                 console.log('Entra en la comparacion del pass')
-                req.session.usuarioLogueado = {
+                req.session.user = {
                     id : user.id,
-                    nombre: user.name,
+                    nombre: user.nombre,
                     email: user.email,
                 }
-                console.log('passo el pass')
+                console.log('Pasamos por la comparacion')
+                console.log(req.body)
                 // res.redirect('/users/profile')
             if(recordarme === 'on'){
                 console.log('llega a la cookie')

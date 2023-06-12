@@ -28,12 +28,14 @@ app.use(session({
 }));
 
 app.use(function(req,res,next){
-  
+  console.log('Este log viene desde APP')
+  console.log(req.session.user)
 console.log(req.cookies.recordarme)
   
   if(req.session.user !== undefined){
     res.locals.usuarioLogueado = true
     res.locals.user = req.session.user
+    console.log(res.locals.user)
   }else{
     res.locals.usuarioLogueado = false
   };
