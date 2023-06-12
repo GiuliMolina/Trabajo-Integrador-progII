@@ -59,14 +59,26 @@ const controladorUsers = {
         let dni = req.body.dni
         //let foto = req.body.foto_de_perfil
         let password = req.body.password
+        let emailRepetido = req.body.email
         
 
-        db.User.findOne({
-            where:{
-                email: email
-            }
-        })
+        // db.User.findOne({
+        //     where: [{
+        //         emailRepetido: email
+        //     }]
+        // })
+        // .then(function(filtrado){
+        //     if(filtrado != null){
 
+        //     }
+        // })
+
+        // if(emailRepetido){
+        //     let errors = {}
+        //     errors.message = 'Ya existe un usuario con este mail'
+        //     res.locals.error = errors
+        //     res.render('register')
+        // }else 
         if(email === ''){
             let errors = {}
             errors.message = 'El campo email es obligatorio'
@@ -82,23 +94,20 @@ const controladorUsers = {
             db.User.create({
                 nombre: nombre,
                 email: email,
-                pass: passEncriptada,
+                password: passEncriptada,
                 fecha: fecha,
                 dni: dni,
                 // foto: foto
             })
+            .then(function(data){
+                res.redirect('/users/login')
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+        }
         
-        .then(function(data){
-            res.redirect('/users/login')
-        })
-        .catch(function(error){
-            console.log(error)
-            let errors = {}
-            errors.message = 'Ya existe un usuario con este email'
-            res.locals.error = errors
-            res.render('register')
-        })
-    }},
+    },
 
     login: function(req,res){
         if (req.session.usuario == undefined){
@@ -109,100 +118,98 @@ const controladorUsers = {
         
 
     },
-    // checkUser: function(req,res){
-    //     let {email, password, recordarme} = req.body
-    //     db.User.findOne({
-    //         where:{
-    //             email: email
-    //         },
-    //         raw: true
-    //     })
-    //     if (email == ''){ //|| (email == undefined)// 
-    //         let errors = {}
-    //         errors.message = 'el email no es valido'
-    //     }
-    //     }
 
-    //     .then(function(user){
-    //         let compararPass = bcrypt.compareSync(password, user.password)
-    //         if(compararPass){
-    //             req.session.prueba= 'Lo asigno en login'
-    //             req.session.usuarioLogueado = {
-    //                 id : user.id,
-    //                 name: user.name,
-    //                 email: user.email,
-    //             }
+    checkUser: function(req,res){
+        let {email, password, recordarme} = req.body
+        db.User.findOne({
+            where:{
+                email: email
+            },
+            raw: true
+        })
+        // if (email == ''){ //|| (email == undefined)// 
+        //     let errors = {}
+        //     errors.message = 'el email no es valido'
+        // }
+        .then(function(user){
+            let compararPass = bcrypt.compareSync(password, user.password)
+            if(compararPass){
+                console.log('Entra en la comparacion del pass')
+                req.session.prueba= 'Lo asigno en login'
+                req.session.usuarioLogueado = {
+                    id : user.id,
+                    name: user.name,
+                    email: user.email,
+                }
 
-    //             res.redirect('/users/profile/' + user.id)
+                res.redirect('/users/profile/' + user.id)
             
-    //         } else {
-    //             let errors = {}
-    //             errors.message = 'La contraseña no es valida';
-    //             res.locals.error = errors;
-    //             return res.render('login')
-    //         }
+            } else {
+                let errors = {}
+                errors.message = 'La contraseña no es valida';
+                res.locals.error = errors;
+                return res.render('login')
+            }
         
-    //         if(recordarme === 'on'){
-    //             res.cookie(
-    //                 'recordarme', 
-    //                 {
-    //                     id: user.id,
-    //                     name: user.name,
-    //                     email:user.email
-    //                 },
-    //                 {
-    //                     maxAge: 1000 * 60 * 15
-    //                 }
-    //             )
-    //         }
+            if(recordarme === 'on'){
+                res.cookie(
+                    'recordarme', 
+                    {
+                        id: user.id,
+                        name: user.name,
+                        email:user.email
+                    },
+                    {
+                        maxAge: 1000 * 60 * 15
+                    }
+                )
+            }
 
-    //         res.redirect('/users/profile/'+ user.id,{
-    //             catalogoZapatos:user,
-    //             userLogueado: true
-    //         })
+            res.redirect('/users/profile/'+ user.id,{
+                catalogoZapatos:user,
+                userLogueado: true
+            })
 
-    // })        
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // },
-    
+        })        
+        .catch(function(error){
+            console.log(error)
+        })
+    },
+    update: function(req, res){
+        let id = req.params.id
+        let {name, emai} = req.body
+        db.User.update({
+            name: name,
+            email: email,
+        }, {
+            where: {
+                id: id
+            }
+        })
 
-    // update: function(req, res){
-    //     let id = req.params.id
-    //     let {name, emai} = req.body
-    //     db.User.update({
-    //         name: name,
-    //         email: email,
-    //     }, {
-    //         where: {
-    //             id: id
-    //         }
-    //     })
+        .then(function(resp){
+            res.redirect('/users/profile/')
+        })
 
-    //     .then(function(resp){
-    //         res.redirect('/users/profile/')
-    //     })
+        .catch(function(error){
+            console.log(error)
+        })
+    },
 
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // },
-
-    // delete: function(req, res){
-    //     let id = req.params.id
-    //     db.User.destroy({
-    //         where: {
-    //             id: id
-    //         }
-    //     })
-    //     .then(function(resp){
-    //         res.redirect('/')
-    //     })
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // }
+    delete: function(req, res){
+        let id = req.params.id
+        db.User.destroy({
+            where: {
+                id: id
+            }
+        })
+        .then(function(resp){
+            res.redirect('/')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }
 
 }
 
