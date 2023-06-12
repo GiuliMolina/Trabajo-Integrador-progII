@@ -141,30 +141,29 @@ const controladorUsers = {
                     nombre: user.name,
                     email: user.email,
                 }
-
-                res.redirect('/users/profile')
-                if(recordarme === 'on'){
+                console.log('passo el pass')
+                // res.redirect('/users/profile')
+            if(recordarme === 'on'){
+                console.log('llega a la cookie')
                     res.cookie(
                         'recordarme', 
                         {
                             id: user.id,
-                            nombre: user.name,
+                            nombre: user.nombre,
                             email:user.email
                         },
                         {
                             maxAge: 1000 * 60 * 15
                         }
                     )
-                    res.redirect('/users/profile',{
-                        catalogoZapatos:user,
-                        userLogueado: true
+                    // res.redirect('/users/profile',{
+                    //     catalogoZapatos:user,
+                    //     userLogueado: true
                         
-                    })
+                    // })
                 }
-    
+                res.redirect('/')
                
-    
-            
             } else {
                 let errors = {}
                 errors.message = 'La contraseña no es valida';
