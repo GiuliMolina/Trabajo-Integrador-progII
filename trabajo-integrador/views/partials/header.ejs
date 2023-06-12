@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-            <% if (estaLogueado){%>
+            <% if (usuarioLogueado){%>
             <div class="container_nav_logueado">
                     <nav class="seccion_header" class="main-navbar">
                         <ul class="left-navbar left_navbar_logueado">
@@ -26,7 +26,7 @@
                         </ul>
             
                         <ul class="right-navbar right_navbar_logueado">
-                            <li><a class="texto" href="/users/profile"><%= user.name%> <i class="fas fa-user"></i></a>
+                            <li><a class="texto" href="/users/profile/<%=user.id%>"><%= user.name%> <i class="fas fa-user"></i></a>
                             </li>
                             <li>
                                 <form class="form_logout" action="/" method="post">

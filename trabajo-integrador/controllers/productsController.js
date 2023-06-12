@@ -39,6 +39,7 @@ const controladorProducts = {
         })
     },
    create: function(req,res){
+        let idUsuario = req.user.id
         // if(req.session.user.name == undefined){ 
         // if(userLogueado==false){ 
         //     res.redirect('/')
@@ -54,7 +55,7 @@ const controladorProducts = {
                 nombre_producto: nombre,
                 descripcion: text,
                 created_at: date,
-                usuario_id: 10
+                usuario_id: idUsuario
             })
             .then(function(data){
                 res.redirect('/')

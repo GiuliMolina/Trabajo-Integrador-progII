@@ -27,23 +27,23 @@ app.use(session({
   saveUninitialized:true
 }));
 
-app.use(function(req, res, next){
-  console.log(req.session)
-  res.locals.usuarioLogueado = {
-    prueba: 'prueba'
-  }
-  return next()
-})
+// app.use(function(req, res, next){
+//   console.log(req.session)
+//   res.locals.usuarioLogueado = {
+//     prueba: 'prueba'
+//   }
+//   return next()
+// })
 
 app.use(function(req,res,next){
   
-  // console.log(req.cookies.recordarme)
+console.log(req.cookies.recordarme)
   
   if(req.session.user !== undefined){
-    res.locals.estaLogueado = true
+    res.locals.usuarioLogueado = true
     res.locals.user = req.session.user
   }else{
-    res.locals.estaLogueado = false
+    res.locals.usuarioLogueado = false
   };
   return next();
   // if ( req.cookies.recordarme != undefined && req.session.user == undefined){
