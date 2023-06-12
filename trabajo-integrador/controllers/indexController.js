@@ -25,6 +25,10 @@ const controladorIndex = {
         .catch(function(error){
             console.log(error)
         })
+    },
+    logout: function(req, res){
+        req.session.usuarioLogueado = undefined
+        res.redirect('/')
     }
 }
     

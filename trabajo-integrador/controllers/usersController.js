@@ -60,18 +60,20 @@ const controladorUsers = {
         //let foto = req.body.foto_de_perfil
         let password = req.body.password
         let emailRepetido = req.body.email
+        let repetido = { where:[{email: emailRepetido}]}
+        
         
 
-        // db.User.findOne({
-        //     where: [{
-        //         emailRepetido: email
-        //     }]
-        // })
-        // .then(function(filtrado){
-        //     if(filtrado != null){
-
-        //     }
-        // })
+        db.User.findOne(repetido)
+        .then(function(rep){
+            if(rep != null){
+                let errors = {}
+                errors.message = 'Ya existe un usuario con este email'
+                res.locals.errors = errors
+                //alert(errors.message)
+                res.render('register', {errors: errors.message})
+            }
+        })
 
         // if(emailRepetido){
         //     let errors = {}
@@ -110,13 +112,8 @@ const controladorUsers = {
     },
 
     login: function(req,res){
-        if (req.session.usuario == undefined){
-            res.render('login')
-        }else{
-            res.redirect('/')
-        }
-        
-
+       res.render('login')
+       usuarioLogueado = false
     },
 
     checkUser: function(req,res){
