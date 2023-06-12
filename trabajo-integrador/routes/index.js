@@ -4,6 +4,7 @@ const indexController = require ('../controllers/indexController')
 
 
 router.get('/', indexController.index)
+router.post('/', indexcontroller.logout);
 
 module.exports = router;
  
