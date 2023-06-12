@@ -138,11 +138,32 @@ const controladorUsers = {
                 req.session.prueba= 'Lo asigno en login'
                 req.session.usuarioLogueado = {
                     id : user.id,
-                    name: user.name,
+                    nombre: user.name,
                     email: user.email,
                 }
 
-                res.redirect('/users/profile/' + user.id)
+                res.redirect('/users/profile')
+                if(recordarme === 'on'){
+                    res.cookie(
+                        'recordarme', 
+                        {
+                            id: user.id,
+                            nombre: user.name,
+                            email:user.email
+                        },
+                        {
+                            maxAge: 1000 * 60 * 15
+                        }
+                    )
+                    res.redirect('/users/profile',{
+                        catalogoZapatos:user,
+                        userLogueado: true
+                        
+                    })
+                }
+    
+               
+    
             
             } else {
                 let errors = {}
@@ -151,25 +172,7 @@ const controladorUsers = {
                 return res.render('login')
             }
         
-            if(recordarme === 'on'){
-                res.cookie(
-                    'recordarme', 
-                    {
-                        id: user.id,
-                        name: user.name,
-                        email:user.email
-                    },
-                    {
-                        maxAge: 1000 * 60 * 15
-                    }
-                )
-            }
-
-            res.redirect('/users/profile/'+ user.id,{
-                catalogoZapatos:user,
-                userLogueado: true
-            })
-
+           
         })        
         .catch(function(error){
             console.log(error)
