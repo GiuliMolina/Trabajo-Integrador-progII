@@ -53,8 +53,8 @@ const controladorProducts = {
                 imagen: imagen,
                 nombre_producto: nombre,
                 descripcion: text,
-                // created_at: date,
-                // usuario_id:10
+                created_at: date,
+                usuario_id: 10
             })
             .then(function(data){
                 res.redirect('/')
@@ -105,7 +105,7 @@ const controladorProducts = {
         let {imagen,nombre,descripcion} = req.body
 
         db.Producto.update({
-            imagen:imagen,
+            imagen: `./images/${imagen}`,
             nombre:nombre,
             descripcion:descripcion,
         },{
