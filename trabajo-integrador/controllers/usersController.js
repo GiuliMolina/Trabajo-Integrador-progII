@@ -53,7 +53,7 @@ const controladorUsers = {
     },
 
     create: function(req, res){
-        let nombre = req.body.user
+        let user = req.body.user
         let email = req.body.email
         let fecha = req.body.fecha_de_nacimiento
         let dni = req.body.dni
@@ -61,46 +61,36 @@ const controladorUsers = {
         let password = req.body.password
         let emailRepetido = req.body.email
         let repetido = { where:[{email: emailRepetido}]}
+        let errors = {}
         
-        
-
-        db.User.findOne(repetido)
-        .then(function(rep){
-            if(rep != null){
-                let errors = {}
-                errors.message = 'Ya existe un usuario con este email'
-                res.locals.errors = errors
-                //alert(errors.message)
-                res.render('register', {errors: errors.message})
-            }
-        })
-
-        // if(emailRepetido){
-        //     let errors = {}
-        //     errors.message = 'Ya existe un usuario con este mail'
-        //     res.locals.error = errors
-        //     res.render('register')
-        // }else 
         if(email === ''){
-            let errors = {}
             errors.message = 'El campo email es obligatorio'
-            res.locals.error = errors
+            res.locals.errors = errors
             res.render('register')
         }else if(password === '' || password.length < 3){
-            let errors = {}
             errors.message = 'La contraseña debe tener al menos 3 caracteres'
-            res.locals.error = errors
+            res.locals.errors = errors
             res.render('register')
         }else {
-            let passEncriptada = bcrypt.hashSync(password, 10)
-            db.User.create({
-                nombre: nombre,
-                email: email,
-                password: passEncriptada,
-                fecha: fecha,
-                dni: dni,
-                // foto: foto
+            db.User.findOne(repetido)
+            .then(function(rep){
+                if(rep != null){
+                    errors.message = 'Ya existe un usuario con este email, por favor intente de nuevo'
+                    res.locals.errors = errors
+                    res.render('register') 
+                }else{
+                    let passEncriptada = bcrypt.hashSync(password, 10)
+                    db.User.create({
+                       user: user,
+                       email: email,
+                       password: passEncriptada,
+                       fecha: fecha,
+                       dni: dni,
+                       // foto: foto
+                    })
+                }
             })
+            
             .then(function(data){
                 res.redirect('/users/login')
             })

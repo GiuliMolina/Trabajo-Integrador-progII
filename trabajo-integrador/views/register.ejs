@@ -9,6 +9,9 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
+			<% if(locals.errors){ %>
+				<p> <%= locals.errors.message %> </p>
+			<%}%>
 			<h2 class="col-12 container_register">
 				<form action="/users/register" method="post">
 					<p> User:<input type="text" name="user" placeholder="user name" value=""> </p>
