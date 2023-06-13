@@ -5,8 +5,10 @@ let bcrypt = require('bcryptjs');
 
 const controladorUsers = {
     profile: function(req, res){
-        let id = req.session.user.id
-        db.User.findAll({
+        let id = req.params.id
+        console.log(id)
+
+        db.User.findByPk(id, {
             include:[
                 {association: 'producto'},
                 {association: 'comentario'}
@@ -15,10 +17,20 @@ const controladorUsers = {
         .then(function(data){
             res.send(data)
             res.render('profile',{
-                catalogoZapatos: data,
-                id: id,
-                usuarioLogueado: true
+                usuario: data,
             }) 
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+
+        db.Producto.findAll({
+            where:{
+                usuario_id: id
+            }
+        })
+        .then(function(data){
+            productosUsuario = data
         })
         .catch(function(error){
             console.log(error)
@@ -121,31 +133,34 @@ const controladorUsers = {
         // }
         .then(function(user){
             let compararPass = bcrypt.compareSync(password, user.password)
+            console.log(password)
+            console.log(user.password)
+            console.log(compararPass)
             if(compararPass){
                 console.log('Entra en la comparacion del pass')
                 req.session.user = {
-                    id : user.id,
+                    id: user.id,
                     nombre: user.nombre,
                     email: user.email,
                 }
                 console.log('Pasamos por la comparacion')
                 console.log(req.body)
                 // res.redirect('/users/profile')
-            if(recordarme === 'on'){
-                console.log('llega a la cookie')
-                    res.cookie(
-                        'recordarme', 
-                        {
-                            id: user.id,
-                            nombre: user.nombre,
-                            email:user.email
-                        },
-                        {
-                            maxAge: 1000 * 60 * 15
-                        }
-                    )
-                }
-                res.redirect('/')
+                if(recordarme === 'on'){
+                    console.log('llega a la cookie')
+                        res.cookie(
+                            'recordarme', 
+                            {
+                                id: user.id,
+                                nombre: user.nombre,
+                                email:user.email
+                            },
+                            {
+                                maxAge: 1000 * 60 * 15
+                            }
+                        )
+                    }
+                    res.redirect('/')
                
             } else {
                 let errors = {}

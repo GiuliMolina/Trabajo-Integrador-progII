@@ -6,16 +6,16 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src= "/<%= catalogoZapatos[id].foto_de_perfil%>" alt="foto de perfil" class="foto-perfil">
+				<img src= "/<%= usuario.foto_de_perfil%>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title">  <%= catalogoZapatos[id].nombre%>
+					<h1 class="main-title">  <%= usuario.nombre%>
 						<a href="/users/profileEdit">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
-					<p> <%= catalogoZapatos[id].email%></p>
+					<p> <%= usuario.email%></p>
 					<!-- <a class="btn mt-3 ml-4 seguir" href="">SEGUIR</a> -->
 				</div>
 				<div>
@@ -43,19 +43,19 @@
             <div class="col-md-4 col-sm-4 col-lg-3">
 
                 <section class="product-box">
-                    <a href="/zapatos/<%= catalogoZapatos[i].id%>">
+                    <a href="/zapatos/<%= productosUsuario[i].id%>">
                         <figure class="product-box_image">
-                            <img src='/<%=catalogoZapatos[i].imagen %>' alt='/<%= catalogoZapatos[i].nombre%>'>
+                            <img src='/<%= productosUsuario[i].imagen %>' alt='/<%= productosUsuario[i].nombre%>'>
                         </figure>
                         <article class="product-box_data">
-                            <h2> <%= catalogoZapatos[i].nombre%> </h2>
-                            <p> Descripción: <%= catalogoZapatos[i].descripcion%> </p>
+                            <h2> <%= productosUsuario[i].nombre%> </h2>
+                            <p> Descripción: <%= productosUsuario[i].descripcion%> </p>
 							<p> Comentarios:</p>
                             <%
-                            for(let j=0;j<catalogoZapatos[i].comentario.length;j++){ %>
-                            <img class='fotocomentarios' src="/<%=catalogoZapatos[i].comentario[j].imagen %>">
-                            <h3> <%=catalogoZapatos[i].comentario[j].nombre%> </h3>
-                            <p> <%= catalogoZapatos[i].comentario[j].texto%> </p>
+                            for(let j=0; j<productosUsuario[i].comentario.length;j++){ %>
+                            <img class='fotocomentarios' src="/<%= productosUsuario[i].comentario[j].imagen %>">
+                            <h3> <%= productosUsuario[i].comentario[j].nombre%> </h3>
+                            <p> <%= productosUsuario[i].comentario[j].texto%> </p>
                             <%}%>
                             
                         </article>
