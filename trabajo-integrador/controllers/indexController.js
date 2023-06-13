@@ -27,7 +27,7 @@ const controladorIndex = {
         })
     },
     logout: function(req, res){
-        req.session.usuarioLogueado = undefined
+        req.session.user = undefined
         res.redirect('/')
     }
 }

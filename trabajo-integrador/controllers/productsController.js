@@ -55,7 +55,7 @@ const controladorProducts = {
                 nombre_producto: nombre,
                 descripcion: text,
                 created_at: date,
-                usuario_id:10
+                // usuario_id: req.user.id
             })
             .then(function(data){
                 res.redirect('/')
@@ -83,8 +83,7 @@ const controladorProducts = {
         })
         .then(function(data){
             res.render('product-edit.ejs',{
-                catalogoZapatos: data,
-                userLogueado: true
+                producto: data,
             })
         })
         .catch(function(error){
@@ -121,16 +120,22 @@ const controladorProducts = {
     },
     delete: function(req,res){
         let id = req.params.id
-
-        db.Producto.destroy({
-            where: {id:id}
-        })
-        .then(function(data){
-            res.redirect('/')
-        })
-        .catch(function(error){
-            console.log(error)
-        })
+        let userProducto = req.params.user.nombre
+        let userLogueado = req.session.user.nombre
+        
+        if(userLogueado === userProducto){
+            db.Producto.destroy({
+                where: {id:id}
+            })
+            .then(function(data){
+                res.redirect('/')
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+        }else{
+            
+        }
     },
     searchResults:function(req,res){
         let productoBuscado = req.query.search 
@@ -161,7 +166,7 @@ const controladorProducts = {
                     userLogueado: false,
                     resultadosDeBusqueda: resultadosBusquedaEncontrados,
                     // nombre: req.params.nombre, //name o nombre?
-                    // nombreUsuario: req.body.user // no estoy segura
+                    nombreUsuario: req.session.user.nombre
                 })
             // }
         })
