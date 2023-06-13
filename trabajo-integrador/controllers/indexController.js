@@ -17,7 +17,6 @@ const controladorIndex = {
             // res.send(data)
             res.render('index',{
                 catalogoZapatos: data,
-                userLogueado: false
             })
         })
         .catch(function(error){
