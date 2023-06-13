@@ -17,7 +17,7 @@ const controladorUsers = {
             res.render('profile',{
                 catalogoZapatos: data,
                 id: id,
-                userLogueado: true
+                usuarioLogueado: true
             }) 
         })
         .catch(function(error){
@@ -50,6 +50,8 @@ const controladorUsers = {
 
     register:function(req,res){
         res.render('register')
+        usuarioLogueado = false
+
     },
 
     create: function(req, res){
@@ -81,7 +83,7 @@ const controladorUsers = {
                 }else{
                     let passEncriptada = bcrypt.hashSync(password, 10)
                     db.User.create({
-                       user: user,
+                       nombre: user,
                        email: email,
                        password: passEncriptada,
                        fecha: fecha,
@@ -103,9 +105,8 @@ const controladorUsers = {
 
     login: function(req,res){
        res.render('login')
-       usuarioLogueado = false
+       //usuarioLogueado = false
     },
-
     checkUser: function(req,res){
         let {email, password, recordarme} = req.body
         db.User.findOne({
@@ -159,11 +160,12 @@ const controladorUsers = {
             console.log(error)
         })
     },
+    
     update: function(req, res){
         let id = req.params.id
-        let {name, emai} = req.body
+        let {user, emai} = req.body
         db.User.update({
-            name: name,
+            nombre: user,
             email: email,
         }, {
             where: {
