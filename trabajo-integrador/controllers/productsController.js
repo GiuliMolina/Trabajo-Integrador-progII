@@ -6,26 +6,25 @@ const op = db.Sequelize.Op;
 const controladorProducts = {
     products: function(req, res){
         let idProducto = req.params.id;
-        let userLogueado
+        /* let userLogueado */
         // if(usuarioLogueado === true){
         //     userLogueado = true
         // }else{
         //     userLogueado = false
         // }
         db.Producto.findByPk(idProducto,{
-            raw: true,
-            nest:true,
+            // raw: true,
+            // nest:true,
             include:[
             {association: "user"},
             {association: "comentario"}
-        ]
-        })
+            ]
+            })
             .then(function(data){
                 // res.send(data)
-                res.render('products.ejs',{
-                    id: idProducto,
-                    catalogoZapatos:data,
-                    // userLogueado : userLogueado
+                res.render('products',{
+                    producto:data,
+                    usuarioLogueado: req.session.user
                 })
             })
             .catch(function(error){
@@ -112,7 +111,8 @@ const controladorProducts = {
             where:{id:id}
         })
         .then(function(data){
-            res.redirect('zapatos/product/' + id)
+            console.log('llego')
+            res.redirect('/')
         })
         .catch(function(error){
             console.log(error)
@@ -128,13 +128,16 @@ const controladorProducts = {
                 where: {id:id}
             })
             .then(function(data){
-                res.redirect('/')
+                res.render(`/zapatos/product/${id}`)
             })
             .catch(function(error){
                 console.log(error)
             })
         }else{
-            
+            let errors = {}
+            errors.message = 'No es posible borrar el producto';
+            res.locals.error = errors;
+            return res.render('product-edit')
         }
     },
     searchResults:function(req,res){

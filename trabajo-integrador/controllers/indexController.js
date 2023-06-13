@@ -5,8 +5,6 @@ const bcrypt = require('bcryptjs')
 const controladorIndex = {
     index : function(req, res){
         db.Producto.findAll({
-            raw: true,
-            nest:true,
             order:[
                 ['created_at','DESC']
             ],
@@ -17,7 +15,7 @@ const controladorIndex = {
         })
         .then(function(data){
             // res.send(data)
-            res.render('index.ejs',{
+            res.render('index',{
                 catalogoZapatos: data,
                 userLogueado: false
             })
@@ -32,7 +30,7 @@ const controladorIndex = {
     }
 }
     
-module.exports = controladorIndex
+module.exports = controladorIndex;
 
 
   

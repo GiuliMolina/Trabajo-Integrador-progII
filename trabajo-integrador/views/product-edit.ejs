@@ -29,11 +29,13 @@
 						</li>
 					</ul>
 				</form>
-				<%if(user.nombre == producto.user.nombre && user.email== producto.user.email ){%>
-					<form action="/zapatos/delete" method="post"> 
+				<!-- <%//if(user.nombre == producto.user.nombre && user.email== producto.user.email ){%> -->
+					<form action="/zapatos/delete/<%=producto.id%>" method="post"> 
 						<button type="submit" class="agregarproducto"> Borrar producto<i class="fas fa-search"></i></button>
 					</form>
-				<%}%>
+					<% if(locals.errors){ %>
+						<p> <%= locals.errors.message %> </p>
+					<%}%>
 			</h2>
 		</div>
 	</div>

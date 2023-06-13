@@ -5,10 +5,9 @@
     <!-- product detail -->
 	<div class="container products-wrapper">
 			<div class="d-flex align-items-center">
-                <h2 class="products-title"><%= catalogoZapatos.nombre %> </h2> 
+                <h2 class="products-title"><%= producto.nombre %> </h2> 
                 <p class="product-detail-description">
-                    <a href="/zapatos/product-edit/<%= catalogoZapatos.id %>">Editar</a> 
-					<!-- va :id? -->
+                    <a href="/zapatos/product-edit/<%= producto.id %>">Editar</a> 
                 </p>
 		    </div>
 
@@ -16,29 +15,29 @@
 		
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/<%= catalogoZapatos.imagen %>" alt="" class="product-detail-img">
+					<img src="/<%= producto.imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 
-						<%= catalogoZapatos.descripcion %> </p>
+						<%= producto.descripcion %> </p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<article>
-							<img src="/<%=catalogoZapatos.user.foto_de_perfil%>" alt="">
+							<img src="/<%=producto.user.foto_de_perfil%>" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users/profile">Cargado por: <%= catalogoZapatos.user.nombre %></a> </strong>
+								<strong> <a href="/users/profile">Cargado por: <%= producto.user.nombre %></a> </strong>
 								</p>
 								<p> Comentarios:</p>
-								<p> <%=catalogoZapatos.comentario.comentario%></p>
-                                <!-- <%//for(let j=0;j<catalogoZapatos.comentrario.length;j++){ %>
-									<p> <//%= catalogoZapatos.productos[0].comentarios[j].texto%> </p>
+								<p> <%=producto.comentario.comentario%></p>
+                                <!-- <%//for(let j=0;j<producto.comentrario.length;j++){ %>
+									<p> <//%= producto.productos[0].comentarios[j].texto%> </p>
 									<%//}%>
 								</p> --> 
 					        </div>
 						</article>
 					 </section>
-					<form class="form" action="/zapatos/<%= catalogoZapatos.id %>" method="post">
+					<form class="form" action="/zapatos/<%= producto.id %>" method="post">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
