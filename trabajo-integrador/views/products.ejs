@@ -30,7 +30,7 @@
 							<img src="/<%=producto.user.foto_de_perfil%>" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users/profile">Cargado por: <%= producto.user.nombre %></a> </strong>
+								<strong> <a href="/users/profile/<%=producto.user.id%>">Cargado por: <%= producto.user.nombre %></a> </strong>
 								</p>
 								<p> Comentarios:</p>
 								<p> <%=producto.comentario.comentario%></p>
