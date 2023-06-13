@@ -6,9 +6,13 @@
 	<div class="container products-wrapper">
 			<div class="d-flex align-items-center">
                 <h2 class="products-title"><%= producto.nombre %> </h2> 
-                <p class="product-detail-description">
-                    <a href="/zapatos/product-edit/<%= producto.id %>">Editar</a> 
-                </p>
+				<%if(usuarioLogueado){%>
+					<%if(user.nombre == producto.user.nombre && user.email== producto.user.email){%>
+						<p class="product-detail-description">
+							<a href="/zapatos/product-edit/<%= producto.id %>">Editar</a> 
+						</p>
+					<%}%>
+				<%}%>
 		    </div>
 
             <div class="product-detail">
@@ -17,8 +21,8 @@
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="/<%= producto.imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
-
-						<%= producto.descripcion %> </p>
+						<%= producto.descripcion %> 
+					</p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">

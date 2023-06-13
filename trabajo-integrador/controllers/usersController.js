@@ -121,6 +121,7 @@ const controladorUsers = {
         // }
         .then(function(user){
             let compararPass = bcrypt.compareSync(password, user.password)
+            console.log(compararPass)
             if(compararPass){
                 console.log('Entra en la comparacion del pass')
                 req.session.user = {
