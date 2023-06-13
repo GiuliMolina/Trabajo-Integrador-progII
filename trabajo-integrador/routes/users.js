@@ -8,7 +8,7 @@ router.post('/login',usersController.checkUser)
 router.get('/register',usersController.register)
 router.post('/register',usersController.create)
 
-router.get('/profile', usersController.profile)
+router.get('/profile/:id', usersController.profile)
 // router.get('/profileEdit', usersController.profileEdit)
 //no se si hay que agregar una ruta para cuando tocas el boton de cerrar sesion
 

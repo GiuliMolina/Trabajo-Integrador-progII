@@ -39,24 +39,18 @@
 			<!-- Show mis productos -->
 			
 			
-			<%for(let i=0;i<4;i++){ %>
+			<%for(let i=0; i< producto.length; i++){ %>
             <div class="col-md-4 col-sm-4 col-lg-3">
 
                 <section class="product-box">
-                    <a href="/zapatos/<%= productosUsuario[i].id%>">
+                    <a href="/zapatos/<%= producto[i].id %>">
                         <figure class="product-box_image">
-                            <img src='/<%= productosUsuario[i].imagen %>' alt='/<%= productosUsuario[i].nombre%>'>
+                            <img src='/<%= producto[i].imagen %>' alt='/<%= producto[i].nombre_producto%>'>
                         </figure>
                         <article class="product-box_data">
-                            <h2> <%= productosUsuario[i].nombre%> </h2>
-                            <p> Descripción: <%= productosUsuario[i].descripcion%> </p>
-							<p> Comentarios:</p>
-                            <%
-                            for(let j=0; j<productosUsuario[i].comentario.length;j++){ %>
-                            <img class='fotocomentarios' src="/<%= productosUsuario[i].comentario[j].imagen %>">
-                            <h3> <%= productosUsuario[i].comentario[j].nombre%> </h3>
-                            <p> <%= productosUsuario[i].comentario[j].texto%> </p>
-                            <%}%>
+                            <h2> <%= producto[i].nombre_producto%> </h2>
+                            <p> Descripción: <%= producto[i].descripcion%> </p>
+							<p> Comentarios: </p>
                             
                         </article>
                     </a>

@@ -15,22 +15,11 @@ const controladorUsers = {
             ]
         })
         .then(function(data){
-            res.send(data)
+            //res.send(data)
             res.render('profile',{
                 usuario: data,
+                producto: data.producto
             }) 
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-
-        db.Producto.findAll({
-            where:{
-                usuario_id: id
-            }
-        })
-        .then(function(data){
-            productosUsuario = data
         })
         .catch(function(error){
             console.log(error)
