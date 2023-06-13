@@ -10,7 +10,7 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12 container_register"> 
-                <form action="/zapatos/product-edit/<%=catalogoZapatos.id%>" method="post">
+                <form action="/zapatos/product-edit/<%=producto.id%>" method="post">
 					<ul>
 						<li>
 							<p> Imagen: <input type="file" name="imagen" placeholder="imagen" value=""></p>
@@ -29,9 +29,11 @@
 						</li>
 					</ul>
 				</form>
-				<form action="/zapatos/delete" method="post"> 
-					<button type="submit" class="agregarproducto"> Borrar producto<i class="fas fa-search"></i></button>
-				</form>
+				<%if(user.nombre == producto.user.nombre && user.email== producto.user.email ){%>
+					<form action="/zapatos/delete" method="post"> 
+						<button type="submit" class="agregarproducto"> Borrar producto<i class="fas fa-search"></i></button>
+					</form>
+				<%}%>
 			</h2>
 		</div>
 	</div>
