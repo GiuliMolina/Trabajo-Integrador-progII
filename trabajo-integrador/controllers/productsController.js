@@ -70,6 +70,24 @@ const controladorProducts = {
             console.log(error)
         })
     },
+    createComment: function (req,res){
+        let idUsuario = req.session.user.id
+        let {imagen,nombre,text} = req.body
+
+        db.Comentario.create({
+            imagen: `./images/${imagen}`,
+            nombre_producto: nombre,
+            descripcion: text,
+            // created_at: date,
+            usuario_id: idUsuario
+        })
+        .then(function(data){
+            res.redirect('/')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    },
     update: function(req,res){
         let id = req.params.id
         let {imagen,nombre,descripcion} = req.body
