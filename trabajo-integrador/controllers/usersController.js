@@ -65,7 +65,7 @@ const controladorUsers = {
         let repetido = { where:[{email: email}]}
         let errors = {}
         
-        if(email === ''){
+        if(email == ''){
             errors.message = 'El campo email es obligatorio'
             res.locals.errors = errors
             res.render('register')
@@ -91,11 +91,9 @@ const controladorUsers = {
                        // foto: foto
                     })
                 }
-            })
-            
-            .then(function(data){
                 res.redirect('/users/login')
             })
+            
             .catch(function(error){
                 console.log(error)
             })
@@ -107,38 +105,39 @@ const controladorUsers = {
        res.render('login')
        //usuarioLogueado = false
     },
+
     checkUser: function(req,res){
         let {email, password, recordarme} = req.body
         db.User.findOne({
             where:{
                 email: email
             },
-            raw: true
+            //raw: true
         })
         .then(function(user){
             console.log(user)
             let compararPass = bcrypt.compareSync(password, user.password)
+            let falso = false
+            let errors = {}
+
+            console.log(user)
             console.log(password)
             console.log(user.password)
+            //console.log(bcrypt.hashSync('lucho', 10))
             console.log(compararPass)
             
-            if (user == null){
-                let errors = {}
-                errors.message = 'El email ingresado no es válido'
-                res.locals.errors = errors
-                res.render('login')
-            }
             
-            if(compararPass){
+            if(compararPass === falso){
+                errors.message = 'La contraseña no es válida';
+                res.locals.errors = errors;
+                return res.render('login')
+            }else {
                 console.log('Entra en la comparacion del pass')
                 req.session.user = {
                     id: user.id,
                     nombre: user.nombre,
                     email: user.email,
                 }
-                console.log('Pasamos por la comparacion')
-                console.log(req.body)
-                // res.redirect('/users/profile')
                 if(recordarme === 'on'){
                     console.log('llega a la cookie')
                         res.cookie(
@@ -151,24 +150,27 @@ const controladorUsers = {
                             {
                                 maxAge: 1000 * 60 * 15
                             }
+                        
                         )
                     }
+            
                     res.redirect('/')
-               
-            } else {
-                let errors = {}
-                errors.message = 'La contraseña no es valida';
-                res.locals.error = errors;
-                return res.render('login')
-            }
+                
+            } 
+            
         
-           
-        })        
+        })  
+       
         .catch(function(error){
             console.log(error)
+            let errors = {}
+            errors.message = 'El email ingresado no es válido'
+            res.locals.errors = errors
+            res.render('login')
         })
-    },
     
+    
+    },
     update: function(req, res){
         let id = req.params.id
         let {user, emai} = req.body
