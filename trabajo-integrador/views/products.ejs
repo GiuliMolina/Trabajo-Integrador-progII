@@ -38,7 +38,7 @@
 									<%for(let j=0;j<producto.comentario.length;j++){ %>
 										<li> 
 											<img  class='fotocomentarios' src="/<%=producto.comentario[j].user.foto_de_perfil%>">
-											<h3> <%=producto.comentario[j].user.nombre%>:</h3>
+											<h3><a href="/users/profile <%=producto.comentario[j].user.id%>"> <%=producto.comentario[j].user.nombre%></a>:</h3>
 											<p> <%=producto.comentario[j].comentario%> </p>
 										</li>
 									<%}%>
