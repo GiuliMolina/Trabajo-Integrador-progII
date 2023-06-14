@@ -8,6 +8,9 @@ const controladorProducts = {
  
         let idProducto = req.params.id;
         db.Producto.findByPk(idProducto,{
+            order:[
+                ['comentario','DESC']
+            ],
             include:[
                 {association:'comentario', 
                     include:{association:'user'}
