@@ -126,7 +126,7 @@ const controladorProducts = {
                     userLogueado: false,
                     resultadosDeBusqueda: resultadosBusquedaEncontrados,
                     // nombre: req.params.nombre, //name o nombre?
-                    // nombreUsuario: req.session.user.nombre
+                    //nombreUsuario: req.session.user.nombre
                 })
             // }
         })

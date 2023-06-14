@@ -62,8 +62,7 @@ const controladorUsers = {
         let dni = req.body.dni
         //let foto = req.body.foto_de_perfil
         let password = req.body.password
-        let emailRepetido = req.body.email
-        let repetido = { where:[{email: emailRepetido}]}
+        let repetido = { where:[{email: email}]}
         let errors = {}
         
         if(email === ''){
@@ -116,15 +115,20 @@ const controladorUsers = {
             },
             raw: true
         })
-        // if (email == ''){ //|| (email == undefined)// 
-        //     let errors = {}
-        //     errors.message = 'el email no es valido'
-        // }
         .then(function(user){
+            console.log(user)
             let compararPass = bcrypt.compareSync(password, user.password)
             console.log(password)
             console.log(user.password)
             console.log(compararPass)
+            
+            if (user == null){
+                let errors = {}
+                errors.message = 'El email ingresado no es válido'
+                res.locals.errors = errors
+                res.render('login')
+            }
+            
             if(compararPass){
                 console.log('Entra en la comparacion del pass')
                 req.session.user = {
