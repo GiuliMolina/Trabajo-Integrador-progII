@@ -13,9 +13,9 @@ const controladorProducts = {
                     include:{association:'user'}
                 },{association:'user'}
             ],
-            // order:[
-            //     ['comentario','DESC']
-            // ],
+            order:[
+                        ['comentario','created_at','DESC']
+                    ]
             })
             .then(function(data){
                 // res.send(data)
@@ -102,43 +102,43 @@ const controladorProducts = {
             })
     },
     searchResults:function(req,res){
-        let productoBuscado = req.query.search 
-        db.Producto.findAll({
-            include:[
-                {association:'comentario', 
-                    include:{association:'user'}
-                },{association:'user'}
-            ],
-            where:{
-                [op.or]: [{nombre_producto:{[op.like]: `%${productoBuscado}%`}},{descripcion:{[op.like]: `%${productoBuscado}%`}}]
-            },
-            order: [
-                ['nombre_producto','DESC']
-            ]
-        })
-        .then(function(data){
-            // if (productoBuscado === 0 || productoBuscado === undefined ){
-            //     res.redirect('/')
-            // }else{
-                let resultadosBusquedaEncontrados
-
-                if(data.length>0){
-                    resultadosBusquedaEncontrados = true
-                }else{
-                    resultadosBusquedaEncontrados = false
-                }
-            //  res.send(data)
-                
-                res.render('search-results',{
-                    resultados:data,
-                    busquedaDelUsuario:productoBuscado,
-                    resultadosDeBusqueda: resultadosBusquedaEncontrados,
-                })
-            // }
-        })
-        .catch(function(error){
-            console.log(error)
-        })
+        let productoBuscado = req.query.search
+        if(productoBuscado !== ''){
+            db.Producto.findAll({
+                include:[
+                    {association:'comentario', 
+                        include:{association:'user'}
+                    },{association:'user'}
+                ],
+                where:{
+                    [op.or]: [{nombre_producto:{[op.like]: `%${productoBuscado}%`}},{descripcion:{[op.like]: `%${productoBuscado}%`}}]
+                },
+                order: [
+                    ['nombre_producto','DESC']
+                ]
+            })
+            .then(function(data){
+                    let resultadosBusquedaEncontrados
+    
+                    if(data.length>0){
+                        resultadosBusquedaEncontrados = true
+                    }else{
+                        resultadosBusquedaEncontrados = false
+                    }
+                //  res.send(data)
+                    
+                    res.render('search-results',{
+                        resultados:data,
+                        busquedaDelUsuario:productoBuscado,
+                        resultadosDeBusqueda: resultadosBusquedaEncontrados,
+                    })
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+        } else{
+            res.render('')
+        }
     }
 }    
 
