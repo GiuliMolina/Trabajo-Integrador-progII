@@ -32,12 +32,17 @@
 								<p class="user">
 								<strong> <a href="/users/profile/<%=producto.user.id%>">Cargado por: <%= producto.user.nombre %></a> </strong>
 								</p>
-								<p> Comentarios:</p>
-								<p> <%=producto.comentario.comentario%></p>
-                                <!-- <%//for(let j=0;j<producto.comentrario.length;j++){ %>
-									<p> <//%= producto.productos[0].comentarios[j].texto%> </p>
-									<%//}%>
-								</p> --> 
+
+								<h3> Comentarios:</h3>
+								<ul>
+									<%for(let j=0;j<producto.comentario.length;j++){ %>
+										<li> 
+											<img  class='fotocomentarios' src="/<%=producto.comentario[j].user.foto_de_perfil%>">
+											<h3> <%=producto.comentario[j].user.nombre%>:</h3>
+											<p> <%=producto.comentario[j].comentario%> </p>
+										</li>
+									<%}%>
+								</ul>
 					        </div>
 						</article>
 					 </section>

@@ -9,8 +9,9 @@ const controladorProducts = {
         let idProducto = req.params.id;
         db.Producto.findByPk(idProducto,{
             include:[
-            {association: "user"},
-            {association: "comentario"}
+                {association:'comentario', 
+                    include:{association:'user'}
+                },{association:'user'}
             ]
             })
             .then(function(data){
@@ -100,13 +101,17 @@ const controladorProducts = {
     searchResults:function(req,res){
         let productoBuscado = req.query.search 
         db.Producto.findAll({
+            include:[
+                {association:'comentario', 
+                    include:{association:'user'}
+                },{association:'user'}
+            ],
             where:{
                 [op.or]: [{nombre_producto:{[op.like]: `%${productoBuscado}%`}},{descripcion:{[op.like]: `%${productoBuscado}%`}}]
             },
             order: [
                 ['nombre_producto','DESC']
-            ],
-            raw:true
+            ]
         })
         .then(function(data){
             // if (productoBuscado === 0 || productoBuscado === undefined ){
@@ -119,14 +124,12 @@ const controladorProducts = {
                 }else{
                     resultadosBusquedaEncontrados = false
                 }
+            //  res.send(data)
                 
                 res.render('search-results',{
                     resultados:data,
                     busquedaDelUsuario:productoBuscado,
-                    userLogueado: false,
                     resultadosDeBusqueda: resultadosBusquedaEncontrados,
-                    // nombre: req.params.nombre, //name o nombre?
-                    //nombreUsuario: req.session.user.nombre
                 })
             // }
         })
