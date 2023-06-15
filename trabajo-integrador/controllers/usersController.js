@@ -74,28 +74,40 @@ const controladorUsers = {
             res.locals.errors = errors
             res.render('register')
         }else {
+            let passEncriptada = bcrypt.hashSync(password, 10)
+            db.User.create({
+               nombre: user,
+               email: email,
+               password: passEncriptada,
+               fecha: fecha,
+               dni: dni,
+               // foto: foto
+            })
             db.User.findOne(repetido)
             .then(function(rep){
-                if(rep != null){
-                    errors.message = 'Ya existe un usuario con este email, por favor intente de nuevo'
-                    res.locals.errors = errors
-                    res.render('register') 
-                }else{
-                    let passEncriptada = bcrypt.hashSync(password, 10)
-                    db.User.create({
-                       nombre: user,
-                       email: email,
-                       password: passEncriptada,
-                       fecha: fecha,
-                       dni: dni,
-                       // foto: foto
-                    })
-                }
+            //     if(rep != null){
+            //         errors.message = 'Ya existe un usuario con este email, por favor intente de nuevo'
+            //         res.locals.errors = errors
+            //         res.render('register') 
+            //     }else{
+            //         let passEncriptada = bcrypt.hashSync(password, 10)
+            //         db.User.create({
+            //            nombre: user,
+            //            email: email,
+            //            password: passEncriptada,
+            //            fecha: fecha,
+            //            dni: dni,
+            //            // foto: foto
+            //         })
+            //     }
                 res.redirect('/users/login')
             })
             
             .catch(function(error){
                 console.log(error)
+                errors.message = 'Ya existe un usuario con este email, por favor intente de nuevo'
+                res.locals.errors = errors
+                res.render('register') 
             })
         }
         
