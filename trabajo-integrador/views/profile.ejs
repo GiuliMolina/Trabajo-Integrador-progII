@@ -10,13 +10,12 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title">  <%= usuario.nombre%>
-						<a href="/users/profileEdit">
-							<i class="fas fa-cog"></i>
-						</a>
-					</h1>
+					<h3 class="main-title"><a href="/users/profile/<%= usuarioId%>"> <%= usuario.nombre%></a></h3>
 					<p> <%= usuario.email%></p>
 					<!-- <a class="btn mt-3 ml-4 seguir" href="">SEGUIR</a> -->
+					<%if(usuarioLogueado && user.email== usuario.email){%>
+					<p class="main-title"><a href="/users/profile-edit/<%= usuarioId%>"> Editar mi perfil</a></p>
+					<%}%>
 				</div>
 				<div>
 					<ul class="">
@@ -43,14 +42,23 @@
             <div class="col-md-4 col-sm-4 col-lg-3">
 
                 <section class="product-box">
-                    <a href="/zapatos/<%= producto[i].id %>">
+                    <a href="/zapatos/product/<%= producto[i].id %>">
                         <figure class="product-box_image">
                             <img src='/<%= producto[i].imagen %>' alt='/<%= producto[i].nombre_producto%>'>
                         </figure>
                         <article class="product-box_data">
                             <h2> <%= producto[i].nombre_producto%> </h2>
                             <p> Descripción: <%= producto[i].descripcion%> </p>
-							<p> Comentarios: </p>
+							<h3> Comentarios:</h3>
+								<ul>
+									<%for(let j=0;j<comentario.length;j++){ %>
+										<li> 
+											<img  class='fotocomentarios' src="/<%=comentario[j].user.foto_de_perfil%>">
+											<h3><a href="/users/profile/ <%=comentario[j].user.id%>"> <%=comentario[j].user.nombre%></a>:</h3>
+											<p> <%=comentario[j].comentario%> </p>
+										</li>
+									<%}%>
+								</ul>
                             
                         </article>
                     </a>

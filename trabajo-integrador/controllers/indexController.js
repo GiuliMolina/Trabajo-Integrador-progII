@@ -26,7 +26,8 @@ const controladorIndex = {
     logout: function(req, res){
         req.session.user = undefined
         res.redirect('/')
-    }
+    },
+   
 }
     
 module.exports = controladorIndex;

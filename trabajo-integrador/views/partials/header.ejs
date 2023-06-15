@@ -8,10 +8,21 @@
                         <img class="logo" src="/images/LOGO.png">
                     </a>
                 </div>
-            
+
+                <% if(locals.errors){ %>
+                    <p> <%= locals.errors.message %> </p>
+                <%}%>
+
                 <div class="col-7 col-md-6">
                     <form action="/zapatos/search-results" method="GET" class="search-form">
                         <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input" value="">
+                        <button type="submit" class="search-form_button">Buscar<i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+
+                <div class="col-7 col-md-6">
+                    <form action="/users/search-usuarios" method="GET" class="search-form">
+                        <input type="text" name="searchUsuario" placeholder="Buscar usuarios" class="search-form_input" value="">
                         <button type="submit" class="search-form_button">Buscar<i class="fas fa-search"></i></button>
                     </form>
                 </div>
