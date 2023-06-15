@@ -10,15 +10,17 @@ const controladorUsers = {
 
         db.User.findByPk(id, {
             include:[
-                {association: 'producto'},
-                {association: 'comentario'}
+                {association:'comentario', 
+                    include:{association:'user'}
+                },{association:'producto'}
             ]
         })
         .then(function(data){
-            //res.send(data)
+            // res.send(data)
             res.render('profile',{
                 usuario: data,
-                producto: data.producto
+                producto: data.producto,
+                comentario: data.comentario
             }) 
         })
         .catch(function(error){
@@ -205,12 +207,42 @@ const controladorUsers = {
         .catch(function(error){
             console.log(error)
         })
-    }
-
+    },
+    searchUsuarios:function(req,res){
+        let usuarioBuscado = req.query.searchUsuario
+        db.User.findAll({
+                // include:[
+                //     {association:'comentario'},{association:'producto'}
+                // ],
+                where:{
+                    [op.or]: [{nombre:{[op.like]: `%${usuarioBuscado}%`}},{email:{[op.like]: `%${usuarioBuscado}%`}}]
+                },
+                order: [
+                    ['nombre','DESC']
+                ]
+            })
+            .then(function(data){
+                    let resultadosBusquedaEncontrados
+    
+                    if(data.length>0){
+                        resultadosBusquedaEncontrados = true
+                    }else{
+                        resultadosBusquedaEncontrados = false
+                    }
+                //  res.send(data)
+                    
+                    res.render('search-usuarios',{
+                        resultados:data,
+                        busquedaDelUsuario:usuarioBuscado,
+                        resultadosDeBusqueda: resultadosBusquedaEncontrados,
+                    })
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+        }
 }
 
-
-    
 module.exports = controladorUsers
 
   

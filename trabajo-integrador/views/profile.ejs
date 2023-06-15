@@ -50,7 +50,16 @@
                         <article class="product-box_data">
                             <h2> <%= producto[i].nombre_producto%> </h2>
                             <p> Descripción: <%= producto[i].descripcion%> </p>
-							<p> Comentarios: </p>
+							<h3> Comentarios:</h3>
+								<ul>
+									<%for(let j=0;j<comentario.length;j++){ %>
+										<li> 
+											<img  class='fotocomentarios' src="/<%=comentario[j].user.foto_de_perfil%>">
+											<h3><a href="/users/profile/ <%=comentario[j].user.id%>"> <%=comentario[j].user.nombre%></a>:</h3>
+											<p> <%=comentario[j].comentario%> </p>
+										</li>
+									<%}%>
+								</ul>
                             
                         </article>
                     </a>

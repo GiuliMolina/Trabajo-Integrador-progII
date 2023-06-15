@@ -12,7 +12,7 @@ router.get('/search-results',productsController.searchResults)
 
 router.get('/product-edit/:id',productsController.edit) 
 router.post('/product-edit/:id',productsController.update)
-router.post('/product-edit/:id',productsController.createComment)
+router.post('/addComment',productsController.createComment)
 
 router.post('/delete/:id',productsController.delete)
 

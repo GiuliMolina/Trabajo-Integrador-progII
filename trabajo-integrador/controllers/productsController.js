@@ -71,15 +71,13 @@ const controladorProducts = {
         })
     },
     createComment: function (req,res){
+        let comentario = req.body.comentario
         let idUsuario = req.session.user.id
-        let {imagen,nombre,text} = req.body
 
         db.Comentario.create({
-            imagen: `./images/${imagen}`,
-            nombre_producto: nombre,
-            descripcion: text,
-            // created_at: date,
-            usuario_id: idUsuario
+            comentario: comentario,
+            usuario_id: idUsuario,
+            id_post: req.body.id_post
         })
         .then(function(data){
             res.redirect('/')
@@ -121,6 +119,7 @@ const controladorProducts = {
     },
     searchResults:function(req,res){
         let productoBuscado = req.query.search
+        let errors = {}
         if(productoBuscado !== ''){
             db.Producto.findAll({
                 include:[
@@ -154,10 +153,29 @@ const controladorProducts = {
             .catch(function(error){
                 console.log(error)
             })
-        } else{
-            res.render('')
+        }else{
+                db.Producto.findAll({
+                    order:[
+                        ['created_at','DESC']
+                    ],
+                    include:[
+                        {association: "user"},
+                        {association: "comentario"}
+                    ],
+                })
+                .then(function(data){
+                    // res.send(data)
+                    errors.message = 'Su busqueda no puede ser vacia',
+                    res.locals.errors = errors
+                    res.render('index',{
+                        catalogoZapatos: data,
+                    })
+                })
+                .catch(function(error){
+                    console.log(error)
+                })
+            }x
         }
     }
-}    
 
 module.exports = controladorProducts

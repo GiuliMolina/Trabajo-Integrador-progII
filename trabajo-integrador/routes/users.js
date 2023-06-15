@@ -12,5 +12,7 @@ router.get('/profile/:id', usersController.profile)
 // router.get('/profileEdit', usersController.profileEdit)
 //no se si hay que agregar una ruta para cuando tocas el boton de cerrar sesion
 
+router.get('/search-usuarios',usersController.searchUsuarios)
+
 module.exports = router;
    
