@@ -154,6 +154,7 @@ const controladorProducts = {
                 console.log(error)
             })
         }else{
+
                 db.Producto.findAll({
                     order:[
                         ['created_at','DESC']
@@ -174,8 +175,8 @@ const controladorProducts = {
                 .catch(function(error){
                     console.log(error)
                 })
-            }x
-        }
+           }
+       }
     }
 
 module.exports = controladorProducts
