@@ -52,35 +52,49 @@ const controladorUsers = {
 
     update: function(req, res){
         let id = req.params.id
-        let contraseña = 'agus'
-        console.log('Abajo la contraseña')
-        console.log(contraseña)
-        let {user, email,dateOfBirth,password,dni,fotoDePerfil} = req.body
-        console.log(password)
-        let passEncriptada 
-        if(password !== ""){
-            passEncriptada = bcrypt.hashSync(password, 10)
-        }else{
-            passEncriptada = bcrypt.hashSync(contraseña, 10)
-        }
-        console.log(passEncriptada)
-        db.User.update({
-            nombre: user,
-            email: email,
-            fecha: dateOfBirth,
-            password: passEncriptada,
-            dni: dni,
-            foto_de_perfil: `${fotoDePerfil}`
-        }, {
-            where: {
-                id: id
+        db.User.findByPk(id, {
+            include:[
+                {association:'comentario', 
+                    include:{association:'user'}
+                },{association:'producto'}
+            ]
+        })
+        .then(function(data){
+            // res.send(data)
+            let contraseña = data.password
+            let {user, email,dateOfBirth,password,dni,fotoDePerfil} = req.body
+            console.log('Aca estan las contraseñas')
+            console.log(contraseña)
+            console.log(password)
+            let passEncriptada 
+            if(password !== ""){
+                passEncriptada = bcrypt.hashSync(password, 10)
+            }else{
+                passEncriptada = contraseña
             }
-        })
+            console.log(passEncriptada)
+            db.User.update({
+                nombre: user,
+                email: email,
+                fecha: dateOfBirth,
+                password: passEncriptada,
+                dni: dni,
+                foto_de_perfil: `${fotoDePerfil}`
+            }, {
+                where: {
+                    id: id
+                }
+            })
 
-        .then(function(resp){
-            res.redirect(`/users/profile/${id}`)
-        })
+            .then(function(resp){
+                res.redirect(`/users/profile/${id}`)
+            })
 
+            .catch(function(error){
+                console.log(error)
+            })
+                
+            })
         .catch(function(error){
             console.log(error)
         })
