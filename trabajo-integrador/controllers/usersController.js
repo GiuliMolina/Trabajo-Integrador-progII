@@ -42,7 +42,8 @@ const controladorUsers = {
             console.log(data),
             res.render('profile-edit', {
                 usuario: data, 
-                usuarioId: id
+                usuarioId: id,
+                
             })
         })
         .catch(function(error){
