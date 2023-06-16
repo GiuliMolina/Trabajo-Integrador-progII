@@ -134,7 +134,8 @@ const controladorProducts = {
                 ]
             })
             .then(function(data){
-                    let resultadosBusquedaEncontrados
+                //res.send(data)
+                let resultadosBusquedaEncontrados
     
                     if(data.length>0){
                         resultadosBusquedaEncontrados = true
@@ -143,6 +144,7 @@ const controladorProducts = {
                     }
                     
                     res.render('search-results',{
+                        
                         resultados:data,
                         busquedaDelUsuario:productoBuscado,
                         resultadosDeBusqueda: resultadosBusquedaEncontrados,
