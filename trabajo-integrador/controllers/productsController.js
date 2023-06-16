@@ -106,8 +106,16 @@ const controladorProducts = {
     },
     delete: function(req,res){
         let id = req.params.id
+        db.Producto.findByPk(id,{
+            include:[
+                {association:'comentario', 
+                    include:{association:'user'}
+                },{association:'user'}
+            ]
+        })
+        .then(function(data){
             db.Producto.destroy({
-                where: {id:id}
+                where: [{id:id}]
             })
             .then(function(data){
                 res.redirect('/')
@@ -115,6 +123,10 @@ const controladorProducts = {
             .catch(function(error){
                 console.log(error)
             })
+        })
+        .catch(function(error){
+            console.log(error)
+        })   
     },
     searchResults:function(req,res){
         let productoBuscado = req.query.search

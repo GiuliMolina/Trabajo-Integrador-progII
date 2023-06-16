@@ -11,7 +11,7 @@ module.exports = function (sequelize, dataTypes) {
         id_post:{
            unsigned: true,
            type: dataTypes.INTEGER,
-           allowNull:false
+        //    allowNull:false
 
         },
         usuario_id:{
