@@ -63,6 +63,12 @@ const controladorUsers = {
         .then(function(data){
             // res.send(data)
             let contraseña = data.password
+            let name = data.nombre
+            let DNI = data.dni
+            let mail = data.email
+            let cumpleaños = data.fecha
+            let foto = data.foto_de_perfil
+
             let {user, email,dateOfBirth,password,dni,foto_de_perfil} = req.body
             console.log('Aca estan las contraseñas')
             console.log(contraseña)
@@ -73,8 +79,38 @@ const controladorUsers = {
             }else{
                 passEncriptada = contraseña
             }
+
+            if (user !== ""){
+                nombre = user
+            }else{
+                nombre = name
+            }
+
+            if(dni!== ""){
+                dni = dni
+            }else{
+                dni = DNI 
+            }
+
+            if (email !== ""){
+                email = email
+            }else{
+                email = mail
+            }
+
+            if(dateOfBirth !== ""){
+                fecha = dateOfBirth
+            }else{
+                fecha = cumpleaños
+            }
+
+            if(foto_de_perfil !==""){
+                foto_de_perfil = foto_de_perfil
+            }else{
+                foto_de_perfil = foto
+            }
             db.User.update({
-                nombre: user,
+                nombre: nombre,
                 email: email,
                 fecha: dateOfBirth,
                 password: passEncriptada,
