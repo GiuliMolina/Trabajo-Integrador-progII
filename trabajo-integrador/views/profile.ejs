@@ -21,9 +21,6 @@
 			</div>
 		</div>
 	</section>
-	<%}else{%>
-		<p> Tiene que estar logueado para ver su perfil</p>
-	<%}%>
 
 	<!-- /Datos del usuario -->
 
@@ -76,6 +73,9 @@
 			</div>
 		</div>
 	</div>
+	<%}else{%>
+		<h2 class="h2_nologueado"> Tiene que estar logueado para ver su perfil</h2>
+	<%}%>
 	
 	<%- include('./partials/footer')%>
 </body>	

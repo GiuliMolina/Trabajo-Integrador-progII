@@ -11,17 +11,17 @@
 			
             <%if (resultadosDeBusqueda){%>
             <h2 class="texto resultados_busqueda">Estos son los resultados para su búsqueda: <%=busquedaDelUsuario%></h2>
-            <section class="section_resultados">
+            <section class="section_resultados section_1">
                 <%for (let i=0; i<resultados.length; i++){%>
                     <div class="contenedor usuarios">
-                        <a href="/users/profile/<%= resultados[i].id%>">
+                        <a class="link_usuario" href="/users/profile/<%= resultados[i].id%>">
                         <figure class="product-box_image">
                             <div class="searchdiv-img">
                                 <img class="imgsearch" src='/<%=resultados[i].imagen %>' alt='/<%= resultados[i].nombre%>'>
                             </div>              
                         </figure> 
-                        <article class="product-box_data">
-                            <h2> <%= resultados[i].nombre%> </h2>
+                        <article class="articulo_usuario">
+                            <h2 class="nombre_usuario"> <%= resultados[i].nombre%> </h2>
                         </article>
                         </a>
                     </div>
