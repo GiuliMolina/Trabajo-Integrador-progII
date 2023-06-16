@@ -16,12 +16,12 @@ const controladorUsers = {
             ]
         })
         .then(function(data){
-            // res.send(data)
+            //res.send(data)
             res.render('profile',{
                 usuario: data,
                 producto: data.producto,
                 comentario: data.comentario,
-                usuarioId: id
+                usuarioId: id,
             }) 
         })
         .catch(function(error){
@@ -62,7 +62,7 @@ const controladorUsers = {
         .then(function(data){
             // res.send(data)
             let contraseña = data.password
-            let {user, email,dateOfBirth,password,dni,fotoDePerfil} = req.body
+            let {user, email,dateOfBirth,password,dni,foto_de_perfil} = req.body
             console.log('Aca estan las contraseñas')
             console.log(contraseña)
             console.log(password)
@@ -79,7 +79,7 @@ const controladorUsers = {
                 fecha: dateOfBirth,
                 password: passEncriptada,
                 dni: dni,
-                foto_de_perfil: `${fotoDePerfil}`
+                foto_de_perfil: `${foto_de_perfil}`
             }, {
                 where: {
                     id: id
@@ -111,7 +111,7 @@ const controladorUsers = {
         let email = req.body.email
         let fecha = req.body.fecha_de_nacimiento
         let dni = req.body.dni
-        //let foto = req.body.foto_de_perfil
+        let foto_de_perfil = req.body.foto_de_perfil
         let password = req.body.password
         let repetido = { where:[{email: email}]}
         let errors = {}
@@ -139,7 +139,7 @@ const controladorUsers = {
                        password: passEncriptada,
                        fecha: fecha,
                        dni: dni,
-                       // foto: foto
+                       foto_de_perfil: foto_de_perfil
                     })
                 }
                 res.redirect('/users/login')
