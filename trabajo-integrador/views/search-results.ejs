@@ -5,21 +5,22 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Resultados de búsqueda</h2>
+				<h2 class="products-title h2_search">Resultados de búsqueda</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			
             <%if (resultadosDeBusqueda){%>
-            <h2 class="texto">Estos son los resultados para su busqueda: <%=busquedaDelUsuario%></h2>
-            <section class="product-box search">
+            <h2 class="texto resultados_busqueda">Estos son los resultados para su búsqueda: <%=busquedaDelUsuario%></h2>
+            <section class="section_resultados">
                 <%for (let i=0; i<resultados.length; i++){%>
+                <div class="contenedor">
                     <a href="/zapatos/product/<%= resultados[i].id%>">
                     <figure class="product-box_image">
                         <div class="searchdiv-img">
                             <img class="imgsearch" src='/<%=resultados[i].imagen %>' alt='/<%= resultados[i].nombre_producto%>'>
                         </div>              
                     </figure> 
-                    <article class="product-box_data">
+                    <article class="product-box_data ">
                         <h2> <%= resultados[i].nombre_producto%> </h2>
                             <p> Descripción: <%= resultados[i].descripcion%> </p>
                             <p class="user">
@@ -39,6 +40,7 @@
 
                     </article>
                     </a>
+                </div>
                 <%}%>
 			</section>
             <%}else{%>

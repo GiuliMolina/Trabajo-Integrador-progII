@@ -186,6 +186,34 @@ hr {
   font-size: 20px;
 }
 
+
+h2.resultados_busqueda{
+  width: 100%;
+  margin-left: 5px;
+}
+
+h2.h2_search{
+  margin-inline-start: 0px;
+  margin-right: 50px;
+}
+
+section.section_resultados{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contenedor{
+  width: 31%;
+  background-color: white;
+  margin: 5px; 
+}
+
+div.usuarios{
+  display: flex;
+  flex-direction: column;
+}
+
 .form_logout{
   margin-bottom: 0px;
 }
@@ -632,7 +660,7 @@ button.agregarproducto {
 }
 
 img.imgsearch {
-  width: 95%;
+  width: 100%;
 }
 
 .containerProductos{
