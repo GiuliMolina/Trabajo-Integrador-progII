@@ -635,6 +635,38 @@ img.imgsearch {
   width: 95%;
 }
 
+.containerProductos{
+  display: flex;
+}
+
+div.container_grande{
+  display: flex;
+}
+
+div.container_usuario{
+  flex-wrap: wrap;
+  flex-direction: column
+}
+
+.perfil_mail{
+  margin-top: 31px;
+  margin-left: 20px;
+}
+
+section.section_usuario{
+  margin-bottom:0px
+}
+
+.link_usuario{
+  font-size: 18px;
+}
+
+.a_usuario{
+  background-color: #debcee;
+  border-radius: 3px;
+  padding: 6px;
+}
+
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
   .main-header_credit-link {

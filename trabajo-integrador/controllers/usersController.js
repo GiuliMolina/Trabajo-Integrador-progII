@@ -16,7 +16,7 @@ const controladorUsers = {
             ]
         })
         .then(function(data){
-            //res.send(data)
+            // res.send(data)
             res.render('profile',{
                 usuario: data,
                 producto: data.producto,
@@ -79,7 +79,7 @@ const controladorUsers = {
                 fecha: dateOfBirth,
                 password: passEncriptada,
                 dni: dni,
-                foto_de_perfil: `${foto_de_perfil}`
+                foto_de_perfil: foto_de_perfil,
             }, {
                 where: {
                     id: id
