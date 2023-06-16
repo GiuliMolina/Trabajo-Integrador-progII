@@ -18,7 +18,6 @@ const controladorProducts = {
                     ]
             })
             .then(function(data){
-                // res.send(data)
                 res.render('products',{
                     producto:data,
                 })
@@ -142,7 +141,6 @@ const controladorProducts = {
                     }else{
                         resultadosBusquedaEncontrados = false
                     }
-                //  res.send(data)
                     
                     res.render('search-results',{
                         resultados:data,
@@ -165,7 +163,6 @@ const controladorProducts = {
                     ],
                 })
                 .then(function(data){
-                    // res.send(data)
                     errors.message = 'Su busqueda no puede ser vacia',
                     res.locals.errors = errors
                     res.render('index',{

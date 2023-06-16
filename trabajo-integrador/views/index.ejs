@@ -4,7 +4,7 @@
 <body>
     <%- include('./partials/header') %>
 	<div class="banner">
-		<img class="img_banner" src="images/fondo_zapatillas4.png" alt="Banner de ofertas">
+		<img class="img_banner" src="/images/fondo_zapatillas4.png" alt="Banner de ofertas">
 	</div>
 
 	<div class="container products-wrapper">
@@ -17,7 +17,7 @@
                         <section class="product-box">
                             <a href="/zapatos/product/<%= catalogoZapatos[i].id%>">
                                 <figure class="product-box_image">
-                                    <img src='<%=catalogoZapatos[i].imagen %>' alt='<%= catalogoZapatos[i].nombre_producto%>'>
+                                    <img src='/<%=catalogoZapatos[i].imagen %>' alt='<%= catalogoZapatos[i].nombre_producto%>'>
                                 </figure>
                                 <article class="product-box_data">
                                     <h2> <%= catalogoZapatos[i].nombre_producto%> </h2>
@@ -42,7 +42,7 @@
                     <section class="product-box">
                         <a href="/zapatos/product/<%= catalogoZapatos[i].id%>">
                             <figure class="product-box_image">
-                                <img src='<%=catalogoZapatos[i].imagen %>' alt='<%= catalogoZapatos[i].nombre_producto%>'>
+                                <img src='/<%=catalogoZapatos[i].imagen %>' alt='<%= catalogoZapatos[i].nombre_producto%>'>
                             </figure>
                             <article class="product-box_data">
                                 <h2> <%= catalogoZapatos[i].nombre_producto%> </h2>

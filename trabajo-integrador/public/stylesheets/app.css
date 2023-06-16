@@ -230,6 +230,12 @@ div.usuarios{
 .logout:hover{
   color: #1259c3;
 }
+div.divlogin {
+  width: 35%;
+}
+h2.tituloingresar{
+  text-align: center;
+}
 
 .left-navbar a,
 .right-navbar a {
@@ -279,6 +285,7 @@ div.usuarios{
   margin-top: 30px;
   margin-bottom: 150px;
 }
+
 
 .products-title {
   font-size: 45px;
@@ -626,7 +633,7 @@ button.ingresar {
   margin-left: 1%;
   margin-top: 2%;
   margin-bottom: 2%;
-  width: 10%;
+  width: 20%;
 }
 
 button.edit {

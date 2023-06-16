@@ -43,7 +43,7 @@ const controladorUsers = {
             res.render('profile-edit', {
                 usuario: data, 
                 usuarioId: id,
-                
+
             })
         })
         .catch(function(error){
@@ -73,7 +73,6 @@ const controladorUsers = {
             }else{
                 passEncriptada = contraseña
             }
-            console.log(passEncriptada)
             db.User.update({
                 nombre: user,
                 email: email,
@@ -155,7 +154,6 @@ const controladorUsers = {
 
     login: function(req,res){
        res.render('login')
-       //usuarioLogueado = false
     },
 
     checkUser: function(req,res){
@@ -164,27 +162,18 @@ const controladorUsers = {
             where:{
                 email: email
             },
-            //raw: true
         })
         .then(function(user){
             console.log(user)
             let compararPass = bcrypt.compareSync(password, user.password)
             let falso = false
             let errors = {}
-
-            console.log(user)
-            console.log(password)
-            console.log(user.password)
-            //console.log(bcrypt.hashSync('lucho', 10))
-            console.log(compararPass)
-            
-            
+    
             if(compararPass === falso){
                 errors.message = 'La contraseña no es válida';
                 res.locals.errors = errors;
                 return res.render('login')
             }else {
-                console.log('Entra en la comparacion del pass')
                 req.session.user = {
                     id: user.id,
                     nombre: user.nombre,
@@ -240,9 +229,6 @@ const controladorUsers = {
     searchUsuarios:function(req,res){
         let usuarioBuscado = req.query.searchUsuario
         db.User.findAll({
-                // include:[
-                //     {association:'comentario'},{association:'producto'}
-                // ],
                 where:{
                     [op.or]: [{nombre:{[op.like]: `%${usuarioBuscado}%`}},{email:{[op.like]: `%${usuarioBuscado}%`}}]
                 },
@@ -258,7 +244,6 @@ const controladorUsers = {
                     }else{
                         resultadosBusquedaEncontrados = false
                     }
-                //  res.send(data)
                     
                     res.render('search-usuarios',{
                         resultados:data,

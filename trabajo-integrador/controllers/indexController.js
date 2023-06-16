@@ -14,7 +14,6 @@ const controladorIndex = {
             ],
         })
         .then(function(data){
-            // res.send(data)
             res.render('index',{
                 catalogoZapatos: data,
             })
